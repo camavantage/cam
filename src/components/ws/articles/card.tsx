@@ -1,5 +1,6 @@
 "use client";
 import { deleteArticle } from "@/actions/ws/articles/delete-article";
+import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { LoadingButton } from "@/components/ui/loading-button";
@@ -17,7 +18,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 type ArticleCardProps = {
-  article: ArticleType;
+  article: Article;
 };
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
@@ -26,10 +27,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleDelete = async () => {
-    setOpenDelete(false);
-    setLoading(true);
-    const deletedArticle = await deleteArticle({ articleId: article.id }).catch(
-      () => {
+    if (article) {
+      setOpenDelete(false);
+      setLoading(true);
+      const deletedArticle = await deleteArticle({
+        articleId: article.id,
+      }).catch(() => {
         toast({
           title: "Echec",
           variant: "destructive",
@@ -38,26 +41,29 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
           ),
         });
         setLoading(false);
-      }
-    );
-    if (deletedArticle) {
-      toast({
-        title: "Supprimé",
-        description: "L'article a été bien supprimer",
       });
-      setLoading(false);
+      if (deletedArticle) {
+        toast({
+          title: "Supprimé",
+          description: "L'article a été bien supprimer",
+        });
+        setLoading(false);
+      }
     }
   };
   {
     /* <img src={article.imageUrl} className="w-12 h-12" /> */
   }
+  if (!article) {
+    return;
+  }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 p-5 bg-background rounded-lg">
       <div className="flex lg:col-span-2 space-x-4 ">
         <div className="w-12 h-12">
-          {article.imageUrl && (
+          {article?.imageUrl && (
             <Image
-              src={article.imageUrl}
+              src={article?.imageUrl}
               alt=""
               className="object-cover w-full h-full rounded-md"
               height={64}

@@ -5,6 +5,7 @@ import { ArticleCard } from "@/components/ws/articles/card";
 import { SearchArticleBar } from "@/components/ws/articles/search-bar";
 import prisma from "@/lib/prisma";
 import { cn } from "@/lib/utils";
+import { Prisma } from "@prisma/client";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
 
@@ -211,6 +212,8 @@ const getArticles = async (searchParams?: {
   });
   return articles;
 };
+
+// export type Articles = Prisma.PromiseReturnType<typeof getArticles>;
 
 export default async function ArticlesPage({
   searchParams,

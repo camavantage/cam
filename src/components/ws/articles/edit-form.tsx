@@ -61,9 +61,10 @@ import {
   EditArticleFormSchemaType,
   editArticleFormSchema,
 } from "@/lib/zod/articles";
+import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
 
 type EditArticleFormProps = {
-  article?: ArticleType | null;
+  article?: Article;
   tags?: TagType[];
   authors?: UserType[];
 };

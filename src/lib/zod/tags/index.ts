@@ -6,8 +6,7 @@ export const newTagformSchema = z.object({
     .string({ required_error: "Le nom du tag est obligatoire" })
     .min(2, {
       message: "Le titre doit comporter au moins 2 caractères.",
-    })
-    .trim(),
+    }),
   slug: z.string({ required_error: "Le slug est obligatoire" }),
   description: z
     .string()

@@ -1,5 +1,6 @@
 import { EditArticleForm } from "@/components/ws/articles/edit-form";
 import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 const getTags = async () => {
   const tags = await prisma.tag.findMany({
@@ -42,6 +43,7 @@ const getArticle = async (articleId: string) => {
 
   return article;
 };
+export type Article = Prisma.PromiseReturnType<typeof getArticle>;
 
 export default async function WSArticlePage({
   params,

@@ -1,5 +1,6 @@
 import { deleteArticle } from "@/actions/ws/articles/delete-article";
 import { deleteUser } from "@/actions/ws/users/delete-user";
+import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -16,7 +17,7 @@ import { ArticleType } from "@/lib/types";
 import { SetStateAction, useState, Dispatch } from "react";
 
 type DrawerDeleteArticleProps = {
-  article?: ArticleType | null;
+  article?: Article;
   loading: boolean;
   setLoading: Dispatch<SetStateAction<boolean>>;
 };
