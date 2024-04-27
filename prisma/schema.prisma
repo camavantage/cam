@@ -1,0 +1,138 @@
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model App {
+  id String @id @default(cuid())
+  title String @default("Mlibre")
+  description String @default("Le Média libre d'accès")
+  language ISOLanguageCode @default(fr) // An iso language code
+  status AppStatus @default(online)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum AppStatus {
+  online // Le site web est accessible et fonctionne correctement
+  maintenance // Le site web est en cours de maintenance et n'est pas accessible aux utilisateurs
+  offline //Le site web est temporairement inaccessible ou indisponible
+}
+
+enum ISOLanguageCode {
+  fr
+  en
+}
+
+model User {
+  id String @id @default(cuid())
+  username String? @unique
+  name String?
+  bio String? @db.Text @default("")
+  email String @unique
+  phone String?
+  password String?
+  articles Article[]
+  role Role @default(subscriber)
+  verified Boolean @default(false)
+  blocked Boolean @default(false)
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("users")
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@id([provider, providerAccountId])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+ 
+model VerificationToken {
+   identifier String
+  token      String
+  expires    DateTime
+  @@id([identifier, token])
+}
+
+enum Role {
+  subscriber // Can read and comment articles
+  author // Can create articles
+  editor // Can create and publish articles
+  admin // Can create, publish, verify, block... users, articles, tags
+  owner // Every thing
+}
+
+model Article {
+  id String @id @default(cuid())
+  title String @default("")
+  slug String @unique
+  description String @default("")
+  content String @db.Text @default("")
+  markdown String @db.Text @default("")
+  imageUrl String @default("")
+  authorId String?
+  author User? @relation(fields: [authorId],references: [id])
+  year Int @db.SmallInt
+  published Boolean @default(false)
+  commentable Boolean @default(true)
+  verified Boolean @default(true)
+  blocked Boolean @default(false)
+  tags ArticleTag[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("articles")
+}
+
+model ArticleTag {
+  articleId String
+  article Article @relation(fields: [articleId],references: [id], onDelete: Cascade)
+  tagId String
+  tag Tag @relation(fields: [tagId],references: [id])
+  @@id([articleId,tagId])
+  @@map("article_tags")
+}
+
+model Tag {
+  id String @id @default(cuid())
+  name String @unique
+  slug String @unique
+  description String? @default("")
+  imageUrl String?
+  published Boolean @default(true)
+  verified Boolean @default(true)
+  articles ArticleTag[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@map("tags")
+}
