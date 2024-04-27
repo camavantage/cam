@@ -9,6 +9,7 @@ import { SearchTagBar } from "@/components/ws/tags/search-bar";
 import prisma from "@/lib/prisma";
 import { cn, getHSLColor } from "@/lib/utils";
 import Link from "next/link";
+import { Suspense } from "react";
 
 const getTags = async (q?: string) => {
   const tags = await prisma.tag.findMany({
@@ -36,6 +37,7 @@ export default async function TagsPage({
 }) {
   const tags = await getTags(searchParams.q);
   return (
+    <Suspense>
     <div className=" bg-ws-background max-w-screen-xl mx-auto">
       <div className="h-16 flex items-center px-3 space-x-4">
         <h1 className=" font-bold">Tags</h1>
@@ -87,5 +89,6 @@ export default async function TagsPage({
           </div>
         </div>
     </div>
+    </Suspense>
   );
 }
