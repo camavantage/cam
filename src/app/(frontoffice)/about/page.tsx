@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
@@ -19,5 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <main>Ici c&apos; mlibre</main>;
+  return (
+    <Suspense>
+      <main>Ici c&apos; mlibre</main>
+    </Suspense>
+  );
 }
