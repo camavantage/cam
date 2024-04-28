@@ -1,8 +1,10 @@
 
 
 import { LogoWithtext } from "@/components/header/logo-with-text";
-import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
+import { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
+import { Button } from "@/components/ui/button";
 import s from "@/styles/Home.module.scss";
+import Link from "next/link";
 
 const AboutSection: React.FC = () => {
   return (
@@ -18,6 +20,11 @@ const AboutSection: React.FC = () => {
           <PageHeaderDescription>CAM/AVANTAGE est un établissement privé déclaré au ministère de la
           formation professionnelle. Partenaire Officiel du groupe des centres
           professionnels en RDC certification de mérite.</PageHeaderDescription>
+          <PageActions>
+            <Link href="/about">
+            <Button className="rounded-full">En savoir plus</Button>
+            </Link>
+          </PageActions>
         </PageHeader>
 
         {/* <h1 className="font-bold text-center text-xl mt-2">Une école reconnue</h1>
