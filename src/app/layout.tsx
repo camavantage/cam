@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alata } from "next/font/google";
+import { Karla } from "next/font/google";
 import "@/styles/globals.css"
 import "@blocknote/react/style.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,7 +8,7 @@ import { AuthWrapper } from "@/components/auth-wrapper";
 import { getAppSetup } from "@/actions/ws/setup";
 import { siteConfig } from "@/lib/data/site";
 
-const alata = Alata({ weight: "400", subsets: ["latin"] });
+const karla = Karla({ weight: "400", subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={alata.className}>
+      <body className={karla.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
