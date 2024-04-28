@@ -21,6 +21,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
    
-      <main>Ici c&apos; mlibre</main>
+      <main></main>
   );
 }
