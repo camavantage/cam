@@ -6,7 +6,11 @@ import { MobileNav } from "./mobile-nav";
 import { MainNav } from "./main-nav";
 import { SearchArticleBar } from "../ws/articles/search-bar";
 import { BsTwitterX } from "react-icons/bs";
+import { RiWhatsappLine } from "react-icons/ri";
+import { BsWhatsapp, BsFacebook } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
+import { RiFacebookCircleLine } from "react-icons/ri";
+import { RiWhatsappFill } from "react-icons/ri";
 import { Suspense } from "react";
 
 export function SiteHeader() {
@@ -28,18 +32,18 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon">
-                <FaFacebook className="h-4 w-4" />
+                <BsFacebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Button>
             </Link>
             <Link
-              href={siteConfig.links.twitter}
+              href={siteConfig.links.whatsapp}
               target="_blank"
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon">
-                <BsTwitterX className="h-3 w-3 fill-current" />
-                <span className="sr-only">Twitter</span>
+              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                <span className="sr-only">Whatsapp</span>
               </Button>
             </Link>
             <ModeToggle />
