@@ -7,6 +7,7 @@ import { MainNav } from "./main-nav";
 import { SearchArticleBar } from "../ws/articles/search-bar";
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa6";
+import { Suspense } from "react";
 
 export function SiteHeader() {
   return (
@@ -16,7 +17,9 @@ export function SiteHeader() {
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <SearchArticleBar />
+            <Suspense>
+              <SearchArticleBar />
+            </Suspense>
           </div>
           <nav className="flex items-center">
             <Link
@@ -25,7 +28,7 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon">
-                <FaFacebook  className="h-4 w-4" />
+                <FaFacebook className="h-4 w-4" />
                 <span className="sr-only">Facebook</span>
               </Button>
             </Link>
@@ -35,7 +38,7 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon">
-              <BsTwitterX className="h-3 w-3 fill-current" />
+                <BsTwitterX className="h-3 w-3 fill-current" />
                 <span className="sr-only">Twitter</span>
               </Button>
             </Link>

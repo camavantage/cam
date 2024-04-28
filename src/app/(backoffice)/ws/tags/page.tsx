@@ -7,6 +7,7 @@ import prisma from "@/lib/prisma";
 import { TagType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Suspense } from "react";
 import { HiPlus } from "react-icons/hi";
 
 const getTags = async (q?: string) => {
@@ -35,8 +36,9 @@ export default async function WSTagsPage({
         <h1 className=" font-bold">Tags</h1>
 
         <div className="flex-1" />
+        <Suspense>
         <SearchTagBar />
-
+        </Suspense>
         <TooltipWrap content="Créer une tag">
           <Link href="/ws/tags/new">
             <Button variant="outline" className=" bg-transparent">

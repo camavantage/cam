@@ -7,6 +7,7 @@ import prisma from "@/lib/prisma";
 import { RoleType } from "@/lib/types";
 import { cn, roleLabel } from "@/lib/utils";
 import Link from "next/link";
+import { Suspense } from "react";
 import { HiPlus } from "react-icons/hi";
 
 const getUsers = async (role?: RoleType, q?: string) => {
@@ -66,7 +67,7 @@ export default async function WSUsersPage({
       <div className="h-16 flex items-center px-3 space-x-4">
         <h1 className=" font-bold">Membres</h1>
         <div className="flex-1" />
-        <SearchUserBar />
+        <Suspense><SearchUserBar /></Suspense>
         <TooltipWrap content="Créer un compte">
           <Link href="/ws/users/new">
             <Button variant="outline" className=" bg-transparent">

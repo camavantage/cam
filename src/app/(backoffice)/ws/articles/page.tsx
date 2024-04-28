@@ -5,8 +5,8 @@ import { ArticleCard } from "@/components/ws/articles/card";
 import { SearchArticleBar } from "@/components/ws/articles/search-bar";
 import prisma from "@/lib/prisma";
 import { cn } from "@/lib/utils";
-import { Prisma } from "@prisma/client";
 import Link from "next/link";
+import { Suspense } from "react";
 import { LiaEdit } from "react-icons/lia";
 
 const getArticles = async (searchParams?: {
@@ -230,7 +230,7 @@ export default async function ArticlesPage({
       <div className="h-16 flex items-center px-3 space-x-4">
         <h1 className=" font-bold flex-1">Articles</h1>
         <div className="flex-1" />
-        <SearchArticleBar />
+        <Suspense><SearchArticleBar /></Suspense>
         <TooltipWrap content="Écrire un article">
           <Link href="/ws/articles/new">
             <Button variant="outline" className=" bg-transparent">
