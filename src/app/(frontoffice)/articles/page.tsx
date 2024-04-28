@@ -90,11 +90,12 @@ export default async function ArticlesPage({
           <PageHeaderDescription>
             {/* Notre blog regorge d&apos;idées alléchantes, de conseils astucieux et de
             techniques expertes pour sublimer vos plats.  */}
-            Que vous soyez novice
-            en cuisine ou chef endurcie, vous trouverez ici l&apos;inspiration
-            nécessaire pour épater vos convives et éveiller vos papilles.
-            Rejoignez-nous pour un voyage gourmand où la passion pour la bonne
-            cuisine se décline à chaque bouchée
+            Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
+            ici l&apos;inspiration nécessaire pour épater vos convives et
+            éveiller vos papilles. Des recettes revisitées aux créations
+            originales, notre blog vous accompagne dans toutes vos aventures
+            culinaires Rejoignez-nous pour un voyage gourmand où la passion pour
+            la bonne cuisine se décline à chaque bouchée.
           </PageHeaderDescription>
         </PageHeader>
 
