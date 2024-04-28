@@ -5,7 +5,7 @@ import s from "@/styles/Home.module.scss";
 const StrengthSection: React.FC = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-5xl mx-auto px-4 py-10 lg:py-16">
-      <div className=" md:pt-32 md:px-10">
+      <div className=" md:pt-32 md:px-2">
         <h4 className="font-bold text-2xl">Pourquoi se former avec nous?</h4>
         <div className="mt-7">
           <div className="flex items-start mb-5 space-x-5">
