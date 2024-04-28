@@ -8,7 +8,7 @@ import {
   UserType,
 } from "./types";
 import { z } from "zod";
-// import { MultiSelectorOptionType } from "@/components/ui/multiple-selector";
+import { MultiSelectorOptionType } from "@/components/ui/multiple-selector";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
