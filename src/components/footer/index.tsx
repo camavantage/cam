@@ -39,7 +39,7 @@ export function SiteFooter() {
             <CardHeader>
               <CardTitle>
                 <Link href="/" className="flex items-center space-x-[0.8px]">
-                  <Logo className=" w-4 h-4" />
+                  <Logo className=" w-6 h-6" />
                   <span className="font-bold text-[18px] inline-block">
                     {siteConfig.name}
                   </span>
