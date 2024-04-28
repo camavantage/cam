@@ -33,19 +33,7 @@ const HomeSection: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center relative mt-6">
-        <a
-          href="https://wa.me/+243826776661"
-          target="_blank"
-          rel="noreferrer"
-          className="absolute place-self-center z-20"
-        >
-          <div className="flex flex-col justify-center  p-4 items-center bg-cam-gray bg-opacity-95 hover:bg-blackground rounded-full h-20 w-20 ">
-            <RiWhatsappFill className="h-4 w-4 text-green-500" />
-            <p className="text-center text-xs font-bold text-muted-foreground">
-              Whatsapp
-            </p>
-          </div>
-        </a>
+        
         <Image
           src="/assets/images/cam-image-home-illustration.jpg"
           alt="Avantage illustration image"
