@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { AuthWrapper } from "@/components/auth-wrapper";
 import { getAppSetup } from "@/actions/ws/setup";
+import { siteConfig } from "@/lib/data/site";
 
 const alata = Alata({ weight: "400", subsets: ["latin"] });
 
@@ -18,8 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
     };
   } else {
     return {
-      title: "Mlibre | Le Média libre d'accès",
-      description: "Média en accès libre",
+      title: siteConfig.name,
+      description: siteConfig.description,
       keywords: [
         "Mlibre",
         "mlibre.org",

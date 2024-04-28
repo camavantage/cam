@@ -122,9 +122,9 @@ export function SiteFooter() {
               <CardTitle className=" text-[18px]">Contacts</CardTitle>
               <CardDescription>
                 <ul>
-                  <li>+243978308679</li>
-                  <li>+243978308679</li>
-                  <li>contact@mlibre.org</li>
+                  <li>+243826776661</li>
+                  <li>+243977778829</li>
+                  <li>contact@cam-avantage.com</li>
                 </ul>
               </CardDescription>
             </CardHeader>
@@ -135,7 +135,7 @@ export function SiteFooter() {
           <Card className="border-none shadow-none rounded-none bg-transparent">
             <CardHeader>
               <CardTitle className=" text-[18px]">Adresses</CardTitle>
-              <CardDescription>DRC, Nord-Kivu, Butembo</CardDescription>
+              <CardDescription>Nord-Kivu, Butembo, com. Kimemi, Q. Vutsundo, cel. Mutsunga, N⁰89</CardDescription>
             </CardHeader>
             <CardContent></CardContent>
           </Card>
