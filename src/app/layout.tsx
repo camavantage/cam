@@ -8,7 +8,7 @@ import { AuthWrapper } from "@/components/auth-wrapper";
 import { getAppSetup } from "@/actions/ws/setup";
 import { siteConfig } from "@/lib/data/site";
 
-const karla = Karla({ weight: "400", subsets: ["latin"] });
+const karla = Karla({subsets:["latin"]});
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
