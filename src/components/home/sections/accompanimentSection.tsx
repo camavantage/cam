@@ -11,7 +11,7 @@ const AccompanimentSection: React.FC = () => {
         <div className="mt-5">
           <div className="flex items-center mb-5 space-x-5">
             <div className={`h-12 w-12 ${s.cardCheck}`}>
-            <PlusIcon  className="h-6 w-6 text-cam-green-800" />
+            <PlusIcon  className="h-6 w-6 text-green-400" />
             </div>
             <div className="flex-1">
               <h6 className="text-sm">Vous êtes accompagné par un conseiller en formation tout au long de votre parcours</h6>

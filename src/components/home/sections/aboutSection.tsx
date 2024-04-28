@@ -1,24 +1,31 @@
 
 
 import { LogoWithtext } from "@/components/header/logo-with-text";
+import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
 import s from "@/styles/Home.module.scss";
 
 const AboutSection: React.FC = () => {
   return (
     <div className={`max-w-5xl mx-auto py-12 md:py-20 px-4`}>
       <div
-        className={`p-4 md:p-8 text-sm md:text-base ${s.about} flex flex-col items-center rounded-3xl`}
+        // className={`p-4 md:p-8 text-sm md:text-base ${s.about} flex flex-col items-center rounded-3xl`}
       >
-        <div className="flex justify-center items-center border-2 border-cam-green-800 rounded-full">
+        {/* <div className="flex justify-center items-center border-2 border-cam-green-800 rounded-full"> */}
           <LogoWithtext className="h-14 w-14  text-white" />
-        </div>
+        {/* </div> */}
+        <PageHeader>
+          <PageHeaderHeading>Une école reconnue</PageHeaderHeading>
+          <PageHeaderDescription>CAM/AVANTAGE est un établissement privé déclaré au ministère de la
+          formation professionnelle. Partenaire Officiel du groupe des centres
+          professionnels en RDC certification de mérite.</PageHeaderDescription>
+        </PageHeader>
 
-        <h1 className="font-bold text-center text-xl mt-2">Une école reconnue</h1>
+        {/* <h1 className="font-bold text-center text-xl mt-2">Une école reconnue</h1>
         <p className="text-center max-w-xl mt-2">
           CAM/AVANTAGE est un établissement privé déclaré au ministère de la
           formation professionnelle. Partenaire Officiel du groupe des centres
           professionnels en RDC certification de mérite.
-        </p>
+        </p> */}
       </div>
     </div>
   );

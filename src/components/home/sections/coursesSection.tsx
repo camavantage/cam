@@ -71,7 +71,7 @@ const CoursesSection: React.FC = () => {
       <h1 className="text-center font-bold text-xl mb-1">
         Nos formations
       </h1>
-      <p className="text-center text-gray-500 text-sm px-2 max-w-xl mx-auto">Apprenez un métier essentiel à votre rythme avec nos formations en ligne accessibles partout et tout le temps ou directement dans nos locaux.</p>
+      <p className="text-center text-muted-foreground text-sm px-2 max-w-xl mx-auto">Apprenez un métier essentiel à votre rythme avec nos formations en ligne accessibles partout et tout le temps ou directement dans nos locaux.</p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 mt-16">
         {courses.map((course) => (

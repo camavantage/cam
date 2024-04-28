@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
             alt=""
             height={128}
             width={128}
-            className="h-14 w-14  text-white"
+            className="h-14 w-14 "
           />
         </div>
         <p className="text-center max-w-xl mt-2">

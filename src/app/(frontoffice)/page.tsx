@@ -13,25 +13,25 @@ export default function HomePage() {
       <section className="">
         <HomeSection />
       </section>
-      <section className="bg-white">
+      <section className="">
           <AboutSection />
         </section>
-        <section className="bg-cam-green-800 ">
+        <section className="">
           <SloganSection />
         </section>
-        <section className="bg-white">
+        <section className="">
           <CoursesSection />
         </section>
-        <section className="bg-white">
+        <section className="">
           <TeacherSection />
         </section>
-        <section className="bg-white">
+        <section className="">
           <StrengthSection />
         </section>
-        <section className="bg-white">
+        <section className="">
           <AccompanimentSection />
         </section>
-        <section className="bg-white">
+        <section className="">
           <ContactSection />
         </section>
     </main>
