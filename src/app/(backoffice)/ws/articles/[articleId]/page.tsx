@@ -1,6 +1,7 @@
 import { EditArticleForm } from "@/components/ws/articles/edit-form";
 import prisma from "@/lib/prisma";
 import { Prisma } from "@prisma/client";
+import { Suspense } from "react";
 
 const getTags = async () => {
   const tags = await prisma.tag.findMany({
@@ -11,7 +12,7 @@ const getTags = async () => {
 
 const getAuthors = async () => {
   const authors = await prisma.user.findMany({
-    where: { role: {not:"subscriber"}, blocked:false },
+    where: { role: { not: "subscriber" }, blocked: false },
     select: {
       id: true,
       username: true,
@@ -31,11 +32,10 @@ const getAuthors = async () => {
 };
 
 const getArticle = async (articleId: string) => {
-  
   const article = await prisma.article
     .findUnique({
-      where: { id:articleId },
-      include: { author: {},tags:{include:{tag:{}}} },
+      where: { id: articleId },
+      include: { author: {}, tags: { include: { tag: {} } } },
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -54,8 +54,8 @@ export default async function WSArticlePage({
   const tags = await getTags();
   const article = await getArticle(params.articleId);
   return (
-    <>
+    <Suspense>
       <EditArticleForm article={article} tags={tags} authors={authors} />
-    </>
+    </Suspense>
   );
 }

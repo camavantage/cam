@@ -1,5 +1,6 @@
 import { NewArticleForm } from "@/components/ws/articles/new-form";
 import prisma from "@/lib/prisma";
+import { Suspense } from "react";
 
 const getTags = async () => {
   const tags = await prisma.tag.findMany({
@@ -10,7 +11,7 @@ const getTags = async () => {
 
 const getAuthors = async () => {
   const authors = await prisma.user.findMany({
-    where: { role: {not:"subscriber"}, blocked:false },
+    where: { role: { not: "subscriber" }, blocked: false },
     select: {
       id: true,
       username: true,
@@ -33,8 +34,8 @@ export default async function WSNewArticlePage() {
   const authors = await getAuthors();
   const tags = await getTags();
   return (
-    <>
+    <Suspense>
       <NewArticleForm authors={authors} tags={tags} />
-    </>
+    </Suspense>
   );
 }
