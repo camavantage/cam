@@ -86,7 +86,7 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
           </div>
           <div className="flex flex-col space-y-2">
             <div className="flex flex-col space-y-3 pt-6">
-              <h4 className="font-medium">10 derniers articles</h4>
+              <h4 className="font-medium">Nos tags d&apos;articles</h4>
               {lastArticles?.length &&
                 lastArticles.map((item) => (
                   <React.Fragment key={item.id}>
@@ -103,10 +103,11 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
           </div>
         </ScrollArea>
         <div className="text-muted-foreground text-sm">
-          <p className=" leading-3">© {date.getFullYear()} Mlibre</p>
-          <p className="">
+        <p className="leading-3">
             Made with <IoIosHeart className=" inline text-[#ff0000]" /> from DRC
           </p>
+          <p className=" ">© {date.getFullYear()} {siteConfig.name}. Tous droits réservés.</p>
+          
         </div>
       </SheetContent>
     </Sheet>

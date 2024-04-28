@@ -37,18 +37,18 @@ export function MainNav() {
               : "text-foreground/60"
           )}
         >
-          Articles
+          Astuces et recettes
         </Link>
         <Link
-          href="/tags"
+          href="/courses"
           className={cn(
             "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/tags")
+            pathname?.startsWith("/courses")
               ? "text-foreground"
               : "text-foreground/60"
           )}
         >
-          Tags
+          Formations
         </Link>
         <Link
           href="/contact"

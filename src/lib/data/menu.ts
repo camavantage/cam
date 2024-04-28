@@ -15,8 +15,8 @@ export const docsConfig: DocsConfig = {
       href: "/articles",
     },
     {
-      title: "Tags",
-      href: "/tags",
+      title: "Formations",
+      href: "/courses",
     },
     {
       title: "Contact",
