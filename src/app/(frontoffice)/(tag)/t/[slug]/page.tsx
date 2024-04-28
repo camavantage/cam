@@ -1,3 +1,8 @@
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -37,7 +42,7 @@ export default async function TagPage({
   return (
     <div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
-        <Card className="border-none shadow-none">
+        {/* <Card className="border-none shadow-none">
           <CardHeader>
             <CardTitle>{tag.name}</CardTitle>
             <CardDescription>
@@ -48,7 +53,11 @@ export default async function TagPage({
             </CardDescription>
           </CardHeader>
           <CardContent>{tag.description}</CardContent>
-        </Card>
+        </Card> */}
+        <PageHeader>
+          <PageHeaderHeading>{tag.name}</PageHeaderHeading>
+          <PageHeaderDescription>{tag.description}</PageHeaderDescription>
+        </PageHeader>
       </div>
       <div className="max-w-screen-md mx-auto px-6 md:px-0">
         {tag.articles.map((article) => (
