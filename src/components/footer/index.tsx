@@ -44,7 +44,7 @@ export function SiteFooter() {
                 </Link>
                 <div>
                   <span className="font-bold text-[18px] inline-block">
-                    Vivre le présent
+                    Vivre le présent!
                   </span>
                   <CardDescription>
                     La passion du goût au service de la communauté.

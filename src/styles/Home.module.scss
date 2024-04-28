@@ -16,7 +16,7 @@
 
 .courseCard{
   box-shadow: 0 0 50px rgba($color: #000000, $alpha: .05);
-  @apply flex flex-col items-center px-4 py-6 border rounded-xl;
+  @apply flex flex-col items-center px-4 py-6  rounded-xl;
   h6{
     @apply font-medium text-center mt-1;
   }

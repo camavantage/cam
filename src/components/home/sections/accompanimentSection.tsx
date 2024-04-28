@@ -7,7 +7,7 @@ const AccompanimentSection: React.FC = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-20 max-w-5xl mx-auto px-4 pb-16">
      
       <div className=" md:pt-56 md:px-10">
-        <h4 className="font-bold text-xl">L&apos;encadrement CAM/AVANTAGE</h4>
+        <h4 className="font-bold text-2xl">L&apos;encadrement CAM/AVANTAGE</h4>
         <div className="mt-5">
           <div className="flex items-center mb-5 space-x-5">
             <div className={`h-12 w-12 ${s.cardCheck}`}>

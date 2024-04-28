@@ -16,19 +16,16 @@ export default function HomePage() {
       <section className="bg-ws-background">
           <AboutSection />
         </section>
-        <section className=" ">
-          <SloganSection />
-        </section>
         <section className="">
           <CoursesSection />
         </section>
         <section className="">
           <TeacherSection />
         </section>
-        <section className="">
+        <section className=" bg-ws-background">
           <StrengthSection />
         </section>
-        <section className="">
+        <section className="bg-ws-background">
           <AccompanimentSection />
         </section>
         <section className="">
