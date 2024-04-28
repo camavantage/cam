@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import "@blocknote/react/style.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
-import { AuthWrapper } from "@/components/auth-wrapper";
 import { getAppSetup } from "@/actions/ws/setup";
 import { siteConfig } from "@/lib/data/site";
-import "./globals.css"
+import "./globals.css";
+import { Providers } from "@/components/providers";
 
-const karla = Karla({subsets:["latin"]});
+const karla = Karla({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -41,17 +40,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={karla.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <AuthWrapper>
-            {children}
-            <Toaster />
-          </AuthWrapper>
-        </ThemeProvider>
+        <Providers>
+          {children}
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );
