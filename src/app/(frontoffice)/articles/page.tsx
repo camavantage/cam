@@ -92,7 +92,7 @@ export default async function ArticlesPage({
           à chaque bouchée.
         </PageHeaderDescription>
       </PageHeader>
-      <div className="h-16 flex items-center px-3 space-x-4">
+      <div className="h-16 flex items-center space-x-4">
         <h1 className=" font-bold flex-1">Articles</h1>
         <div className="flex-1" />
         <Suspense>
