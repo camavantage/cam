@@ -16,7 +16,7 @@ export default function HomePage() {
       <section className="">
           <AboutSection />
         </section>
-        <section className="">
+        <section className=" bg-ws-background">
           <SloganSection />
         </section>
         <section className="">
