@@ -146,7 +146,7 @@ export function SiteFooter() {
           Made with <IoIosHeart className=" inline text-[#ff0000]" /> from DRC
         </p>
         <p className="text-sm text-muted-foreground">
-          © {date.getFullYear()} Mlibre
+          © {date.getFullYear()} {siteConfig.name} Mlibre Tous droits réservés.
         </p>
       </div>
     </footer>
