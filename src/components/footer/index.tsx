@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { LogoWithtext } from "../header/logo-with-text";
 
 const date = new Date();
 const formData = z.object({
@@ -39,7 +40,7 @@ export function SiteFooter() {
             <CardHeader>
               <CardTitle>
                 <Link href="/" className="flex items-center space-x-[0.8px]">
-                  <Logo className=" w-6 h-6" />
+                <LogoWithtext className="h-20 w-20 " />
                   <span className="font-bold text-[18px] inline-block">
                     {siteConfig.name}
                   </span>
