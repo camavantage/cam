@@ -80,7 +80,7 @@ export default async function ArticlesPage({
     q: searchParams.q,
   });
   return (
-    <div className="">
+    <div className=" max-w-screen-lg mx-auto px-6 lg:px-0">
       <PageHeader>
         <PageHeaderHeading>Recettes et Astuces</PageHeaderHeading>
         <PageHeaderDescription>
