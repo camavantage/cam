@@ -13,7 +13,7 @@ export async function upsertGeneralSettings(
     throw new Error("You must be connected to update settings");
   }
 
-  if (session.user.role === "admin" || session.user.role === "owner") {
+  if (session?.user?.role === "admin" || session?.user?.role === "owner") {
     const { id, ...formDataWithoutId } = formData;
     const updatedSettings = await prisma.app
       .update({
