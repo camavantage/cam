@@ -5,11 +5,7 @@ import { Button } from "../ui/button";
 import { MobileNav } from "./mobile-nav";
 import { MainNav } from "./main-nav";
 import { SearchArticleBar } from "../ws/articles/search-bar";
-import { BsTwitterX } from "react-icons/bs";
-import { RiWhatsappLine } from "react-icons/ri";
-import { BsWhatsapp, BsFacebook } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa6";
-import { RiFacebookCircleLine } from "react-icons/ri";
+import { BsFacebook } from "react-icons/bs";
 import { RiWhatsappFill } from "react-icons/ri";
 import { Suspense } from "react";
 

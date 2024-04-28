@@ -1,0 +1,43 @@
+
+.img{
+  
+    animation: rotatehomeimage 60s infinite linear;
+    box-shadow: 0 0 50px rgba($color: #000000, $alpha: .08);
+}
+
+@keyframes rotatehomeimage {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+}
+
+.courseCard{
+  box-shadow: 0 0 50px rgba($color: #000000, $alpha: .05);
+  @apply flex flex-col items-center px-4 py-6 border rounded-xl;
+  h6{
+    @apply font-medium text-center mt-1;
+  }
+  img{
+    @apply h-16 w-16;
+  }
+}
+
+.cardCheck{
+  box-shadow: 0 0 50px rgba($color: #000000, $alpha: .08);
+  @apply flex justify-center items-center bg-white rounded-full;
+}
+
+.cardRealization{
+  box-shadow: 0 0 50px rgba($color: #000000, $alpha: .08);
+  @apply px-3 py-4 rounded-xl;
+}
+.imgCake{
+  box-shadow: 0 0 50px rgba($color: #99B200, $alpha: .1);
+}
+
+.about{
+  box-shadow: 0 0 50px rgba($color: #000000, $alpha: .08);
+}

@@ -34,27 +34,30 @@ export function SiteFooter() {
   const onSubmit = (data: z.infer<typeof formData>) => {};
   return (
     <footer className=" bg-ws-background p-6 lg:p-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-5">
+        <div className=" lg:col-span-2">
           <Card className="border-none shadow-none rounded-none bg-transparent">
-            <CardHeader>
-              <CardTitle>
-                <Link href="/" className="flex items-center space-x-[0.8px]">
+            <CardHeader className="px-0">
+              <CardTitle className="flex space-x-4 items-center lg:items-start">
+                <Link href="/" className="">
                   <LogoWithtext className="h-20 w-20 " />
+                </Link>
+                <div>
                   <span className="font-bold text-[18px] inline-block">
                     Vivre le présent
                   </span>
-                </Link>
+                  <CardDescription>
+                    La passion du goût au service de la communauté.
+                  </CardDescription>
+                </div>
               </CardTitle>
-              <CardDescription>
-                La passion du goût au service de la communauté
-              </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div>
+            <CardContent className="px-0">
+              {/* <div>
                 <p className="text-sm text-muted-foreground">
-                  Pour ne rien rater, inscrivez-vous à notre{" "}
-                  <span className=" font-bold">newsletter</span>!
+                  Pour ne rien
+                    rater, inscrivez-vous à notre{" "}
+                    <span className=" font-bold">newsletter</span>!
                 </p>
                 <Form {...form}>
                   <form
@@ -90,13 +93,13 @@ export function SiteFooter() {
                     />
                   </form>
                 </Form>
-              </div>
+              </div> */}
             </CardContent>
           </Card>
         </div>
         <div>
           <Card className="border-none shadow-none rounded-none bg-transparent">
-            <CardHeader>
+            <CardHeader className="px-0">
               <CardTitle className=" text-[18px]">Liens rapides</CardTitle>
               <CardDescription>
                 <div className="flex flex-col space-y-3">
@@ -115,12 +118,12 @@ export function SiteFooter() {
                 </div>
               </CardDescription>
             </CardHeader>
-            <CardContent></CardContent>
+            {/* <CardContent className="px-0"></CardContent> */}
           </Card>
         </div>
         <div>
           <Card className="border-none shadow-none rounded-none bg-transparent">
-            <CardHeader>
+            <CardHeader className="px-0">
               <CardTitle className=" text-[18px]">Contacts</CardTitle>
               <CardDescription>
                 <ul>
@@ -130,19 +133,19 @@ export function SiteFooter() {
                 </ul>
               </CardDescription>
             </CardHeader>
-            <CardContent></CardContent>
+            {/* <CardContent className="px-0"></CardContent> */}
           </Card>
         </div>
         <div>
           <Card className="border-none shadow-none rounded-none bg-transparent">
-            <CardHeader>
+            <CardHeader className="px-0">
               <CardTitle className=" text-[18px]">Adresses</CardTitle>
               <CardDescription>
                 Nord-Kivu, Butembo, com. Kimemi, Q. Vutsundo, cel. Mutsunga,
                 N⁰89
               </CardDescription>
             </CardHeader>
-            <CardContent></CardContent>
+            {/* <CardContent className="px-0"></CardContent> */}
           </Card>
         </div>
       </div>

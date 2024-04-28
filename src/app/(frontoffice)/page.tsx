@@ -1,3 +1,11 @@
-export default function Home() {
-  return <main className="flex flex-col items-center justify-center"></main>;
+import HomeSection from "@/components/home/sections/homeSection";
+
+export default function HomePage() {
+  return (
+    <main className="">
+      <section className="bg-white ">
+        <HomeSection />
+      </section>
+    </main>
+  );
 }
