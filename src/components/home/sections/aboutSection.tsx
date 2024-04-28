@@ -13,7 +13,7 @@ const AboutSection: React.FC = () => {
         // className={`p-4 md:p-8 text-sm md:text-base ${s.about} flex flex-col items-center rounded-3xl`}
       >
         {/* <div className="flex justify-center items-center border-2 border-cam-green-800 rounded-full"> */}
-          <LogoWithtext className="h-14 w-14  text-white" />
+          <LogoWithtext className="h-14 w-14 " />
         {/* </div> */}
         <PageHeader>
           <PageHeaderHeading>Une école reconnue</PageHeaderHeading>

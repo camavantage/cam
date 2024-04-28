@@ -13,10 +13,10 @@ export default function HomePage() {
       <section className="">
         <HomeSection />
       </section>
-      <section className="">
+      <section className="bg-ws-background">
           <AboutSection />
         </section>
-        <section className=" bg-ws-background">
+        <section className=" ">
           <SloganSection />
         </section>
         <section className="">
