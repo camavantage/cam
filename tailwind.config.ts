@@ -3,10 +3,14 @@ import type { Config } from "tailwindcss"
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    // './pages/**/*.{ts,tsx}',
+    // './components/**/*.{ts,tsx}',
+    // './app/**/*.{ts,tsx}',
+    // './src/**/*.{ts,tsx}',
+    "./pages/**/*.{js,jsx,ts,tsx,mdx}",
+    "./components/**/*.{js,jsx,ts,tsx,mdx}",
+    "./app/**/*.{js,jsx,ts,tsx,mdx}",
+    "./src/**/*.{js,jsx,ts,tsx,mdx}",
 	],
   prefix: "",
   theme: {
@@ -51,6 +55,10 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        // my colors
+        "ws-background": {
+          DEFAULT: "var(--ws-background)",
         },
       },
       borderRadius: {
