@@ -1,7 +1,5 @@
 import Image from "next/image";
-
 import s from "@/styles/Home.module.scss";
-import { RiWhatsappFill } from "react-icons/ri";
 import AcademicIcon from "../academicIcon";
 
 const HomeSection: React.FC = () => {
@@ -33,7 +31,6 @@ const HomeSection: React.FC = () => {
         </div>
       </div>
       <div className="flex justify-center relative mt-6">
-        
         <Image
           src="/assets/images/cam-image-home-illustration.jpg"
           alt="Avantage illustration image"
