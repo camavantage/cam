@@ -88,10 +88,10 @@ export default async function ArticlesPage({
         <PageHeader>
           <PageHeaderHeading>Recettes et Astuces</PageHeaderHeading>
           <PageHeaderDescription>
-            Notre blog regorge d'idées alléchantes, de conseils astucieux et de
+            Notre blog regorge d&apos;idées alléchantes, de conseils astucieux et de
             techniques expertes pour sublimer vos plats. Que vous soyez novice
-            en cuisine ou chef aguerri, vous trouverez ici l'inspiration
-            nécessaire pour épater vos convives et éveiller vos papilles
+            en cuisine ou chef aguerri, vous trouverez ici l&apos;inspiration
+            nécessaire pour épater vos convives et éveiller vos papilles.
             Rejoignez-nous pour un voyage gourmand où la passion pour la bonne
             cuisine se décline à chaque bouchée
           </PageHeaderDescription>
