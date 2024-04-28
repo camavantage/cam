@@ -75,7 +75,7 @@ export default async function TagsPage({
           </div>
           <div
             className={cn(
-              " h-[calc(100vh-192px)] p-6  justify-center items-center text-sm text-muted-foreground",
+              " p-6  justify-center items-center text-sm text-muted-foreground",
               tags.length === 0 ? "flex" : "hidden"
             )}
           >
