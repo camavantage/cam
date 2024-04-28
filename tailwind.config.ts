@@ -1,13 +1,13 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  important:true,
+  important: true,
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,jsx,ts,tsx}",
-    "./components/**/*.{js,jsx,ts,tsx}",
-    "./app/**/*.{js,jsx,ts,tsx}",
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx,mdx}",
+    "./components/**/*.{js,jsx,ts,tsx,mdx}",
+    "./app/**/*.{js,jsx,ts,tsx,mdx}",
+    "./src/**/*.{js,jsx,ts,tsx,mdx}",
   ],
   prefix: "",
   theme: {
@@ -80,6 +80,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} ;
+};
 
 export default config;
