@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { IoIosHeart } from "react-icons/io";
 import { Logo } from "../header/logo";
@@ -40,17 +40,19 @@ export function SiteFooter() {
             <CardHeader>
               <CardTitle>
                 <Link href="/" className="flex items-center space-x-[0.8px]">
-                <LogoWithtext className="h-20 w-20 " />
+                  <LogoWithtext className="h-20 w-20 " />
                   <span className="font-bold text-[18px] inline-block">
-                    {siteConfig.name}
+                    Vivre le présent
                   </span>
                 </Link>
               </CardTitle>
-              <CardDescription>{siteConfig.description}</CardDescription>
+              <CardDescription>
+                La passion du goût au service de la communauté
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div>
-              <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground">
                   Pour ne rien rater, inscrivez-vous à notre{" "}
                   <span className=" font-bold">newsletter</span>!
                 </p>
@@ -88,7 +90,6 @@ export function SiteFooter() {
                     />
                   </form>
                 </Form>
-                
               </div>
             </CardContent>
           </Card>
@@ -136,21 +137,22 @@ export function SiteFooter() {
           <Card className="border-none shadow-none rounded-none bg-transparent">
             <CardHeader>
               <CardTitle className=" text-[18px]">Adresses</CardTitle>
-              <CardDescription>Nord-Kivu, Butembo, com. Kimemi, Q. Vutsundo, cel. Mutsunga, N⁰89</CardDescription>
+              <CardDescription>
+                Nord-Kivu, Butembo, com. Kimemi, Q. Vutsundo, cel. Mutsunga,
+                N⁰89
+              </CardDescription>
             </CardHeader>
             <CardContent></CardContent>
           </Card>
         </div>
       </div>
       <div className="px-4 py-12 text-center">
-      <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           Made with <IoIosHeart className=" inline text-[#ff0000]" /> from DRC
         </p>
-      <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           © {date.getFullYear()} {siteConfig.name}. Tous droits réservés.
         </p>
-        
-        
       </div>
     </footer>
   );
