@@ -13,8 +13,8 @@ const AboutSection: React.FC = () => {
     <div className={`max-w-5xl mx-auto`}>
       <PageHeader>
         <LogoWithtext className="h-20 w-20 " />
-        <PageHeaderHeading className=" text-2xl">Qui sommes-nous?</PageHeaderHeading>
-        <PageHeaderDescription>
+        <PageHeaderHeading className="">Qui sommes-nous?</PageHeaderHeading>
+        <PageHeaderDescription className="text-muted-foreground">
           Nous sommes un centre d&apos;apprentisage et des Métiers. Un
           établissement privé déclaré au ministère de la formation
           professionnelle. Partenaire Officiel du groupe des centres
