@@ -133,25 +133,25 @@ export const tagOptionSchema = z.object({
 });
 
 export function tagsAsOptions(tags?: TagType[]) {
-  // let options: MultiSelectorOptionType[] = [];
-  // if (tags) {
-  //   tags.forEach((tag) => {
-  //     options.push({ label: tag.name, value: tag.id });
-  //   });
-  //   return options;
-  // } else {
-  //   return [];
-  // }
+  let options: MultiSelectorOptionType[] = [];
+  if (tags) {
+    tags.forEach((tag) => {
+      options.push({ label: tag.name, value: tag.id });
+    });
+    return options;
+  } else {
+    return [];
+  }
 }
 
 export function articleTagsAsOptions(tags?: ArticleTagType[]) {
-  // let options: MultiSelectorOptionType[] = [];
-  // if (tags) {
-  //   tags.forEach((tag) => {
-  //     options.push({ label: `${tag.tag?.name}`, value: tag.tagId });
-  //   });
-  //   return options;
-  // } else {
-  //   return [];
-  // }
+  let options: MultiSelectorOptionType[] = [];
+  if (tags) {
+    tags.forEach((tag) => {
+      options.push({ label: `${tag.tag?.name}`, value: tag.tagId });
+    });
+    return options;
+  } else {
+    return [];
+  }
 }
