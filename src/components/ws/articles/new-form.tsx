@@ -72,13 +72,13 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
       return await uploadFile(file);
     },
   });
-  const { theme } = useTheme();
+  // const { theme } = useTheme();
   const [loading, setLoading] = useState<boolean>(false);
   const [AUTHORS_AS_OPTIONS] = useState(authorsAsOptions(authors));
   const [TAGS_AS_OPTIONS] = useState(tagsAsOptions(tags));
   const { toast } = useToast();
   const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
   const form = useForm<NewArticleFormSchemaType>({
     resolver: zodResolver(newArticleFormSchema),
@@ -90,7 +90,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
       imageUrl: "",
       tags: [],
       customTags: [],
-      // authorId: session?.user.id,
+      authorId: session?.user.id,
       published: true,
       verified: true,
       commentable: true,
@@ -112,9 +112,9 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
     });
   }
 
-  useEffect(() => {
-    form.setValue("imageUrl", currentImageUrl);
-  }, [currentImageUrl, form]);
+  // useEffect(() => {
+  //   form.setValue("imageUrl", currentImageUrl);
+  // }, [currentImageUrl, form]);
 
   return (
     <Form {...form}>
@@ -251,7 +251,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                     <div className="">
                       <BlockNoteView
                         editor={editor}
-                        theme={theme === "dark" ? "dark" : "light"}
+                        // theme={theme === "dark" ? "dark" : "light"}
                         onChange={async () => {
                           // Converts the editor's contents from Block objects to HTML and store to content formfield.
                           const html = await editor.blocksToHTMLLossy(
