@@ -29,11 +29,7 @@ export default function HomePage() {
       <section className="bg-ws-background">
         <AccompanimentSection />
       </section>
-      <section className="">
-        <Suspense>
-          <ContactSection />
-        </Suspense>
-      </section>
+      
     </main>
   );
 }
