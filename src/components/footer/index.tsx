@@ -37,20 +37,18 @@ export function SiteFooter() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-5">
         <div className=" lg:col-span-2">
           <Card className="border-none shadow-none rounded-none bg-transparent">
-            <CardHeader className="px-0">
-              <CardTitle className="flex space-x-4 items-center lg:items-start">
-                <Link href="/" className="">
-                  <LogoWithtext className="h-20 w-20 " />
-                </Link>
-                <div>
-                  <span className="font-bold text-[18px] inline-block">
-                    Vivre le présent!
-                  </span>
-                  <CardDescription>
-                    La passion du goût au service de la communauté.
-                  </CardDescription>
-                </div>
-              </CardTitle>
+            <CardHeader className="flex flex-row px-0 space-x-4 items-center lg:items-start">
+              <Link href="/" className="">
+                <LogoWithtext className="h-20 w-20 " />
+              </Link>
+              <div>
+                <CardTitle className="font-bold text-[18px]">
+                  Vivre le présent!
+                </CardTitle>
+                <CardDescription>
+                  La passion du goût au service de la communauté.
+                </CardDescription>
+              </div>
             </CardHeader>
             <CardContent className="px-0">
               {/* <div>

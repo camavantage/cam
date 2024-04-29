@@ -7,13 +7,13 @@ const HomeSection: React.FC = () => {
     <div className="grid md:grid-cols-2  max-w-6xl mx-auto pt-8 pb-10 md:py-10 px-4">
       <div className="flex flex-col justify-end md:px-20 md:pb-10">
         <small className="font-bold text-2xl">Depuis 2020,</small>
-        <p className=" text-gray-500 mb-10">
+        <p className=" text-muted-foreground mb-10 text-base">
           nous redonnons le plaisir d&apos;
           <span className="overline font-bold text-cam-green-900">
             apprendre
           </span>{" "}
-          et d&apos;exercer les{" "}
-          <span className="overline font-bold text-cam-green-900">métier</span>s
+          et d&apos;exercer{" "}
+          <span className="overline font-bold text-cam-green-900">les métiers</span>{" "}
           de la main dans nos locaux et en ligne grâce aux outils numériques.
         </p>
         <div className="flex items-center space-x-4 mb-6">
