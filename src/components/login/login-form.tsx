@@ -137,7 +137,7 @@ export const LoginForm = () => {
                 >
                   Connecter
                 </LoadingButton>
-                <Separator />
+                {/* <Separator />
                 <Button
                   disabled={loading}
                   type="submit"
@@ -146,7 +146,7 @@ export const LoginForm = () => {
                 >
                   <ColoredGoogleIcon className="inline h-[1.2rem] w-[1.2rem] mr-2" />{" "}
                   Continuer avec Google
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>
