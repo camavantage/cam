@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { TooltipWrap } from "@/components/tooltip-wrapper";
 import { Button } from "@/components/ui/button";
 import {
