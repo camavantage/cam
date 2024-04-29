@@ -73,12 +73,12 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   //     return await uploadFile(file);
   //   },
   // });
-  // const { theme } = useTheme();
-  // const [loading, setLoading] = useState<boolean>(false);
-  // const [AUTHORS_AS_OPTIONS] = useState(authorsAsOptions(authors));
-  // const [TAGS_AS_OPTIONS] = useState(tagsAsOptions(tags));
-  // const { toast } = useToast();
-  // const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
+  const { theme } = useTheme();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [AUTHORS_AS_OPTIONS] = useState(authorsAsOptions(authors));
+  const [TAGS_AS_OPTIONS] = useState(tagsAsOptions(tags));
+  const { toast } = useToast();
+  const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
   const { data: session } = useSession();
 
   const form = useForm<NewArticleFormSchemaType>({
