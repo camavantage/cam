@@ -1,6 +1,12 @@
-import { NewArticleForm } from "@/components/ws/articles/new-form";
+// import { NewArticleForm } from "@/components/ws/articles/new-form";
 import prisma from "@/lib/prisma";
+import dynamic from "next/dynamic";
 import { Suspense } from "react";
+
+const NewArticleForm = dynamic(
+  () => import("@/components/ws/articles/new-form"),
+  { ssr: false }
+);
 
 const getTags = async () => {
   const tags = await prisma.tag.findMany({
