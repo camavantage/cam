@@ -68,11 +68,11 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
 }) => {
 
   const router = useRouter();
-  const editor = useCreateBlockNote({
-    // uploadFile: async (file: File) => {
-    //   return await uploadFile(file);
-    // },
-  });
+  // const editor = useCreateBlockNote({
+  //   uploadFile: async (file: File) => {
+  //     return await uploadFile(file);
+  //   },
+  // });
   const { theme } = useTheme();
   const [loading, setLoading] = useState<boolean>(false);
   const [AUTHORS_AS_OPTIONS] = useState(authorsAsOptions(authors));
