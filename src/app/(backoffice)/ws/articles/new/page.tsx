@@ -41,9 +41,9 @@ export default async function WSNewArticlePage() {
   const tags = await getTags();
   return (
     <div>
-      <Suspense>
+      {/* <Suspense> */}
         <NewArticleForm authors={authors} tags={tags} />
-      </Suspense>
+      {/* </Suspense> */}
     </div>
   );
 }
