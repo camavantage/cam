@@ -1,6 +1,7 @@
 import { getAppSetup } from "@/actions/ws/setup";
 import { LoginForm } from "@/components/login/login-form";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
 
 export default async function LoginPage() {
   const app = await getAppSetup();
@@ -9,7 +10,9 @@ export default async function LoginPage() {
   }
   return (
     <div className=" bg-ws-background">
-      <LoginForm />
+      <Suspense>
+        <LoginForm />
+      </Suspense>
     </div>
   );
 }
