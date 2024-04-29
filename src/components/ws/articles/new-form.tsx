@@ -78,7 +78,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   const [TAGS_AS_OPTIONS] = useState(tagsAsOptions(tags));
   const { toast } = useToast();
   const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
 
   const form = useForm<NewArticleFormSchemaType>({
     resolver: zodResolver(newArticleFormSchema),
@@ -90,7 +90,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
       imageUrl: "",
       tags: [],
       customTags: [],
-      authorId: session?.user.id,
+      // authorId: session?.user.id,
       published: true,
       verified: true,
       commentable: true,
