@@ -224,7 +224,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                       )}
                     />
                     <div>
-                      <FormField
+                      {/* <FormField
                         control={form.control}
                         name="tags"
                         render={({ field }) => (
@@ -246,7 +246,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                             <FormMessage />
                           </FormItem>
                         )}
-                      />
+                      /> */}
                     </div>
                     <div className="">
                       <BlockNoteView
@@ -333,7 +333,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                         />
                       </div>
                       <div>
-                        <FormField
+                        {/* <FormField
                           control={form.control}
                           name="authorId"
                           render={({ field }) => (
@@ -404,10 +404,10 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                               <FormMessage />
                             </FormItem>
                           )}
-                        />
+                        /> */}
                       </div>
                       <div>
-                        <FormField
+                        {/* <FormField
                           control={form.control}
                           name="customTags"
                           render={({ field }) => (
@@ -432,7 +432,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                               <FormMessage />
                             </FormItem>
                           )}
-                        />
+                        /> */}
                       </div>
                     </div>
                   </CardContent>
