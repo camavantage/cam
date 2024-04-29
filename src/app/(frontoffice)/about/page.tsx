@@ -59,17 +59,17 @@ export default function AboutPage() {
         </PageHeader>
       </div>
       <TeacherSection />
-      <div className="bg-ws-background">
+      {/* <div className="bg-ws-background">
         <SloganSection />
-      </div>
-      <article id="story" className="max-w-5xl mx-auto py-4 lg:py-10 px-6 lg:px-0">
+      </div> */}
+      <article id="story" className="max-w-5xl mx-auto py-4 px-6 lg:px-0">
         <Card className=" border-none shadow-none rounded-none bg-transparent">
-          <CardHeader className="px-0">
+          <CardHeader className="px-0 pt-0">
             <CardTitle className=" font-bold text-2xl">
               Histoire de passion
             </CardTitle>
-            <CardDescription className=" text-base">
-              De Benjamin Kamala
+            <CardDescription className=" leading-7 text-base">
+              De Benjamin Kamala & CAM/AVANTAGE
             </CardDescription>
           </CardHeader>
           <CardContent className="px-0 text-muted-foreground text-justify">
