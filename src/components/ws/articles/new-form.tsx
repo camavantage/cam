@@ -66,39 +66,39 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   tags,
   authors,
 }) => {
-  return <div> New article</div>
-  // const router = useRouter();
-  // const editor = useCreateBlockNote({
-  //   uploadFile: async (file: File) => {
-  //     return await uploadFile(file);
-  //   },
-  // });
+  
+  const router = useRouter();
+  const editor = useCreateBlockNote({
+    uploadFile: async (file: File) => {
+      return await uploadFile(file);
+    },
+  });
   // const { theme } = useTheme();
   // const [loading, setLoading] = useState<boolean>(false);
   // const [AUTHORS_AS_OPTIONS] = useState(authorsAsOptions(authors));
   // const [TAGS_AS_OPTIONS] = useState(tagsAsOptions(tags));
   // const { toast } = useToast();
   // const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
-  // const { data: session } = useSession();
+  const { data: session } = useSession();
 
-  // const form = useForm<NewArticleFormSchemaType>({
-  //   resolver: zodResolver(newArticleFormSchema),
-  //   defaultValues: {
-  //     title: "",
-  //     description: "",
-  //     content: "",
-  //     markdown: "",
-  //     imageUrl: "",
-  //     tags: [],
-  //     customTags: [],
-  //     authorId: session?.user.id,
-  //     published: true,
-  //     verified: true,
-  //     commentable: true,
-  //     blocked: false,
-  //   },
-  // });
-
+  const form = useForm<NewArticleFormSchemaType>({
+    resolver: zodResolver(newArticleFormSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      content: "",
+      markdown: "",
+      imageUrl: "",
+      tags: [],
+      customTags: [],
+      authorId: session?.user.id,
+      published: true,
+      verified: true,
+      commentable: true,
+      blocked: false,
+    },
+  });
+  return <div> New article</div>
   // async function onSubmit(values: NewArticleFormSchemaType) {
   //   setLoading(true);
   //   await createArticle(values).catch(() => {
