@@ -53,6 +53,9 @@ export default async function WSArticlePage({
   const authors = await getAuthors();
   const tags = await getTags();
   const article = await getArticle(params.articleId);
+  if(!article){
+    return <div>not found</div>
+  }
   return (
     <Suspense>
       <EditArticleForm article={article} tags={tags} authors={authors} />

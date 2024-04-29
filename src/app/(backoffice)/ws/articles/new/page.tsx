@@ -37,7 +37,7 @@ export default async function WSNewArticlePage() {
     <div>
       <Suspense>
         <NewArticleForm
-        //  authors={authors} tags={tags} 
+         authors={authors} tags={tags} 
          />
       </Suspense>
     </div>
