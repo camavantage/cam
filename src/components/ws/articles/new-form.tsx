@@ -67,7 +67,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   authors,
 }) => {
 
-  const router = useRouter();
+  // const router = useRouter();
   const editor = useCreateBlockNote({
     uploadFile: async (file: File) => {
       return await uploadFile(file);
