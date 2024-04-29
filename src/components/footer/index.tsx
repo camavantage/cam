@@ -12,10 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { Form, FormControl, FormField, FormItem } from "../ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { cn } from "@/lib/utils";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,7 +27,7 @@ export function SiteFooter() {
     resolver: zodResolver(formData),
   });
 
-  const onSubmit = (data: z.infer<typeof formData>) => {};
+
   return (
     <footer className=" bg-ws-background p-6 lg:p-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-5">

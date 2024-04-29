@@ -1,38 +1,84 @@
+"use client";
 import Image from "next/image";
 import s from "@/styles/Home.module.scss";
 import { RiWhatsappFill } from "react-icons/ri";
+import { cn } from "@/lib/utils";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "@/components/ui/input";
+import {
+  PageActions,
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header";
+
+const formData = z.object({
+  email: z
+    .string({ required_error: "L'adresse mail est obligatoire" })
+    .email({ message: "Email invalide" }),
+});
 
 const ContactSection: React.FC = () => {
+  const form = useForm<z.infer<typeof formData>>({
+    resolver: zodResolver(formData),
+  });
+  const onSubmit = (data: z.infer<typeof formData>) => {};
   return (
-    <div className={`max-w-5xl mx-auto py-12 md:py-20 px-4`}>
-      <div
-        className={`p-4 md:p-8 text-sm md:text-base ${s.about} flex flex-col items-center rounded-3xl`}
-      >
-        <div className="flex justify-center items-center border-2 border-cam-green-800 rounded-full">
-          <Image
-            src="/assets/images/client.png"
-            alt=""
-            height={128}
-            width={128}
-            className="h-14 w-14 "
-          />
-        </div>
-        <p className="text-center max-w-xl mt-2">
-          Vous pouvez suivre une formation en apprentissage 100% théorie en
-          ligne et 100% pratique en entreprise
-        </p>
-        <h1 className="font-bold text-center text-xl mt-2"></h1>
-        <a
-          href="https://wa.me/+243826776661"
-          target="_blank"
-          rel="noreferrer"
-          className="flex items-center space-x-2 bg-cam-green-900 text-white font-bold px-3 py-1 rounded-full mt-2"
-        >
-          <RiWhatsappFill className="h-8 w-8" />
-          <span>Nous contacter</span>
-        </a>
-      </div>
-    </div>
+    <PageHeader>
+      <PageHeaderHeading>Abonnez-vous à notre newsletter</PageHeaderHeading>
+      <PageHeaderDescription>
+      Pour ne rien
+                    rater, inscrivez-vous à notre newsletter par e-mail et débloquez l&apos;accès au
+        contenu réservé aux membres et aux mises à jour exclusives.
+      </PageHeaderDescription>
+      <PageActions>
+        <Form {...form}>
+          <form
+            className="relative mt-2 w-[300px]"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <div className="flex items-center">
+                      <Input
+                        {...field}
+                        type="email"
+                        placeholder="Votre adresse mail"
+                        className="flex-1 pr-12 rounded-full"
+                      />
+                      <Button
+                        type="submit"
+                        className={cn(
+                          "absolute bg-transparent right-0 rounded-l-none rounded-r-full "
+                        )}
+                        variant="outline"
+                      >
+                        S&apos;inscrire
+                      </Button>
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </form>
+        </Form>
+      </PageActions>
+    </PageHeader>
   );
 };
 

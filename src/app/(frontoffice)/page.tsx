@@ -6,6 +6,7 @@ import HomeSection from "@/components/home/sections/homeSection";
 import SloganSection from "@/components/home/sections/sloganSection";
 import StrengthSection from "@/components/home/sections/strengthSection";
 import TeacherSection from "@/components/home/sections/teacherSection";
+import { Suspense } from "react";
 
 export default function HomePage() {
   return (
@@ -14,23 +15,25 @@ export default function HomePage() {
         <HomeSection />
       </section>
       <section className="bg-ws-background">
-          <AboutSection />
-        </section>
-        <section className="">
-          <CoursesSection />
-        </section>
-        <section className="">
-          <TeacherSection />
-        </section>
-        <section className=" bg-ws-background">
-          <StrengthSection />
-        </section>
-        <section className="bg-ws-background">
-          <AccompanimentSection />
-        </section>
-        <section className="">
+        <AboutSection />
+      </section>
+      <section className="">
+        <CoursesSection />
+      </section>
+      <section className="">
+        <TeacherSection />
+      </section>
+      <section className=" bg-ws-background">
+        <StrengthSection />
+      </section>
+      <section className="bg-ws-background">
+        <AccompanimentSection />
+      </section>
+      <section className="">
+        <Suspense>
           <ContactSection />
-        </section>
+        </Suspense>
+      </section>
     </main>
   );
 }
