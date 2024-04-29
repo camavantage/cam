@@ -4,12 +4,12 @@ import { redirect } from "next/navigation";
 
 export default async function SetupPage() {
   const app = await getAppSetup();
-  if (app) {
-    redirect("/ws");
+  if (!app) {
+    return (
+      <div className=" bg-ws-background">
+        <SetupForm />
+      </div>
+    );
   }
-  return (
-    <div className=" bg-ws-background">
-      <SetupForm />
-    </div>
-  );
+  redirect("/ws");
 }
