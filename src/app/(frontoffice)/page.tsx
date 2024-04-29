@@ -1,12 +1,9 @@
 import AboutSection from "@/components/home/sections/aboutSection";
 import AccompanimentSection from "@/components/home/sections/accompanimentSection";
-import ContactSection from "@/components/home/sections/contactSection";
 import CoursesSection from "@/components/home/sections/coursesSection";
 import HomeSection from "@/components/home/sections/homeSection";
-import SloganSection from "@/components/home/sections/sloganSection";
 import StrengthSection from "@/components/home/sections/strengthSection";
 import TeacherSection from "@/components/home/sections/teacherSection";
-import { Suspense } from "react";
 
 export default function HomePage() {
   return (

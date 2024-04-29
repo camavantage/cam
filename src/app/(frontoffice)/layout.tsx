@@ -1,6 +1,6 @@
 import { SiteFooter } from "@/components/footer";
 import { SiteHeader } from "@/components/header";
-import ContactSection from "@/components/home/sections/contactSection";
+import { NewsletterSection } from "@/components/newsletter-section";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import React, { Suspense } from "react";
 
@@ -15,7 +15,7 @@ export default function FrontOfficeLayout({
       {children}
       <section className="">
         <Suspense>
-          <ContactSection />
+          <NewsletterSection />
         </Suspense>
       </section>
       <SiteFooter/>

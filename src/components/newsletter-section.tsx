@@ -28,7 +28,7 @@ const formData = z.object({
     .email({ message: "Email invalide" }),
 });
 
-const ContactSection: React.FC = () => {
+export const NewsletterSection: React.FC = () => {
   const form = useForm<z.infer<typeof formData>>({
     resolver: zodResolver(formData),
   });
@@ -38,7 +38,7 @@ const ContactSection: React.FC = () => {
       <PageHeaderHeading>Abonnez-vous à notre newsletter</PageHeaderHeading>
       <PageHeaderDescription>
       Pour ne rien
-                    rater, inscrivez-vous à notre newsletter par e-mail et débloquez l&apos;accès au
+                    rater, inscrivez-vous à notre newsletter et débloquez l&apos;accès au
         contenu réservé aux membres et aux mises à jour exclusives.
       </PageHeaderDescription>
       <PageActions>
@@ -82,4 +82,4 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection;
+
