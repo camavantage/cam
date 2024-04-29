@@ -68,12 +68,12 @@ export default function AboutPage() {
             <CardTitle className=" font-bold text-2xl">
               Histoire de passion
             </CardTitle>
-            <CardDescription className=" leading-7 text-base">
+            <CardDescription className=" leading-3 text-base">
               De Benjamin Kamala & CAM/AVANTAGE
             </CardDescription>
           </CardHeader>
           <CardContent className="px-0 text-muted-foreground text-justify">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
             <p className="leading-7 [&:not(:first-child)]:mt-6">
               Dès son plus jeune âge, Benjamin Kamala a été attiré par le monde
