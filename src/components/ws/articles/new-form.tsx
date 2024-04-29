@@ -66,11 +66,12 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   tags,
   authors,
 }) => {
+
   const router = useRouter();
   const editor = useCreateBlockNote({
-    uploadFile: async (file: File) => {
-      return await uploadFile(file);
-    },
+    // uploadFile: async (file: File) => {
+    //   return await uploadFile(file);
+    // },
   });
   const { theme } = useTheme();
   const [loading, setLoading] = useState<boolean>(false);
@@ -98,13 +99,13 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
     },
   });
 
-  useEffect(() => {
-    async function loadInitialHTMLContent() {
-      const blocks = await editor.tryParseHTMLToBlocks("");
-      editor.replaceBlocks(editor.document, blocks);
-    }
-    loadInitialHTMLContent();
-  }, []);
+  // useEffect(() => {
+  //   async function loadInitialHTMLContent() {
+  //     const blocks = await editor.tryParseHTMLToBlocks("");
+  //     editor.replaceBlocks(editor.document, blocks);
+  //   }
+  //   loadInitialHTMLContent();
+  // }, []);
   return <div>Ok New article</div>;
   // async function onSubmit(values: NewArticleFormSchemaType) {
   //   setLoading(true);
