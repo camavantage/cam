@@ -28,7 +28,7 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <div className="px-6 md:px-0">
           <div>
-            <h1 className=" text-3xl font-semibold">{article.title}</h1>
+            <h1 className=" text-3xl font-bold">{article.title}</h1>
             <p className=" text-muted-foreground">{article.description}</p>
             <div className="flex">
               {article.tags.map((tag) => (
