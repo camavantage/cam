@@ -19,6 +19,7 @@ import { GoTrophy } from "react-icons/go";
 import { PiStudent } from "react-icons/pi";
 import { RxSun } from "react-icons/rx";
 import { IoBookOutline } from "react-icons/io5";
+import LogoIcon from "@/components/icons/logoIcon";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
@@ -92,9 +93,9 @@ export default function AboutPage() {
               <p className=" text-muted-foreground">Fondateur et CEO</p>
             </div>
           </div>
-          <div className={`grid grid-cols-2 gap-2 md:gap-4 mt-8  `}>
+          <div className={`grid grid-cols-2 gap-2 md:gap-6 mt-8  `}>
             <div className={`flex items-center space-x-3 `}>
-            <IoBookOutline  className="h-10 w-10  text-cam-green-800 " />
+              <IoBookOutline className="h-10 w-10  text-cam-green-800 " />
               <div>
                 <h6 className="text-xl font-bold text-cam-yellow-900">6</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
@@ -103,7 +104,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className={`flex items-center space-x-3 `}>
-            <PiStudent  className="h-10 w-10 text-cam-green-800 " />
+              <PiStudent className="h-10 w-10 text-cam-green-800 " />
               <div>
                 <h6 className="text-xl font-bold text-cam-yellow-900">78</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
@@ -210,6 +211,39 @@ export default function AboutPage() {
           </CardContent>
         </Card>
       </article>
+      <div className="grid md:grid-cols-2  max-w-6xl mx-auto pt-8 pb-10 md:py-10 px-4">
+        <div className="flex flex-col justify-end md:px-20 md:pb-10">
+          <small className="font-bold text-2xl">Notre logo</small>
+          <p className="mb-10 text-base">
+            Au centre du logo, se trouve un A stylisé, représentant la première
+            lettre du mot "Avantage" ou "Apprentissage" ou encore "Académie". Ce A est dessiné de
+            manière moderne et élégante, évoquant à la fois la tradition et
+            l&apos;innovation
+          </p>
+          <div className="flex items-center space-x-4 mb-6">
+            <LogoIcon className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
+            <div className="border-2 h-16 border-cam-green-800" />
+            <div>
+              <small className="text-xs">CAM/AVANTAGE</small>
+              <p className=" font-medium">
+                <span className=" ">C</span>entre d&apos;
+                <span className=" ">A</span>pprentisage et des{" "}
+                <span className=" ">M</span>étiers <span className=" ">A</span>
+                vantage
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center relative mt-6">
+          <Image
+            src="/assets/images/cam-image-home-illustration.jpg"
+            alt="Avantage illustration image"
+            height={512}
+            width={512}
+            className={`h-64 w-64 md:h-96 rounded-full md:w-96`}
+          />
+        </div>
+      </div>
     </main>
   );
 }
