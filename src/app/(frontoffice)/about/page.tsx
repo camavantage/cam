@@ -69,7 +69,7 @@ export default function AboutPage() {
               Histoire de passion
             </CardTitle>
             <CardDescription className=" leading-3 text-base">
-              De Benjamin Kamala & CAM/AVANTAGE
+              Benjamin Kamala & CAM/AVANTAGE
             </CardDescription>
           </CardHeader>
           <CardContent className="px-0 text-muted-foreground text-justify">
