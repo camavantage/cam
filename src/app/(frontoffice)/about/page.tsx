@@ -44,7 +44,7 @@ export default function AboutPage() {
             <span>CAM/AVANTAGE</span>
           </Link>
           <PageHeaderHeading>Qui sommes-nous?</PageHeaderHeading>
-          <PageHeaderDescription className=" text-muted-foreground">
+          <PageHeaderDescription className="">
             Nous sommes un Centre d&apos;Apprentisage et des Métiers Avantage.
             Une école privé déclarée au ministère de la formation
             professionnelle, fondé par passion à 2020 par Benjamin Kamala.

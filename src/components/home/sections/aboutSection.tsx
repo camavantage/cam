@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
       <PageHeader>
         <LogoWithtext className="h-20 w-20 " />
         <PageHeaderHeading className="">Qui sommes-nous?</PageHeaderHeading>
-        <PageHeaderDescription className="text-muted-foreground">
+        <PageHeaderDescription className="">
           Nous sommes un centre d&apos;apprentisage et des Métiers. Un
           établissement privé déclaré au ministère de la formation
           professionnelle. Partenaire Officiel du groupe des centres

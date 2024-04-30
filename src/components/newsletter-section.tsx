@@ -36,7 +36,7 @@ export const NewsletterSection: React.FC = () => {
   return (
     <PageHeader>
       <PageHeaderHeading>Abonnez-vous à notre newsletter</PageHeaderHeading>
-      <PageHeaderDescription className=" text-muted-foreground">
+      <PageHeaderDescription className="">
         Pour ne rien rater, inscrivez-vous à notre newsletter et débloquez
         l&apos;accès au contenu réservé aux membres et aux mises à jour
         exclusives.
