@@ -185,7 +185,7 @@ export default async function ArticlesPage({
                       <h1 className=" text-3xl font-semibold">
                         {article.title}
                       </h1>
-                      <div className="flex">
+                      <div className="flex mt-4">
                         {article.tags.map((tag) => (
                           <p
                             key={tag.tagId}
