@@ -143,7 +143,7 @@ export default function AboutPage() {
               Benjamin Kamala & CAM/AVANTAGE
             </CardDescription>
           </CardHeader>
-          <CardContent className="px-0 text-muted-foreground text-justify">
+          <CardContent className="px-0 text-justify">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="leading-7 [&:not(:first-child)]:mt-6">
@@ -214,12 +214,13 @@ export default function AboutPage() {
       <div className="grid md:grid-cols-2  max-w-6xl mx-auto pt-8 pb-10 md:py-10 px-4">
         <div className="flex flex-col justify-end md:px-20 md:pb-10">
           <small className="font-bold text-2xl">Notre logo</small>
-          <p className="mb-10 text-base">
+          <p className=" text-base">
             Au centre du logo, se trouve un A stylisé, représentant la première
             lettre du mot Avantage ou Apprentissage ou encore Académie. Ce A est dessiné de
             manière moderne et élégante, évoquant à la fois la tradition et
             l&apos;innovation
           </p>
+          <p className="mb-10 text-base">À l&apos;intérieur de la lettre A, sont intégrés des grains de blé, symbolisant la base essentielle de la boulangerie et de la pâtisserie. Ces grains de blé peuvent être représentés de manière subtile, en formant une texture ou en étant stylisés pour s&apos;intégrer harmonieusement à la forme de A.</p>
           <div className="flex items-center space-x-4 mb-6">
             <LogoIcon className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
             <div className="border-2 h-16 border-cam-green-800" />
