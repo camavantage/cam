@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const poppins = Montserrat();
+const poppins = Montserrat({subsets:["latin"]});
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
