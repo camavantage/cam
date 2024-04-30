@@ -19,6 +19,7 @@ import { GoTrophy } from "react-icons/go";
 import { PiStudent } from "react-icons/pi";
 import { RxSun } from "react-icons/rx";
 import { IoBookOutline } from "react-icons/io5";
+import { CiLight } from "react-icons/ci";
 import LogoIcon from "@/components/icons/logoIcon";
 
 export const metadata: Metadata = {
@@ -227,19 +228,16 @@ export default function AboutPage() {
             subtile, en formant une texture ou en étant stylisés pour
             s&apos;intégrer harmonieusement à la forme de A.
           </p>
-          {/* <div className="flex items-center space-x-4 mb-6">
-            <LogoIcon className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
+          <div className="flex items-center space-x-4 mb-6">
+          <CiLight  className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
             <div className="border-2 h-16 border-cam-green-800" />
             <div>
-              <small className="text-xs">CAM/AVANTAGE</small>
+              <small className="text-xs">Slogan</small>
               <p className=" font-medium">
-                <span className=" ">C</span>entre d&apos;
-                <span className=" ">A</span>pprentisage et des{" "}
-                <span className=" ">M</span>étiers <span className=" ">A</span>
-                vantage
+              Vivre le présent!
               </p>
             </div>
-          </div> */}
+          </div>
         </div>
         <div className="flex justify-center relative mt-6">
           <Image
