@@ -8,10 +8,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import prisma from "@/lib/prisma";
-import { getHSLColor } from "@/lib/utils";
+import { cn, getHSLColor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { BiShareAlt } from "react-icons/bi";
+import Balancer from "react-wrap-balancer";
 
 const getArticle = async (slug: string) => {
   const article = await prisma.article.findUnique({
@@ -34,12 +35,19 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <div className="px-6 md:px-0">
           <div>
-            <PageHeader>
-              <PageHeaderHeading>{article.title}</PageHeaderHeading>
-              <PageHeaderDescription>
-                {article.description}
-              </PageHeaderDescription>
-              <div className="flex">
+            <div className="space-y-2">
+              <h1
+                className={cn("scroll-m-20 text-4xl font-bold tracking-tight")}
+              >
+                {article.title}
+              </h1>
+              {article.description && (
+                <p className="text-lg text-muted-foreground">
+                  <Balancer>{article.description}</Balancer>
+                </p>
+              )}
+            </div>
+            {article.tags&&<div className="flex items-center space-x-2 pt-4">
                 {article.tags.map((tag) => (
                   <Badge
                     key={tag.tagId}
@@ -50,8 +58,13 @@ export default async function ArticlePage({
                     {tag.tag.name}
                   </Badge>
                 ))}
-              </div>
-            </PageHeader>
+              </div>}
+            {/* <PageHeader>
+              <PageHeaderHeading>{article.title}</PageHeaderHeading>
+              <PageHeaderDescription>
+                {article.description}
+              </PageHeaderDescription>
+            </PageHeader> */}
             {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
             <p className=" text-muted-foreground">{article.description}</p> */}
             {/* <div className="flex">
