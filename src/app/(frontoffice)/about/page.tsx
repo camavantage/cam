@@ -15,10 +15,10 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FiUsers } from "react-icons/fi";
 import { GoTrophy } from "react-icons/go";
-import { HiOutlineAcademicCap } from "react-icons/hi";
+import { PiStudent } from "react-icons/pi";
 import { RxSun } from "react-icons/rx";
+import { IoBookOutline } from "react-icons/io5";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
@@ -77,7 +77,7 @@ export default function AboutPage() {
             Un véritable ambassadeur de la boulangerie-pâtisserie en République
             Démocratique du Congo. Son parcours inspirant témoigne de la
             puissance des rêves et de la joie de partager sa passion avec le
-            monde
+            monde.
           </p>
           <div className="flex space-x-2 my-5">
             <Image
@@ -93,8 +93,8 @@ export default function AboutPage() {
             </div>
           </div>
           <div className={`grid grid-cols-2 gap-2 md:gap-4 mt-8  `}>
-            <div className={`flex items-center space-x-2 `}>
-              <HiOutlineAcademicCap className="h-10 w-10  text-cam-green-800 " />
+            <div className={`flex items-center space-x-3 `}>
+            <IoBookOutline  className="h-10 w-10  text-cam-green-800 " />
               <div>
                 <h6 className="text-xl font-bold text-cam-yellow-900">6</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
@@ -102,8 +102,8 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className={`flex items-center space-x-2 `}>
-              <FiUsers className="h-10 w-10 text-cam-green-800 " />
+            <div className={`flex items-center space-x-3 `}>
+            <PiStudent  className="h-10 w-10 text-cam-green-800 " />
               <div>
                 <h6 className="text-xl font-bold text-cam-yellow-900">78</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className={`flex items-center space-x-2 `}>
+            <div className={`flex items-center space-x-3 `}>
               <RxSun className="h-10 w-10  text-cam-green-800" />
               <div>
                 <h6 className="text-xl font-bold text-cam-yellow-900">18</h6>
@@ -120,10 +120,10 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className={`flex items-center space-x-2 `}>
+            <div className={`flex items-center space-x-3 `}>
               <GoTrophy className="h-10 w-10  text-cam-green-800" />
               <div>
-                <h6 className="text-xl font-bold text-cam-yellow-900">1</h6>
+                <h6 className="text-xl font-bold">1</h6>
                 <p className="flex-1 text-sm text-muted-foreground ">
                   Prix d&apos;excelence
                 </p>
