@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const beVietnamPro = Be_Vietnam_Pro({ weight: "400", subsets:["vietnamese"]  });
+const beVietnamPro = Be_Vietnam_Pro({ weight: "400", subsets:["latin"]  });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
