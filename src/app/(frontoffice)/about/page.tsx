@@ -24,15 +24,15 @@ import { CiLight } from "react-icons/ci";
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
   description:
-    "Centre d'Apprentisage et des Métiers Avantage. Une école privé déclarée au ministère de la formation professionnelle,fondé par passion à 2020 par Benjamin Kamala.",
+    "Nous sommes un Centre d'Apprentisage et des Métiers Avantage. Une école privé déclarée au ministère de la formation professionnelle",
   keywords: [
     "avantage",
     "cam/avanatge",
     "centre de formation",
     "formation professionnelle",
     "Benjamin Kamala",
-    "DRC",
-    "Congo",
+    "Logo avantage",
+    "Slogan avantage",
   ],
 };
 
@@ -211,7 +211,7 @@ export default function AboutPage() {
           </CardContent>
         </Card>
       </article>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-8 pb-10 md:py-10 px-6 lg:px-0">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-6 pb-10 md:py-10 px-6 lg:px-0">
         <div className="flex flex-col justify-end">
           <small className="font-bold text-2xl">Notre logo</small>
           <p className=" text-base">
@@ -228,13 +228,11 @@ export default function AboutPage() {
             s&apos;intégrer harmonieusement à la forme de A.
           </p>
           <div className="flex items-center space-x-4 mb-6">
-          <CiLight  className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
+            <CiLight className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
             <div className="w-[2px] h-16 bg-primary" />
             <div>
               <small className="text-xs">Slogan</small>
-              <p className=" font-medium">
-              Vivre le présent!
-              </p>
+              <p className=" font-medium">Vivre le présent!</p>
             </div>
           </div>
         </div>
