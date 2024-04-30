@@ -216,7 +216,7 @@ export default function AboutPage() {
           <small className="font-bold text-2xl">Notre logo</small>
           <p className="mb-10 text-base">
             Au centre du logo, se trouve un A stylisé, représentant la première
-            lettre du mot "Avantage" ou "Apprentissage" ou encore "Académie". Ce A est dessiné de
+            lettre du mot Avantage ou Apprentissage ou encore Académie. Ce A est dessiné de
             manière moderne et élégante, évoquant à la fois la tradition et
             l&apos;innovation
           </p>
