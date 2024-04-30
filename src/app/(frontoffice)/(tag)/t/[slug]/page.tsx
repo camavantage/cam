@@ -101,7 +101,7 @@ export default async function TagPage({
             </Card>
           </Link>
         ))}
-      </div>{" "}
+      </div>
     </div>
   );
 }

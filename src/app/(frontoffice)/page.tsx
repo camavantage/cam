@@ -4,6 +4,7 @@ import CoursesSection from "@/components/home/sections/coursesSection";
 import HomeSection from "@/components/home/sections/homeSection";
 import StrengthSection from "@/components/home/sections/strengthSection";
 import TeacherSection from "@/components/home/sections/teacherSection";
+import { LatestArticles } from "@/components/latest-articles";
 
 export default function HomePage() {
   return (
@@ -26,7 +27,7 @@ export default function HomePage() {
       <section className="bg-ws-background">
         <AccompanimentSection />
       </section>
-      
+      <LatestArticles/>
     </main>
   );
 }
