@@ -5,7 +5,9 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/data/site";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -27,11 +29,17 @@ export default function ContactPage() {
         <PageHeaderHeading>Nous contacter</PageHeaderHeading>
         <PageHeaderDescription>
           Pour nous contacter, vous pouvez nous adresser un e-mail à
-          l&apos;adresse suivante: contact@cam-avantage.com. Nous vous
-          répondrons dans les plus brefs délais.
+          l&apos;adresse suivante: contact@cam-avantage.com. Vous pouvez nous
+          contacter également sur whatsapp et Facebook. Nous vous répondrons
+          dans les plus brefs délais.
         </PageHeaderDescription>
         <PageActions>
-          <Button>Whatsapp</Button> <Button>Facebook</Button>
+          <Link href={siteConfig.links.whatsapp}>
+            <Button>Whatsapp</Button>
+          </Link>
+          <Link href={siteConfig.links.facebook}>
+            <Button>Facebook</Button>
+          </Link>
         </PageActions>
       </PageHeader>
     </main>
