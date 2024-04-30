@@ -7,7 +7,7 @@ const HomeSection: React.FC = () => {
     <div className="grid md:grid-cols-2  max-w-6xl mx-auto pt-8 pb-10 md:py-10 px-4">
       <div className="flex flex-col justify-end md:px-20 md:pb-10">
         <small className="font-bold text-2xl">Depuis 2020,</small>
-        <p className=" text-muted-foreground mb-10 text-base">
+        <p className="mb-10 text-base">
           nous redonnons le plaisir d&apos;
           <span className="overline font-bold text-cam-green-900">
             apprendre

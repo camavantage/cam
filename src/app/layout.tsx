@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Poppins,Montserrat, Josefin_Sans } from "next/font/google";
+import { Josefin_Sans } from "next/font/google";
 import "@blocknote/react/style.css";
 import { Toaster } from "@/components/ui/toaster";
 import { getAppSetup } from "@/actions/ws/setup";
@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const poppins = Josefin_Sans({subsets:["latin"]});
+const josefinSans = Josefin_Sans({subsets:["latin"]});
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={poppins.className}>
+      <body className={josefinSans.className}>
         <Providers>
           {children}
           <Toaster />

@@ -1,6 +1,12 @@
 import Image from "next/image";
 import s from "@/styles/Home.module.scss";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const courses = [
   {
@@ -68,25 +74,16 @@ const courses = [
 const CoursesSection: React.FC = () => {
   return (
     <div className=" max-w-5xl mx-auto py-10 px-4">
-      {/* <div className="mb-9">
-        <h1 className="text-center font-bold text-xl mb-1">Nos formations</h1>
-        <p className="text-center text-muted-foreground text-sm px-2 max-w-xl mx-auto">
-          Apprenez un métier essentiel à votre rythme avec nos formations en
-          ligne accessibles partout et tout le temps ou directement dans nos
-          locaux.
-        </p>
-      </div> */}
       <Card className=" border-none shadow-none">
         <CardHeader className="px-0">
           <CardTitle className=" text-2xl font-bold">Nos formations</CardTitle>
           <div className="grid grid-cols-1 lg:grid-cols-3">
-          <CardDescription className="lg:col-span-2 text-base ">
-            Apprenez un métier essentiel à votre rythme avec nos formations en
-            ligne accessibles partout et tout le temps ou directement dans nos
-            locaux.
-          </CardDescription>
+            <CardDescription className="lg:col-span-2 text-base ">
+              Apprenez un métier essentiel à votre rythme avec nos formations en
+              ligne accessibles partout et tout le temps ou directement dans nos
+              locaux.
+            </CardDescription>
           </div>
-          
         </CardHeader>
         <CardContent className="px-0">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 pt-6">
