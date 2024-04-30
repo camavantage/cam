@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { Card, CardContent, CardHeader } from "./ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
@@ -14,10 +14,20 @@ const getLastArticles = async (number?: number) => {
   return articles;
 };
 export async function LatestArticles() {
-  const articles = await getLastArticles(6);
+  const articles = await getLastArticles();
   return (
-    <section>
-      <div className="max-w-screen-md mx-auto px-6 md:px-0">
+    <section className="max-w-screen-md mx-auto px-6 md:px-0">
+        <Card className=" border-none shadow-none rounded-none bg-transparent">
+          <CardHeader className="px-0 pt-0">
+            <CardTitle className=" font-bold text-2xl">
+            Récemment dans recettes et astuces
+            </CardTitle>
+            <CardDescription className=" leading-3 text-base">
+            Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+          <div className="">
         {articles.map((article) => (
           <Link key={article.id} href={`/${article.slug}`}>
             <Card className=" border-none shadow-none">
@@ -58,6 +68,9 @@ export async function LatestArticles() {
           </Link>
         ))}
       </div>
+          </CardContent>
+          </Card>
+      
     </section>
   );
 }
