@@ -97,7 +97,7 @@ export default function AboutPage() {
             <div className={`flex items-center space-x-3 `}>
               <IoBookOutline className="h-10 w-10  text-cam-green-800 " />
               <div>
-                <h6 className="text-xl font-bold text-cam-yellow-900">6</h6>
+                <h6 className="text-xl font-bold text-cam-yellow-900">10</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
                   Formations
                 </p>
@@ -106,7 +106,7 @@ export default function AboutPage() {
             <div className={`flex items-center space-x-3 `}>
               <PiStudent className="h-10 w-10 text-cam-green-800 " />
               <div>
-                <h6 className="text-xl font-bold text-cam-yellow-900">78</h6>
+                <h6 className="text-xl font-bold text-cam-yellow-900">107</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
                   Etudiants
                 </p>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             <div className={`flex items-center space-x-3 `}>
               <RxSun className="h-10 w-10  text-cam-green-800" />
               <div>
-                <h6 className="text-xl font-bold text-cam-yellow-900">18</h6>
+                <h6 className="text-xl font-bold text-cam-yellow-900">23</h6>
                 <p className="flex-1 text-sm text-muted-foreground">
                   Entrepreneurs
                 </p>
