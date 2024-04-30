@@ -180,7 +180,7 @@ export default async function ArticlesPage({
                       </p>
                     </div>
                   </div>
-                  <div className="flex pt-3 md:pl-[52px]">
+                  <div className="flex pt-3 space-x-3 md:pl-[52px]">
                     <div className="flex-1">
                       <h1 className=" text-3xl font-semibold">
                         {article.title}
