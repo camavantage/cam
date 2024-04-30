@@ -12,7 +12,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Nous sommes un Centre d'Apprentisage et des Métiers Avantage. Une école privé déclarée au ministère de la formation professionnelle",
+    "Vous pouvez nous adresser un e-mail à l'adresse suivante: contact@cam-avantage.com. Vous pouvez également nous contacter sur whatsapp et Facebook.",
   keywords: [
     "contact avantage",
     "cam/avanatge",
