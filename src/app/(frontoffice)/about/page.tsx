@@ -237,8 +237,8 @@ export default function AboutPage() {
         </div>
         <div className="flex justify-center relative mt-6">
           <Image
-            src="/assets/images/cam-image-home-illustration.jpg"
-            alt="Avantage illustration image"
+            src="/assets/log.jpg"
+            alt="Avantage"
             height={512}
             width={512}
             className={`h-64 w-64 md:h-96 rounded-full md:w-96`}
