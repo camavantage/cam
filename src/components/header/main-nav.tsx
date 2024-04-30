@@ -12,11 +12,10 @@ export function MainNav() {
 
   return (
     <div className="mr-4 hidden md:flex">
-      <Link href="/" className="mr-6 flex items-center space-x-4">
-       <Logo className="w-4 h-4" />
-        <span className="hidden font-extrabold text-[18px] sm:inline-block">
-          CAM/AVANTAGE
-        </span>
+      <Link href="/" className="mr-6 flex items-center text-[18px] font-extrabold  sm:inline-block">
+        <span className=" text-[#FEAA00]">
+          CAM</span>/AVANTAGE
+        
       </Link>
       <nav className="flex items-center gap-4 text-base lg:gap-6">
         <Link
