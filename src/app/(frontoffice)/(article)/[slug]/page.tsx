@@ -1,4 +1,4 @@
-import { Mdx } from "@/components/mdx";
+// import { Mdx } from "@/components/mdx";
 import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -90,7 +90,7 @@ export default async function ArticlePage({
         </div>
         <div className="p-6 bg-background rounded-b-md">
           <div dangerouslySetInnerHTML={{ __html: article.content }} />
-          <Mdx code={article.markdown}/>
+          {/* <Mdx code={article.markdown}/> */}
         </div>
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
