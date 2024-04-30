@@ -216,9 +216,9 @@ export default function AboutPage() {
           <small className="font-bold text-2xl">Notre logo</small>
           <p className=" text-base">
             Au centre du logo, se trouve un A stylisé, représentant la première
-            lettre du mot Avantage ou Apprentissage ou encore Académie. Ce A est
-            dessiné de manière moderne et élégante, évoquant à la fois la
-            tradition et l&apos;innovation.
+            lettre du mot Avantage ou Apprentissage. Ce A est dessiné de manière
+            moderne et élégante, évoquant à la fois la tradition et
+            l&apos;innovation.
           </p>
           <p className="mb-10 mt-6 text-base">
             À l&apos;intérieur de la lettre A, sont intégrés des grains de blé,
@@ -227,7 +227,7 @@ export default function AboutPage() {
             subtile, en formant une texture ou en étant stylisés pour
             s&apos;intégrer harmonieusement à la forme de A.
           </p>
-          <div className="flex items-center space-x-4 mb-6">
+          {/* <div className="flex items-center space-x-4 mb-6">
             <LogoIcon className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
             <div className="border-2 h-16 border-cam-green-800" />
             <div>
@@ -239,7 +239,7 @@ export default function AboutPage() {
                 vantage
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-center relative mt-6">
           <Image
