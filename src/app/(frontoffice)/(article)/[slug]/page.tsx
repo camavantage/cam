@@ -124,7 +124,7 @@ export default async function ArticlePage({
           </div>
           <div className=" mt-6">
             {/* <h1 className=" text-3xl font-semibold">Auteur</h1> */}
-            <h3 className=" text-2xl font-semibold left-[30px]">
+            <h3 className=" text-2xl font-bold left-[30px]">
               {article.author?.name}
             </h3>
             <p className=" text-muted-foreground text-sm">
