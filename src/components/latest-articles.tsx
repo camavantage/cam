@@ -16,7 +16,7 @@ const getLastArticles = async (number?: number) => {
 export async function LatestArticles() {
   const articles = await getLastArticles();
   return (
-    <section className="max-w-screen-md mx-auto px-6 md:px-0">
+    <section className="max-w-5xl mx-auto pt-12 px-6 md:px-0">
         <Card className=" border-none shadow-none rounded-none bg-transparent">
           <CardHeader className="px-0 pt-0">
             <CardTitle className=" font-bold text-2xl">

@@ -2,6 +2,7 @@ import AboutSection from "@/components/home/sections/aboutSection";
 import AccompanimentSection from "@/components/home/sections/accompanimentSection";
 import CoursesSection from "@/components/home/sections/coursesSection";
 import HomeSection from "@/components/home/sections/homeSection";
+import SloganSection from "@/components/home/sections/sloganSection";
 import StrengthSection from "@/components/home/sections/strengthSection";
 import TeacherSection from "@/components/home/sections/teacherSection";
 import { LatestArticles } from "@/components/latest-articles";
@@ -24,10 +25,13 @@ export default function HomePage() {
       <section className=" bg-ws-background">
         <StrengthSection />
       </section>
+      <section>
+        <SloganSection />
+      </section>
       <section className="bg-ws-background">
         <AccompanimentSection />
       </section>
-      <LatestArticles/>
+      <LatestArticles />
     </main>
   );
 }
