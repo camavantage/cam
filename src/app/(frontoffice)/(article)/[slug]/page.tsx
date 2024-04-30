@@ -1,3 +1,4 @@
+import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -28,8 +29,12 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <div className="px-6 md:px-0">
           <div>
-            <h1 className=" text-3xl font-bold">{article.title}</h1>
-            <p className=" text-muted-foreground">{article.description}</p>
+            <PageHeader>
+              <PageHeaderHeading>{article.title}</PageHeaderHeading>
+              <PageHeaderDescription>{article.description}</PageHeaderDescription>
+            </PageHeader>
+            {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
+            <p className=" text-muted-foreground">{article.description}</p> */}
             <div className="flex">
               {article.tags.map((tag) => (
                 <Badge
