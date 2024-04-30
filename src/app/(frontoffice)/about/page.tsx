@@ -53,7 +53,7 @@ export default function AboutPage() {
           </PageHeaderDescription>
           <PageActions>
             <Link href="/about#story">
-              <Button className="rounded-full">Une histoire de passion</Button>
+              <Button className="rounded-full">Histoire de passion</Button>
             </Link>
           </PageActions>
         </PageHeader>
