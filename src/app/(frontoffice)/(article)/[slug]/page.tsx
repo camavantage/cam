@@ -93,16 +93,18 @@ export default async function ArticlePage({
           <div dangerouslySetInnerHTML={{ __html: article.content }} />
           {/* <Mdx code={article.markdown}/> */}
         </div>
-        {article.tags && (
-          <div className="flex items-center space-x-2 pt-4">
-            {article.tags.map((tag) => (
-              <Badge key={tag.tagId} variant="outline" className="lowercase ">
-                <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
-                {tag.tag.name}
-              </Badge>
-            ))}
-          </div>
-        )}
+        <div className=" px-6 lg:px-0">
+          {article.tags && (
+            <div className="flex items-center space-x-2 pt-4">
+              {article.tags.map((tag) => (
+                <Badge key={tag.tagId} variant="outline" className="lowercase ">
+                  <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
+                  {tag.tag.name}
+                </Badge>
+              ))}
+            </div>
+          )}
+        </div>
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
             <Avatar className=" h-20 w-20">
