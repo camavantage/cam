@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Karla } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
 import "@blocknote/react/style.css";
 import { Toaster } from "@/components/ui/toaster";
 import { getAppSetup } from "@/actions/ws/setup";
@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const karla = Karla({ subsets: ["latin"] });
+const be_Vietnam_Pro = Be_Vietnam_Pro({ weight: "400" });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={karla.className}>
+      <body className={be_Vietnam_Pro.className}>
         <Providers>
           {children}
           <Toaster />
