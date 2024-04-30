@@ -153,7 +153,7 @@ export default async function ArticlesPage({
           </div>
         </Link>
       )} */}
-      <div className="p-6">
+      <div className="">
         <div className={cn("pb-2", searchParams.q ? "block" : "hidden")}>
           <h1 className="text-sm">
             Résultats de recherche pour {searchParams.q}
