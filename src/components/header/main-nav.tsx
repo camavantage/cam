@@ -13,9 +13,9 @@ export function MainNav() {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-4">
-       {/* <Logo className=" w-4 h-4" /> */}
+       <Logo className="w-4 h-4" />
         <span className="hidden font-extrabold text-[18px] sm:inline-block">
-          {siteConfig.name}
+          CAM/AVANTAGE
         </span>
       </Link>
       <nav className="flex items-center gap-4 text-base lg:gap-6">
