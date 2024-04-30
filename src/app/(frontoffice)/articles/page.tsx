@@ -162,7 +162,7 @@ export default async function ArticlesPage({
         <div className=" grid grid-cols-1 gap-3">
           {articles.map((article) => (
             <Link href={`/${article.slug}`} key={article.id}>
-              <div className="flex p-6 bg-background rounded-md hover:shadow-sm">
+              <div className="flex p-6 bg-background rounded-md shadow-sm hover:border">
                 <div className="flex-1">
                   <div className="flex space-x-3">
                     <Avatar>
