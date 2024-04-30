@@ -211,7 +211,7 @@ export default function AboutPage() {
           </CardContent>
         </Card>
       </article>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-6 pb-10 md:py-10 px-6 lg:px-0">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-4 pb-10 md:py-10 px-6 lg:px-0">
         <div className="flex flex-col justify-end">
           <small className="font-bold text-2xl">Notre logo</small>
           <p className=" text-base">
