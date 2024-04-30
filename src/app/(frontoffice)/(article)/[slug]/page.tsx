@@ -1,5 +1,9 @@
 // import { Mdx } from "@/components/mdx";
-import { PageHeader, PageHeaderDescription, PageHeaderHeading } from "@/components/page-header";
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -31,20 +35,22 @@ export default async function ArticlePage({
         <div className="px-6 md:px-0">
           <div>
             <PageHeader>
-            <div className="flex">
-              {article.tags.map((tag) => (
-                <Badge
-                  key={tag.tagId}
-                  variant="outline"
-                  className="mr-3 text-muted-foreground lowercase "
-                >
-                  <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
-                  {tag.tag.name}
-                </Badge>
-              ))}
-            </div>
               <PageHeaderHeading>{article.title}</PageHeaderHeading>
-              <PageHeaderDescription>{article.description}</PageHeaderDescription>
+              <PageHeaderDescription>
+                {article.description}
+              </PageHeaderDescription>
+              <div className="flex">
+                {article.tags.map((tag) => (
+                  <Badge
+                    key={tag.tagId}
+                    variant="outline"
+                    className="mr-3 text-muted-foreground lowercase "
+                  >
+                    <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
+                    {tag.tag.name}
+                  </Badge>
+                ))}
+              </div>
             </PageHeader>
             {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
             <p className=" text-muted-foreground">{article.description}</p> */}
