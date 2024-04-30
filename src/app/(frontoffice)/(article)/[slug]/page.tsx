@@ -89,7 +89,7 @@ export default async function ArticlePage({
             className=" object-cover w-full h-full"
           />
         </div>
-        <div className="p-6 bg-background rounded-b-md">
+        <div className="px-6 lg:px-0 py-6 bg-background rounded-b-md">
           <div dangerouslySetInnerHTML={{ __html: article.content }} />
           {/* <Mdx code={article.markdown}/> */}
         </div>
