@@ -25,9 +25,6 @@ export default function HomePage() {
       <section className=" bg-ws-background">
         <StrengthSection />
       </section>
-      <section className=" bg-ws-background">
-        <SloganSection />
-      </section>
       <section className="bg-ws-background">
         <AccompanimentSection />
       </section>
