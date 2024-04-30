@@ -20,7 +20,6 @@ import { PiStudent } from "react-icons/pi";
 import { RxSun } from "react-icons/rx";
 import { IoBookOutline } from "react-icons/io5";
 import { CiLight } from "react-icons/ci";
-import LogoIcon from "@/components/icons/logoIcon";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
@@ -212,7 +211,7 @@ export default function AboutPage() {
           </CardContent>
         </Card>
       </article>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-8 pb-10 md:py-10 px-4">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-2 pt-8 pb-10 md:py-10 px-6 lg:px-0">
         <div className="flex flex-col justify-end">
           <small className="font-bold text-2xl">Notre logo</small>
           <p className=" text-base">
@@ -230,7 +229,7 @@ export default function AboutPage() {
           </p>
           <div className="flex items-center space-x-4 mb-6">
           <CiLight  className="h-16 w-16 md:h-20 md:w-20 text-cam-green-800 inline-block" />
-            <div className="border-2 h-16 border-cam-green-800" />
+            <div className="w-[2px] h-16 bg-primary" />
             <div>
               <small className="text-xs">Slogan</small>
               <p className=" font-medium">
