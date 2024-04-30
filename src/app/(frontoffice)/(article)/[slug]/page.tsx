@@ -89,7 +89,7 @@ export default async function ArticlePage({
             </Avatar>
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
-              <p className=" text-sm text-muted-foreground">
+              <p className=" text-muted-foreground">
                 {article.updatedAt.toDateString()}
               </p>
             </div>
