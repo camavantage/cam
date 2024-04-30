@@ -8,7 +8,7 @@ export default function CoursesPage() {
   return (
     <div className="max-w-screen-lg mx-auto px-6 lg:px-0">
       <PageHeader>
-        <PageHeaderHeading>Les Formations adaptées</PageHeaderHeading>
+        <PageHeaderHeading>Les formations adaptées</PageHeaderHeading>
         <PageHeaderDescription>
           Apprenez un métier essentiel à votre rythme avec nos formations en
           ligne accessibles partout et tout le temps ou directement dans nos

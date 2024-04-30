@@ -99,7 +99,7 @@ export default async function ArticlePage({
               <Badge
                 key={tag.tagId}
                 variant="outline"
-                className="mr-3 text-muted-foreground lowercase "
+                className="text-muted-foreground lowercase "
               >
                 <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
                 {tag.tag.name}
