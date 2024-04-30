@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/data/site";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const be_Vietnam_Pro = Be_Vietnam_Pro({ weight: "400" });
+const beVietnamPro = Be_Vietnam_Pro({ weight: "400", subsets:["vietnamese"]  });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={be_Vietnam_Pro.className}>
+      <body className={beVietnamPro.className}>
         <Providers>
           {children}
           <Toaster />
