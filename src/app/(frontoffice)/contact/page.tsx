@@ -29,16 +29,19 @@ export default function ContactPage() {
         <PageHeaderHeading>Nous contacter</PageHeaderHeading>
         <PageHeaderDescription>
           Pour nous contacter, vous pouvez nous adresser un e-mail à
-          l&apos;adresse suivante: contact@cam-avantage.com. Vous pouvez nous
-          contacter également sur whatsapp et Facebook. Nous vous répondrons
-          dans les plus brefs délais.
+          l&apos;adresse suivante:{" "}
+          <Link href="mailto:contact@cam-avantage.com" className=" text-blue-400">
+            contact@cam-avantage.com
+          </Link>
+          . Vous pouvez également nous contacter  sur whatsapp et Facebook. Nous
+          vous répondrons dans les plus brefs délais.
         </PageHeaderDescription>
         <PageActions>
           <Link href={siteConfig.links.whatsapp}>
-            <Button>Whatsapp</Button>
+            <Button className=" rounded-full bg-[#128c7e]">Whatsapp</Button>
           </Link>
           <Link href={siteConfig.links.facebook}>
-            <Button>Facebook</Button>
+            <Button className=" rounded-full bg-[#3b5998]">Facebook</Button>
           </Link>
         </PageActions>
       </PageHeader>
