@@ -83,7 +83,7 @@ export default async function ArticlesPage({
     <div className=" max-w-screen-lg mx-auto px-6 lg:px-0">
       <PageHeader>
         <PageHeaderHeading>Recettes et Astuces</PageHeaderHeading>
-        <PageHeaderDescription>
+        <PageHeaderDescription className=" text-muted-foreground">
           Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici
           l&apos;inspiration nécessaire pour épater vos convives et éveiller vos
           papilles. Des recettes revisitées aux créations originales, notre blog
