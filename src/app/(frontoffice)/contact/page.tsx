@@ -37,7 +37,7 @@ export default function ContactPage() {
             >
               contact@cam-avantage.com
             </Link>
-            . Vous pouvez également nous contacter sur whatsapp et Facebook.
+            . Vous pouvez également nous contacter sur Whatsapp et Facebook.
             Nous vous répondrons dans les plus brefs délais.
           </PageHeaderDescription>
           <PageActions>
