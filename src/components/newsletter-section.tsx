@@ -36,10 +36,10 @@ export const NewsletterSection: React.FC = () => {
   return (
     <PageHeader>
       <PageHeaderHeading>Abonnez-vous à notre newsletter</PageHeaderHeading>
-      <PageHeaderDescription>
-      Pour ne rien
-                    rater, inscrivez-vous à notre newsletter et débloquez l&apos;accès au
-        contenu réservé aux membres et aux mises à jour exclusives.
+      <PageHeaderDescription className=" text-muted-foreground">
+        Pour ne rien rater, inscrivez-vous à notre newsletter et débloquez
+        l&apos;accès au contenu réservé aux membres et aux mises à jour
+        exclusives.
       </PageHeaderDescription>
       <PageActions>
         <Form {...form}>
@@ -81,5 +81,3 @@ export const NewsletterSection: React.FC = () => {
     </PageHeader>
   );
 };
-
-
