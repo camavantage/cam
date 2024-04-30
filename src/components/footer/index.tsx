@@ -123,6 +123,7 @@ export function SiteFooter() {
                 <ul>
                   <li>+243826776661</li>
                   <li>+243977778829</li>
+                  <li>+243896106667</li>
                   <li>contact@cam-avantage.com</li>
                 </ul>
               </CardDescription>
