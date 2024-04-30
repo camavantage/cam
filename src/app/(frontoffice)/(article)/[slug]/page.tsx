@@ -47,7 +47,8 @@ export default async function ArticlePage({
                 </p>
               )}
             </div>
-            {article.tags&&<div className="flex items-center space-x-2 pt-4">
+            {article.tags && (
+              <div className="flex items-center space-x-2 pt-4">
                 {article.tags.map((tag) => (
                   <Badge
                     key={tag.tagId}
@@ -58,27 +59,8 @@ export default async function ArticlePage({
                     {tag.tag.name}
                   </Badge>
                 ))}
-              </div>}
-            {/* <PageHeader>
-              <PageHeaderHeading>{article.title}</PageHeaderHeading>
-              <PageHeaderDescription>
-                {article.description}
-              </PageHeaderDescription>
-            </PageHeader> */}
-            {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
-            <p className=" text-muted-foreground">{article.description}</p> */}
-            {/* <div className="flex">
-              {article.tags.map((tag) => (
-                <Badge
-                  key={tag.tagId}
-                  variant="outline"
-                  className="mr-3 text-muted-foreground lowercase "
-                >
-                  <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
-                  {tag.tag.name}
-                </Badge>
-              ))}
-            </div> */}
+              </div>
+            )}
           </div>
           <div className="flex space-x-3 py-3 my-6 ">
             <Avatar className=" h-12 w-12">
@@ -111,6 +93,20 @@ export default async function ArticlePage({
           <div dangerouslySetInnerHTML={{ __html: article.content }} />
           {/* <Mdx code={article.markdown}/> */}
         </div>
+        {article.tags && (
+          <div className="flex items-center space-x-2 pt-4">
+            {article.tags.map((tag) => (
+              <Badge
+                key={tag.tagId}
+                variant="outline"
+                className="mr-3 text-muted-foreground lowercase "
+              >
+                <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
+                {tag.tag.name}
+              </Badge>
+            ))}
+          </div>
+        )}
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
             <Avatar className=" h-20 w-20">
@@ -120,9 +116,11 @@ export default async function ArticlePage({
               </AvatarFallback>
             </Avatar>
             <div className="flex-1" />
-            <Link href={`https://wa.me/${article.author?.phone}`}>
-              <Button className=" rounded-full">Contact</Button>
-            </Link>
+            {/* <Link href={`https://wa.me/${article.author?.phone}`}> */}
+            <Button className=" rounded-full">
+              Partager <BiShareAlt className="ml-3 h-[1.2rem] w-[1.2rem]" />
+            </Button>
+            {/* </Link> */}
           </div>
           <div className=" mt-6">
             {/* <h1 className=" text-3xl font-semibold">Auteur</h1> */}
