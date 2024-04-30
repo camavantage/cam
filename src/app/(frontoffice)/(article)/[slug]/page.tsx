@@ -53,7 +53,7 @@ export default async function ArticlePage({
                   <Badge
                     key={tag.tagId}
                     variant="outline"
-                    className="mr-3 text-muted-foreground lowercase "
+                    className="lowercase "
                   >
                     <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
                     {tag.tag.name}
@@ -96,11 +96,7 @@ export default async function ArticlePage({
         {article.tags && (
           <div className="flex items-center space-x-2 pt-4">
             {article.tags.map((tag) => (
-              <Badge
-                key={tag.tagId}
-                variant="outline"
-                className="text-muted-foreground lowercase "
-              >
+              <Badge key={tag.tagId} variant="outline" className="lowercase ">
                 <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
                 {tag.tag.name}
               </Badge>
@@ -123,11 +119,10 @@ export default async function ArticlePage({
             {/* </Link> */}
           </div>
           <div className=" mt-6">
-            {/* <h1 className=" text-3xl font-semibold">Auteur</h1> */}
             <h3 className=" text-2xl font-bold left-[30px]">
               {article.author?.name}
             </h3>
-            <p className=" text-muted-foreground text-sm">
+            <p className=" text-muted-foreground text-base">
               {article.author?.bio}
             </p>
           </div>
