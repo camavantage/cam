@@ -30,11 +30,6 @@ export default async function ArticlePage({
         <div className="px-6 md:px-0">
           <div>
             <PageHeader>
-              <PageHeaderHeading>{article.title}</PageHeaderHeading>
-              <PageHeaderDescription>{article.description}</PageHeaderDescription>
-            </PageHeader>
-            {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
-            <p className=" text-muted-foreground">{article.description}</p> */}
             <div className="flex">
               {article.tags.map((tag) => (
                 <Badge
@@ -47,6 +42,23 @@ export default async function ArticlePage({
                 </Badge>
               ))}
             </div>
+              <PageHeaderHeading>{article.title}</PageHeaderHeading>
+              <PageHeaderDescription>{article.description}</PageHeaderDescription>
+            </PageHeader>
+            {/* <h1 className=" text-3xl font-bold">{article.title}</h1>
+            <p className=" text-muted-foreground">{article.description}</p> */}
+            {/* <div className="flex">
+              {article.tags.map((tag) => (
+                <Badge
+                  key={tag.tagId}
+                  variant="outline"
+                  className="mr-3 text-muted-foreground lowercase "
+                >
+                  <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
+                  {tag.tag.name}
+                </Badge>
+              ))}
+            </div> */}
           </div>
           <div className="flex space-x-3 py-3 my-6 ">
             <Avatar className=" h-12 w-12">
