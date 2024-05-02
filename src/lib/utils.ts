@@ -53,6 +53,15 @@ export const getHSLColor = (name: string) => {
   return `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
 };
 
+export function formatDate(input: string | number |Date): string {
+  const date = new Date(input)
+  return date.toLocaleDateString("fr", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  })
+}
+
 // Format slug
 export function formatSlug(text: string) {
   const chaineSansAccents = text

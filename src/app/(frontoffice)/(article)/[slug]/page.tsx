@@ -8,8 +8,10 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
-import { cn, getHSLColor } from "@/lib/utils";
+import { cn, formatDate, getHSLColor } from "@/lib/utils";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -23,6 +25,40 @@ const getArticle = async (slug: string) => {
   });
   return article;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const article = await getArticle(params.slug);
+  const keywords = article?.tags.map((tag) => {
+    return tag.tag.name;
+  });
+  if (article) {
+    return {
+      title: article.title,
+      description: article.description,
+      keywords,
+      openGraph: {
+        title: article.title,
+        description: article.description,
+        type: "article",
+        // url: absoluteUrl(doc.slug),
+        images: [
+          {
+            url: article.imageUrl,
+            width: 1200,
+            height: 630,
+            alt: siteConfig.name,
+          },
+        ],
+      },
+    };
+  } else {
+    return {};
+  }
+}
 export default async function ArticlePage({
   params,
 }: {
@@ -74,7 +110,8 @@ export default async function ArticlePage({
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
               <p className=" text-muted-foreground">
-                {article.updatedAt.toDateString()}
+                {/* {article.updatedAt.toDateString()} */}
+                {formatDate(article.updatedAt)}
               </p>
             </div>
             <Button className=" rounded-full">
@@ -93,7 +130,9 @@ export default async function ArticlePage({
         </div>
         <div className="px-6 lg:px-0 py-6 bg-background rounded-b-md">
           {/* <div dangerouslySetInnerHTML={{ __html: article.content }} /> */}
-          <Suspense><Mdx content={article.markdown}/></Suspense>
+          <Suspense>
+            <Mdx content={article.markdown} />
+          </Suspense>
         </div>
         <div className=" px-6 lg:px-0">
           {article.tags && (
