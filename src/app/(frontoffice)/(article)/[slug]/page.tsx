@@ -119,6 +119,9 @@ export default async function ArticlePage({
               Partager <BiShareAlt className="ml-3 h-[1.2rem] w-[1.2rem]" />
             </Button>
           </div>
+          <Suspense>
+            <ShareButtonsBar slug={article.slug} title={article.title}/>
+          </Suspense>
         </div>
         <div className="h-auto w-full">
           <Image
