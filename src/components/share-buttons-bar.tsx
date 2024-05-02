@@ -24,6 +24,7 @@ export function ShareButtonsBar({
       <span className=" font-bold">
         Partager <BiShareAlt className=" inline ml-3 h-[1.2rem] w-[1.2rem]" />
       </span>
+      <div className="flex-1"/>
       <EmailShare url={url} title={title} size={32} />
       <FacebookShare url={url} title={title} size={32} />
       <TwitterShare url={url} title={title} size={32} />

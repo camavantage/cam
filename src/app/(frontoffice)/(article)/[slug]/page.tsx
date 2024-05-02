@@ -120,7 +120,7 @@ export default async function ArticlePage({
             </Button> */}
           </div>
           <Suspense>
-            <ShareButtonsBar slug={article.slug} title={article.title}/>
+            <ShareButtonsBar slug={article.slug} title={article.title} />
           </Suspense>
         </div>
         <div className="h-auto w-full">
@@ -150,6 +150,9 @@ export default async function ArticlePage({
             </div>
           )}
         </div>
+        <Suspense>
+          <ShareButtonsBar slug={article.slug} title={article.title} />
+        </Suspense>
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
             <Avatar className=" h-20 w-20">
@@ -165,9 +168,7 @@ export default async function ArticlePage({
             </Button> */}
             {/* </Link> */}
           </div>
-          <Suspense>
-            <ShareButtonsBar slug={article.slug} title={article.title}/>
-          </Suspense>
+
           <div className=" mt-6">
             <h3 className=" text-2xl font-bold left-[30px]">
               {article.author?.name}
