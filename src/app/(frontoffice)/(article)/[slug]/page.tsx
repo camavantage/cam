@@ -150,9 +150,11 @@ export default async function ArticlePage({
             </div>
           )}
         </div>
+        <div>
         <Suspense>
           <ShareButtonsBar slug={article.slug} title={article.title} />
         </Suspense>
+        </div>
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
             <Avatar className=" h-20 w-20">
