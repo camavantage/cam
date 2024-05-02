@@ -26,11 +26,11 @@ export function ShareButtonsBar({
         {/* <BiShareAlt className=" inline ml-3 h-[1.2rem] w-[1.2rem]" /> */}
       </span>
       <div className="flex-1" />
-      <EmailShare url={url} title={title} size={32}  />
-      <FacebookShare url={url} title={title} size={32}  />
-      <TwitterShare url={url} title={title} size={32}  />
-      <LinkedinShare url={url} title={title} size={32}  />
-      <WhatsappShare url={url} title={title} size={32}  />
+      <EmailShare url={url} title={title} size={32} round />
+      <FacebookShare url={url} title={title} size={32} round />
+      <TwitterShare url={url} title={title} size={32} round />
+      <LinkedinShare url={url} title={title} size={32} round />
+      <WhatsappShare url={url} title={title} size={32} round />
     </div>
   );
 }
