@@ -115,9 +115,9 @@ export default async function ArticlePage({
                 {formatDate(article.updatedAt)}
               </p>
             </div>
-            <Button className=" rounded-full">
+            {/* <Button className=" rounded-full">
               Partager <BiShareAlt className="ml-3 h-[1.2rem] w-[1.2rem]" />
-            </Button>
+            </Button> */}
           </div>
           <Suspense>
             <ShareButtonsBar slug={article.slug} title={article.title}/>

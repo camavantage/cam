@@ -1,4 +1,5 @@
 "use client";
+import { BiShareAlt } from "react-icons/bi";
 import {
   EmailShare,
   FacebookShare,
@@ -20,11 +21,14 @@ export function ShareButtonsBar({
   const url = hostname + "/" + slug;
   return (
     <div className="flex space-x-2">
-      <EmailShare url={url} title={title} size={24}/>
-      <FacebookShare url={url} title={title} size={24}/>
-      <TwitterShare url={url} title={title} size={24}/>
-      <LinkedinShare url={url} title={title} size={24}/>
-      <WhatsappShare url={url} title={title} size={24}/>
+      <span className=" font-bold">
+        Partager <BiShareAlt className=" inline ml-3 h-[1.2rem] w-[1.2rem]" />
+      </span>
+      <EmailShare url={url} title={title} size={32} />
+      <FacebookShare url={url} title={title} size={32} />
+      <TwitterShare url={url} title={title} size={32} />
+      <LinkedinShare url={url} title={title} size={32} />
+      <WhatsappShare url={url} title={title} size={32} />
     </div>
   );
 }
