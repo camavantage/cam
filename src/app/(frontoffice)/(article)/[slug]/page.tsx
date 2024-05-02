@@ -110,7 +110,8 @@ export default async function ArticlePage({
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
               <p className=" text-muted-foreground">
-                {formatDate(article.updatedAt)} | {readingTimeEstimator(article.markdown)}
+                {readingTimeEstimator(article.markdown)} -{" "}
+                {formatDate(article.updatedAt)}
               </p>
             </div>
             <Button className=" rounded-full">
