@@ -5,6 +5,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
+import { ShareButtonsBar } from "@/components/share-buttons-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -156,11 +157,14 @@ export default async function ArticlePage({
             </Avatar>
             <div className="flex-1" />
             {/* <Link href={`https://wa.me/${article.author?.phone}`}> */}
-            <Button className=" rounded-full">
+            {/* <Button className=" rounded-full">
               Partager <BiShareAlt className="ml-3 h-[1.2rem] w-[1.2rem]" />
-            </Button>
+            </Button> */}
             {/* </Link> */}
           </div>
+          <Suspense>
+            <ShareButtonsBar slug={article.slug} title={article.title}/>
+          </Suspense>
           <div className=" mt-6">
             <h3 className=" text-2xl font-bold left-[30px]">
               {article.author?.name}
