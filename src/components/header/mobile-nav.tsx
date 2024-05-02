@@ -63,11 +63,10 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
       <SheetContent side="left" className="pr-0">
         <MobileLink
           href="/"
-          className="flex items-center"
+          className="flex items-center font-bold text-[18px]"
           onOpenChange={setOpen}
         >
-          <Logo className="mr-[0.8px] h-4 w-4" />
-          <span className="font-bold text-[18px]">{siteConfig.name}</span>
+          <span className=" text-[#FEAA00]">CAM</span>/AVANTAGE
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <div className="flex flex-col space-y-3">
@@ -103,11 +102,12 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
           </div>
         </ScrollArea>
         <div className="text-muted-foreground text-sm">
-        <p className="leading-3">
+          <p className="leading-3">
             Made with <IoIosHeart className=" inline text-[#ff0000]" /> from DRC
           </p>
-          <p className=" ">© {date.getFullYear()} {siteConfig.name}. Tous droits réservés.</p>
-          
+          <p className=" ">
+            © {date.getFullYear()} {siteConfig.name}. Tous droits réservés.
+          </p>
         </div>
       </SheetContent>
     </Sheet>
