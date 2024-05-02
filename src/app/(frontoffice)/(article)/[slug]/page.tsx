@@ -1,4 +1,5 @@
 // import { Mdx } from "@/components/mdx";
+import { Mdx } from "@/components/mdx";
 import {
   PageHeader,
   PageHeaderDescription,
@@ -11,6 +12,7 @@ import prisma from "@/lib/prisma";
 import { cn, getHSLColor } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { BiShareAlt } from "react-icons/bi";
 import Balancer from "react-wrap-balancer";
 
@@ -90,8 +92,8 @@ export default async function ArticlePage({
           />
         </div>
         <div className="px-6 lg:px-0 py-6 bg-background rounded-b-md">
-          <div dangerouslySetInnerHTML={{ __html: article.content }} />
-          {/* <Mdx code={article.markdown}/> */}
+          {/* <div dangerouslySetInnerHTML={{ __html: article.content }} /> */}
+          <Suspense><Mdx content={article.markdown}/></Suspense>
         </div>
         <div className=" px-6 lg:px-0">
           {article.tags && (

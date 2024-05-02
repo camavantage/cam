@@ -14,8 +14,7 @@ export function MainNav() {
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center text-[18px] font-extrabold  sm:inline-block">
         <span className=" text-[#FEAA00]">
-          CAM</span>/AVANTAGE
-        
+          CAM</span>/AVANTAGE        
       </Link>
       <nav className="flex items-center gap-4 text-base lg:gap-6">
         <Link

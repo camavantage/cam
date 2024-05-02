@@ -1,51 +1,14 @@
-// @ts-nocheck
-"use client"
+"use client";
 
-import * as React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useMDXComponent } from "next-contentlayer/hooks"
-import { NpmCommands } from "types/unist"
-
-import { Event } from "@/lib/events"
-import { cn } from "@/lib/utils"
-import { useConfig } from "@/hooks/use-config"
-import { Callout } from "@/components/callout"
-import { CodeBlockWrapper } from "@/components/code-block-wrapper"
-import { ComponentExample } from "@/components/component-example"
-import { ComponentPreview } from "@/components/component-preview"
-import { ComponentSource } from "@/components/component-source"
-import { CopyButton, CopyNpmCommandButton } from "@/components/copy-button"
-import { FrameworkDocs } from "@/components/framework-docs"
-import { StyleWrapper } from "@/components/style-wrapper"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/registry/new-york/ui/accordion"
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/registry/new-york/ui/alert"
-import { AspectRatio } from "@/registry/new-york/ui/aspect-ratio"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import { Style } from "@/registry/styles"
+import * as React from "react";
+import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+import remarkGfm from "remark-gfm";
+import rehypePrism from "rehype-prism-plus";
+import { cn } from "@/lib/utils";
 
 const components = {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  Alert,
-  AlertTitle,
-  AlertDescription,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
@@ -167,59 +130,6 @@ const components = {
       {...props}
     />
   ),
-  pre: ({
-    className,
-    __rawString__,
-    __npmCommand__,
-    __yarnCommand__,
-    __pnpmCommand__,
-    __bunCommand__,
-    __withMeta__,
-    __src__,
-    __event__,
-    __style__,
-    ...props
-  }: React.HTMLAttributes<HTMLPreElement> & {
-    __style__?: Style["name"]
-    __rawString__?: string
-    __withMeta__?: boolean
-    __src__?: string
-    __event__?: Event["name"]
-  } & NpmCommands) => {
-    return (
-      <StyleWrapper styleName={__style__}>
-        <pre
-          className={cn(
-            "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900",
-            className
-          )}
-          {...props}
-        />
-        {__rawString__ && !__npmCommand__ && (
-          <CopyButton
-            value={__rawString__}
-            src={__src__}
-            event={__event__}
-            className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-          />
-        )}
-        {__npmCommand__ &&
-          __yarnCommand__ &&
-          __pnpmCommand__ &&
-          __bunCommand__ && (
-            <CopyNpmCommandButton
-              commands={{
-                __npmCommand__,
-                __yarnCommand__,
-                __pnpmCommand__,
-                __bunCommand__,
-              }}
-              className={cn("absolute right-4 top-4", __withMeta__ && "top-16")}
-            />
-          )}
-      </StyleWrapper>
-    )
-  },
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
@@ -228,15 +138,6 @@ const components = {
       )}
       {...props}
     />
-  ),
-  Image,
-  Callout,
-  ComponentPreview,
-  ComponentExample,
-  ComponentSource,
-  AspectRatio,
-  CodeBlockWrapper: ({ ...props }) => (
-    <CodeBlockWrapper className="rounded-md border" {...props} />
   ),
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
@@ -253,51 +154,7 @@ const components = {
       {...props}
     />
   ),
-  Tabs: ({ className, ...props }: React.ComponentProps<typeof Tabs>) => (
-    <Tabs className={cn("relative mt-6 w-full", className)} {...props} />
-  ),
-  TabsList: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsList>) => (
-    <TabsList
-      className={cn(
-        "w-full justify-start rounded-none border-b bg-transparent p-0",
-        className
-      )}
-      {...props}
-    />
-  ),
-  TabsTrigger: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsTrigger>) => (
-    <TabsTrigger
-      className={cn(
-        "relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none",
-        className
-      )}
-      {...props}
-    />
-  ),
-  TabsContent: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof TabsContent>) => (
-    <TabsContent
-      className={cn(
-        "relative [&_h3.font-heading]:text-base [&_h3.font-heading]:font-semibold",
-        className
-      )}
-      {...props}
-    />
-  ),
-  FrameworkDocs: ({
-    className,
-    ...props
-  }: React.ComponentProps<typeof FrameworkDocs>) => (
-    <FrameworkDocs className={cn(className)} {...props} />
-  ),
+
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn("font-medium underline underline-offset-4", className)}
@@ -313,21 +170,24 @@ const components = {
       {...props}
     />
   ),
-}
+};
 
 interface MdxProps {
-  code: string
+  content: string;
 }
 
-export function Mdx({ code }: MdxProps) {
-  const [config] = useConfig()
-  const Component = useMDXComponent(code, {
-    style: config.style,
-  })
+export async function Mdx({ content }: MdxProps) {
+  const source = await serialize(content, {
+    parseFrontmatter: false,
+    mdxOptions: {
+      remarkPlugins: [[remarkGfm]],
+      rehypePlugins: [],
+    },
+  });
 
   return (
     <div className="mdx">
-      <Component components={components} />
+      <MDXRemote {...source} components={components} />
     </div>
-  )
+  );
 }
