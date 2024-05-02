@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const getLastArticles = async (number?: number) => {
+  
   const articles = await prisma.article.findMany({
     where: { published: true, blocked: false },
     include: { author: {} },
