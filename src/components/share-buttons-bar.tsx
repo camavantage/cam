@@ -20,7 +20,7 @@ export function ShareButtonsBar({
   const hostname = window.location.hostname;
   const url = hostname + "/" + slug;
   return (
-    <div className="flex items-center space-x-2 border-y py-2 my-6">
+    <div className="flex items-center space-x-2 py-2 my-6">
       <span className="font-bold">
         Partager <BiShareAlt className=" inline ml-3 h-[1.2rem] w-[1.2rem]" />
       </span>
