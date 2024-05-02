@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
-import { cn, formatDate, getHSLColor } from "@/lib/utils";
+import { cn, formatDate, getHSLColor, readingTimeEstimator } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -110,8 +110,7 @@ export default async function ArticlePage({
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
               <p className=" text-muted-foreground">
-                {/* {article.updatedAt.toDateString()} */}
-                {formatDate(article.updatedAt)}
+                {formatDate(article.updatedAt)} | {readingTimeEstimator(article.markdown)}
               </p>
             </div>
             <Button className=" rounded-full">

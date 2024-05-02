@@ -9,6 +9,7 @@ import {
 } from "./types";
 import { z } from "zod";
 import { MultiSelectorOptionType } from "@/components/ui/multiple-selector";
+import { readingTime } from "reading-time-estimator";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -53,13 +54,18 @@ export const getHSLColor = (name: string) => {
   return `hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`;
 };
 
-export function formatDate(input: string | number |Date): string {
-  const date = new Date(input)
+export function formatDate(input: string | number | Date): string {
+  const date = new Date(input);
   return date.toLocaleDateString("fr", {
     month: "long",
     day: "numeric",
     year: "numeric",
-  })
+  });
+}
+
+export function readingTimeEstimator(content: string) {
+  const result = readingTime(content, 238, "fr");
+  return result.text;
 }
 
 // Format slug
@@ -95,7 +101,7 @@ export function roleLabel(role: RoleType) {
     case "admin":
       return "Admin";
       break;
-      case "owner":
+    case "owner":
       return "Owner";
       break;
     default:
@@ -116,7 +122,7 @@ export function appStatusDescription(status: AppStatusType) {
       return "Le site web est temporairement inaccessible ou indisponible";
       break;
     default:
-      return "Inconnu"
+      return "Inconnu";
       break;
   }
 }
