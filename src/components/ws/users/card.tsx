@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/popover";
 import { useToast } from "@/components/ui/use-toast";
 import { UserType } from "@/lib/types";
-import { getHSLColor, roleLabel } from "@/lib/utils";
+import { cn, getHSLColor, roleLabel } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
 import { RxStarFilled } from "react-icons/rx";
@@ -99,6 +99,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
               size="sm"
               loading={loading}
               type="button"
+              className={cn(user.role==="owner"?"hidden":"block")}
             >
               Supprimer
             </LoadingButton>
