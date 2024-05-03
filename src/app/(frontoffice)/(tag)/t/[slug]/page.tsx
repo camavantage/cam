@@ -5,11 +5,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
 import { formatDate, readingTimeEstimator } from "@/lib/utils";
 import Image from "next/image";
@@ -35,7 +31,7 @@ export default async function TagPage({
 }) {
   const tag = await getTag(params.slug);
   if (!tag) {
-    return <NotFound/>;
+    return <NotFound />;
   }
   return (
     <div>
@@ -53,6 +49,12 @@ export default async function TagPage({
           <CardContent>{tag.description}</CardContent>
         </Card> */}
         <PageHeader>
+          <Link
+            href={`/t/${tag.slug}`}
+            className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium"
+          >
+            <span>Tag</span>
+          </Link>
           <PageHeaderHeading>{tag.name}</PageHeaderHeading>
           <PageHeaderDescription>{tag.description}</PageHeaderDescription>
         </PageHeader>
