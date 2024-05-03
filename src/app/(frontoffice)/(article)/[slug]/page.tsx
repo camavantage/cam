@@ -174,8 +174,9 @@ export default async function ArticlePage({
             <ShareButtonsBar slug={article.slug} title={article.title} />
           </Suspense>
         </div>
+        <LatestArticles />
       </div>
-      <LatestArticles />
+      
     </div>
   );
 }
