@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
-export function WSPage() {
+export default function WSPage() {
   redirect("/");
 }
