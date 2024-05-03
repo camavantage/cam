@@ -16,7 +16,7 @@ export function NotFound() {
     <PageHeader>
       <PageHeaderHeading>404 | Page non trouvée</PageHeaderHeading>
       <PageActions>
-        <Link href="/"><Button>Allez à l&apos;écran d&apos;accueil</Button></Link>
+        <Link href="/"><Button className=" rounded-full">Allez à l&apos;écran d&apos;accueil</Button></Link>
       </PageActions>
     </PageHeader>
     </div>
