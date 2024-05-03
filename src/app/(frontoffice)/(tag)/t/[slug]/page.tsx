@@ -1,19 +1,17 @@
+import { NotFound } from "@/components/not-found";
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import prisma from "@/lib/prisma";
+import { formatDate, readingTimeEstimator } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,7 +35,7 @@ export default async function TagPage({
 }) {
   const tag = await getTag(params.slug);
   if (!tag) {
-    return "Not found";
+    return <NotFound/>;
   }
   return (
     <div>
@@ -59,7 +57,7 @@ export default async function TagPage({
           <PageHeaderDescription>{tag.description}</PageHeaderDescription>
         </PageHeader>
       </div>
-      <div className="max-w-screen-md mx-auto px-6 md:px-0">
+      <div className="max-w-5xl mx-auto px-6 md:px-0">
         {tag.articles.map((article) => (
           <Link key={article.tagId} href={`/${article.article.slug}`}>
             <Card className=" border-none shadow-none">
@@ -91,7 +89,8 @@ export default async function TagPage({
                           {article.article.author?.name}
                         </h3>
                         <p className=" text-xs text-muted-foreground">
-                          {article.article.updatedAt.toDateString()}
+                          {readingTimeEstimator(article.article.content)} -
+                          {formatDate(article.article.updatedAt)}
                         </p>
                       </div>
                     </div>
