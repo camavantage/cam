@@ -17,8 +17,8 @@ export function ShareButtonsBar({
   title,
   content,
 }: ShareButtonsBarProps) {
-  const hostname = window.location.hostname;
-  const url = hostname + "/" + slug;
+  const url = window.location.href;
+  // const url = hostname + "/" + slug;
   return (
     <div className="flex items-center space-x-2 py-3">
       <span className="font-bold">

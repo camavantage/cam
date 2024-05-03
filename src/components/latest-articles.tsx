@@ -41,8 +41,8 @@ export async function LatestArticles() {
               <Link key={article.id} href={`/${article.slug}`}>
                 <Card className=" border-none shadow-none">
                   <CardHeader className="px-0"></CardHeader>
-                  <CardContent>
-                    <div className="px-0 flex flex-col md:flex-row md:space-x-6 space-y-6 ">
+                  <CardContent className="px-0">
+                    <div className=" flex flex-col md:flex-row md:space-x-6 space-y-6 ">
                       <div className="h-52 w-full  md:h-52 md:w-52">
                         <Image
                           src={article.imageUrl}
