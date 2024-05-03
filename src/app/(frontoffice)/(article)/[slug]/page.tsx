@@ -149,11 +149,6 @@ export default async function ArticlePage({
             </div>
           )}
         </div>
-        <div className="px-6 lg:px-0 py-6">
-          <Suspense>
-            <ShareButtonsBar slug={article.slug} title={article.title} />
-          </Suspense>
-        </div>
         <div className=" mt-2 py-6 px-6 md:px-0">
           <div className="flex items-end">
             <Avatar className=" h-20 w-20">
@@ -173,6 +168,11 @@ export default async function ArticlePage({
               {article.author?.bio}
             </p>
           </div>
+        </div>
+        <div className="px-6 lg:px-0 py-6">
+          <Suspense>
+            <ShareButtonsBar slug={article.slug} title={article.title} />
+          </Suspense>
         </div>
       </div>
       <LatestArticles />
