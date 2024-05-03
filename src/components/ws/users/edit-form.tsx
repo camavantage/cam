@@ -413,7 +413,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                               <Switch
                                 checked={field.value}
                                 onCheckedChange={field.onChange}
-                                disabled={loading}
+                                disabled={loading || user?.role === "owner"}
                               />
                             </FormControl>
                           </FormItem>
@@ -435,7 +435,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                               <Switch
                                 checked={field.value}
                                 onCheckedChange={field.onChange}
-                                disabled={loading}
+                                disabled={loading || user?.role === "owner"}
                               />
                             </FormControl>
                           </FormItem>

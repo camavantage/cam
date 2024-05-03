@@ -49,7 +49,7 @@ export const DrawerDeleteUser: React.FC<DrawerDeleteUserProps> = ({
       {/* <DrawerTrigger asChild> */}
       <LoadingButton
         loading={loading}
-        disabled={loading}
+        disabled={loading || user?.role === "owner"}
         variant="destructive"
         onClick={(e) => {
           e.preventDefault();
