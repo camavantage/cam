@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { BiShareAlt } from "react-icons/bi";
 import {
   EmailShare,
@@ -17,8 +18,12 @@ export function ShareButtonsBar({
   title,
   content,
 }: ShareButtonsBarProps) {
-  const url = window.location.href;
-  // const url = hostname + "/" + slug;
+  const [url, setUrl] = useState<string>("");
+
+  useEffect(() => {
+    const url = window.location.href;
+    setUrl(url);
+  });
   return (
     <div className="flex items-center space-x-2 py-3">
       <span className="font-bold">
