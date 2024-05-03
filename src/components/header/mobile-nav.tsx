@@ -12,6 +12,8 @@ import { ScrollArea } from "../ui/scroll-area";
 import { IoIosHeart } from "react-icons/io";
 import { Logo } from "./logo";
 import { ArticleType } from "@/lib/types";
+import { courses } from "@/lib/data/courses";
+import Image from "next/image";
 
 const date = new Date();
 
@@ -85,19 +87,24 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
           </div>
           <div className="flex flex-col space-y-2">
             <div className="flex flex-col space-y-3 pt-6">
-              <h4 className="font-medium">Nos tags d&apos;articles</h4>
-              {lastArticles?.length &&
-                lastArticles.map((item) => (
-                  <React.Fragment key={item.id}>
-                    <MobileLink
-                      href={`/${item.slug}`}
-                      onOpenChange={setOpen}
-                      className="text-muted-foreground"
-                    >
-                      {item.title}
-                    </MobileLink>
-                  </React.Fragment>
-                ))}
+              <h4 className="font-medium">Nos formations</h4>
+              {courses.map((course) => (
+                <div key={course.id} className="flex">
+                  <div className=" w-12 h-12">
+                    <Image
+                      src={course.mediaItem.sourceUrl}
+                      alt={course.mediaItem.alt}
+                      height={512}
+                      width={512}
+                      className=" object-cover w-full h-full"
+                    />
+                  </div>
+                  <div>
+                    <h6 className="">{course.name}</h6>
+                    <p>{course.description}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </ScrollArea>
