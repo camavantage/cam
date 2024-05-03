@@ -43,7 +43,7 @@ export async function LatestArticles() {
                   <CardHeader className="px-0"></CardHeader>
                   <CardContent className="px-0">
                     <div className=" flex flex-col md:flex-row md:space-x-6 space-y-6 ">
-                      <div className="h-52 w-full  md:h-52 md:w-80">
+                      <div className="h-52 w-full  md:h-52 md:w-96">
                         <Image
                           src={article.imageUrl}
                           alt={article.title}
