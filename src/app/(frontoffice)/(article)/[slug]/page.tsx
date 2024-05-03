@@ -1,6 +1,6 @@
-
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
+import { NotFound } from "@/components/not-found";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -60,7 +60,7 @@ export default async function ArticlePage({
 }) {
   const article = await getArticle(params.slug);
   if (!article) {
-    return <div>not found</div>;
+    return <NotFound />;
   }
   return (
     <div>
@@ -69,7 +69,9 @@ export default async function ArticlePage({
           <div>
             <div className="space-y-2">
               <h1
-                className={cn("scroll-m-20 text-2xl md:text-4xl font-bold tracking-tight")}
+                className={cn(
+                  "scroll-m-20 text-2xl md:text-4xl font-bold tracking-tight"
+                )}
               >
                 {article.title}
               </h1>
