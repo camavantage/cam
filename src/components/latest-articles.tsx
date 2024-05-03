@@ -57,7 +57,7 @@ export async function LatestArticles() {
                           {article.title}
                         </h1>
                         <div className="flex space-x-3 my-6">
-                          <Avatar>
+                          <Avatar className="h-12 w-12">
                             <AvatarImage src={`${article.author?.image}`} />
                             <AvatarFallback className=" uppercase">
                               {article.author?.name?.substring(0, 2)}
