@@ -169,7 +169,7 @@ export default async function ArticlePage({
             </p>
           </div>
         </div>
-        <div className="px-6 lg:px-0 py-6">
+        <div className="px-6 lg:px-0 pt-6">
           <Suspense>
             <ShareButtonsBar slug={article.slug} title={article.title} />
           </Suspense>
