@@ -1,7 +1,5 @@
 "use client";
-import Image from "next/image";
-import s from "@/styles/Home.module.scss";
-import { RiWhatsappFill } from "react-icons/ri";
+
 import { cn } from "@/lib/utils";
 import {
   Form,
@@ -10,8 +8,6 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -21,19 +17,46 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header";
-
-const formData = z.object({
-  email: z
-    .string({ required_error: "L'adresse mail est obligatoire" })
-    .email({ message: "Email invalide" }),
-});
+import {
+  NewNewsletterContactSchemaType,
+  newNewsletterContactSchema,
+} from "@/lib/zod/newsletter";
+import { createNewletterContact } from "@/actions/ws/newsletter";
+import { useState } from "react";
+import { LoadingButton } from "./ui/loading-button";
+import { useToast } from "./ui/use-toast";
 
 export const NewsletterSection: React.FC = () => {
-  const form = useForm<z.infer<typeof formData>>({
-    resolver: zodResolver(formData),
+  const [loading, setLoading] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
+  const { toast } = useToast();
+  const form = useForm<NewNewsletterContactSchemaType>({
+    resolver: zodResolver(newNewsletterContactSchema),
   });
-  const onSubmit = (data: z.infer<typeof formData>) => {};
-  return (
+  const onSubmit = async (formData: NewNewsletterContactSchemaType) => {
+    setLoading(true);
+    const data = await createNewletterContact(formData).catch(() => {
+      toast({
+        title: "Echec",
+        variant: "destructive",
+        description: (
+          <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
+        ),
+      });
+      setLoading(false);
+    });
+    if (data) {
+      toast({
+        title: "Inscription effectuée",
+        description: (
+          <div>Vous êtes maintenant inscrit à notre newsletter📨🎉🔥</div>
+        ),
+      });
+      setLoading(false);
+      setSubscribed(true);
+    }
+  };
+  return !subscribed ? (
     <PageHeader>
       <PageHeaderHeading>Abonnez-vous à notre newsletter</PageHeaderHeading>
       <PageHeaderDescription className="">
@@ -59,16 +82,19 @@ export const NewsletterSection: React.FC = () => {
                         type="email"
                         placeholder="Votre adresse mail"
                         className="flex-1 pr-12 rounded-full"
+                        disabled={loading}
                       />
-                      <Button
+                      <LoadingButton
                         type="submit"
                         className={cn(
                           "absolute bg-transparent right-0 rounded-l-none rounded-r-full "
                         )}
                         variant="outline"
+                        loading={loading}
+                        disabled={loading}
                       >
                         S&apos;inscrire
-                      </Button>
+                      </LoadingButton>
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -78,6 +104,13 @@ export const NewsletterSection: React.FC = () => {
           </form>
         </Form>
       </PageActions>
+    </PageHeader>
+  ) : (
+    <PageHeader>
+      <PageHeaderHeading>Félicitation🎉</PageHeaderHeading>
+      <PageHeaderDescription>
+        Vous êtes maintenant inscrit à notre newsletter📨🎉🔥
+      </PageHeaderDescription>
     </PageHeader>
   );
 };

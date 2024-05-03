@@ -48,6 +48,7 @@
     "react-wrap-balancer": "^1.1.0",
     "reading-time-estimator": "^1.11.0",
     "rehype-prism-plus": "^2.0.0",
+    "resend": "^3.2.0",
     "sass": "^1.75.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
