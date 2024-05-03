@@ -9,6 +9,7 @@ import {
 } from "./ui/card";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { formatDate, readingTimeEstimator } from "@/lib/utils";
 
 const getLastArticles = async (number?: number) => {
   const articles = await prisma.article.findMany({
@@ -67,7 +68,7 @@ export async function LatestArticles() {
                               {article.author?.name}
                             </h3>
                             <p className=" text-xs text-muted-foreground">
-                              {article.updatedAt.toDateString()}
+                              {readingTimeEstimator(article.content)}
                             </p>
                           </div>
                         </div>
