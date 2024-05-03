@@ -1,23 +1,15 @@
-// import { Mdx } from "@/components/mdx";
+
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
 import { cn, formatDate, getHSLColor, readingTimeEstimator } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Suspense } from "react";
-import { BiShareAlt } from "react-icons/bi";
 import Balancer from "react-wrap-balancer";
 
 const getArticle = async (slug: string) => {
@@ -77,7 +69,7 @@ export default async function ArticlePage({
           <div>
             <div className="space-y-2">
               <h1
-                className={cn("scroll-m-20 text-4xl font-bold tracking-tight")}
+                className={cn("scroll-m-20 text-3xl md:text-4xl font-bold tracking-tight")}
               >
                 {article.title}
               </h1>

@@ -53,7 +53,7 @@ export async function LatestArticles() {
                         />
                       </div>
                       <div className="flex-1">
-                        <h1 className=" text-3xl font-semibold">
+                        <h1 className=" text-2xl font-bold">
                           {article.title}
                         </h1>
                         <div className="flex space-x-3 my-6">
@@ -64,10 +64,10 @@ export async function LatestArticles() {
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <h3 className=" font-semibold text-sm">
+                            <h3 className=" font-semibold">
                               {article.author?.name}
                             </h3>
-                            <p className=" text-xs text-muted-foreground">
+                            <p className=" text-muted-foreground">
                               {readingTimeEstimator(article.content)}
                             </p>
                           </div>
