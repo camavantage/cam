@@ -51,7 +51,7 @@ export default async function TagPage({
         <PageHeader>
           <Link
             href={`/t/${tag.slug}`}
-            className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium"
+            className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium uppercase"
           >
             <span>Tag</span>
           </Link>
