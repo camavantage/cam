@@ -69,7 +69,7 @@ export default async function ArticlePage({
           <div>
             <div className="space-y-2">
               <h1
-                className={cn("scroll-m-20 text-3xl md:text-4xl font-bold tracking-tight")}
+                className={cn("scroll-m-20 text-2xl md:text-4xl font-bold tracking-tight")}
               >
                 {article.title}
               </h1>
