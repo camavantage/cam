@@ -19,17 +19,20 @@ type Props = {
 export function WSMenuItem({ item }: Props) {
   const pathname = usePathname();
   return (
-    <Link key={item.key} href={item.href} className={cn(pathname === item.href && " bg-muted"," rounded-md hover:bg-muted")}>
+    <Link
+      key={item.key}
+      href={item.href}
+      className={cn(
+        pathname === item.href && " bg-muted",
+        " rounded-md hover:bg-muted"
+      )}
+    >
       <TooltipWrap content={item.label} side="right">
-        <Button
-          variant="ghost"
-          size="icon"
-          className={cn( "relative")}
-        >
+        <Button variant="ghost" size="icon" className={cn("relative")}>
           {item.icon}
           <span
             className={cn(
-              pathname === item.href ? "block" : "hidden",
+              pathname.startsWith(item.href) ? "block" : "hidden",
               "absolute left-0 bg-primary h-[calc(100%-50%)] w-[3px] rounded"
             )}
           />

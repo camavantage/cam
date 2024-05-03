@@ -18,7 +18,7 @@ const menuItems: WSMenuItemType[] = [
   {
     key: "dashboard",
     label: "Dashbord",
-    href: "/ws",
+    href: "/ws/dashboard",
     icon: <FiHome className="h-[1.2rem] w-[1.2rem]" />,
   },
   {
