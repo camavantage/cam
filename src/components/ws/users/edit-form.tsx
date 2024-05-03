@@ -353,7 +353,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                               <Select
                                 onValueChange={field.onChange}
                                 defaultValue={field.value}
-                                disabled={loading}
+                                disabled={loading || user?.role === "owner"}
                               >
                                 <FormControl>
                                   <SelectTrigger>
