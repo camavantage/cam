@@ -119,7 +119,11 @@ export default async function ArticlePage({
           </div>
           <div className="mb-8">
             <Suspense>
-              <ShareButtonsBar slug={article.slug} title={article.title} />
+              <ShareButtonsBar
+                slug={article.slug}
+                title={article.title}
+                content={article.content}
+              />
             </Suspense>
           </div>
         </div>
@@ -171,12 +175,15 @@ export default async function ArticlePage({
         </div>
         <div className="px-6 lg:px-0 pt-6">
           <Suspense>
-            <ShareButtonsBar slug={article.slug} title={article.title} />
+            <ShareButtonsBar
+              slug={article.slug}
+              title={article.title}
+              content={article.description}
+            />
           </Suspense>
         </div>
         <LatestArticles />
       </div>
-      
     </div>
   );
 }
