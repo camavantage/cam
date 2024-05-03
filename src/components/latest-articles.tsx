@@ -35,7 +35,7 @@ export async function LatestArticles() {
             éveiller vos papilles.
           </CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-0">
           <div className="">
             {articles.map((article) => (
               <Link key={article.id} href={`/${article.slug}`}>
