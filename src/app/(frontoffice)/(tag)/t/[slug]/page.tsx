@@ -66,7 +66,7 @@ export default async function TagPage({
               <CardHeader></CardHeader>
               <CardContent>
                 <div className="flex flex-col md:flex-row md:space-x-6 space-y-6 ">
-                  <div className="h-52 w-full  md:h-52 md:w-52">
+                  <div className="h-52 w-full  md:h-52 md:w-96">
                     <Image
                       src={article.article.imageUrl}
                       alt={article.article.title}
