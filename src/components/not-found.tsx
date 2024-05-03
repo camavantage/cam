@@ -1,13 +1,22 @@
 import { cn } from "@/lib/utils";
+import { PageActions, PageHeader, PageHeaderHeading } from "./page-header";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 export function NotFound() {
   return (
-    <div
-      className={cn(
-        " p-6  justify-center items-center text-sm text-muted-foreground"
-      )}
-    >
-      <p className="">404 | Page non trouvée</p>
-    </div>
+    // <div
+    //   className={cn(
+    //     " p-6 flex  justify-center items-center text-sm text-muted-foreground"
+    //   )}
+    // >
+    //   <p className="">404 | Page non trouvée</p>
+    // </div>
+    <PageHeader>
+      <PageHeaderHeading>404 | Page non trouvée</PageHeaderHeading>
+      <PageActions>
+        <Link href="/"><Button>Allez à l'écran d&apos;accueil</Button></Link>
+      </PageActions>
+    </PageHeader>
   );
 }
