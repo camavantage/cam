@@ -8,8 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { courses } from "@/lib/data/courses";
-
-
+import Link from "next/link";
 
 const CoursesSection: React.FC = () => {
   return (
@@ -28,16 +27,18 @@ const CoursesSection: React.FC = () => {
         <CardContent className="px-0">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 pt-6">
             {courses.map((course) => (
-              <div key={course.id} className={`${s.courseCard}`}>
-                <Image
-                  src={course.mediaItem.sourceUrl}
-                  alt={course.mediaItem.alt}
-                  height={512}
-                  width={512}
-                />
-                <h6 className="">{course.name}</h6>
-                <p>{course.description}</p>
-              </div>
+              <Link href={`/courses#${course.name}`} key={course.id}>
+                <div className={`${s.courseCard}`}>
+                  <Image
+                    src={course.mediaItem.sourceUrl}
+                    alt={course.mediaItem.alt}
+                    height={512}
+                    width={512}
+                  />
+                  <h6 className="">{course.name}</h6>
+                  <p>{course.description}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </CardContent>

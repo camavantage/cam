@@ -89,21 +89,23 @@ export function MobileNav({ lastArticles }: MobileNavProps) {
             <div className="flex flex-col space-y-3 pt-6">
               <h4 className="font-medium">Nos formations</h4>
               {courses.map((course) => (
-                <div key={course.id} className="flex">
-                  <div className=" w-12 h-12">
-                    <Image
-                      src={course.mediaItem.sourceUrl}
-                      alt={course.mediaItem.alt}
-                      height={512}
-                      width={512}
-                      className=" object-cover w-full h-full"
-                    />
+                <Link href={`/courses#${course.name}`} key={course.id}>
+                  <div className="flex items-center space-x-3 mb-1">
+                    <div className=" w-8 h-8">
+                      <Image
+                        src={course.mediaItem.sourceUrl}
+                        alt={course.mediaItem.alt}
+                        height={512}
+                        width={512}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div>
+                      <h6 className="">{course.name}</h6>
+                      <p>{course.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h6 className="">{course.name}</h6>
-                    <p>{course.description}</p>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
