@@ -6,7 +6,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SearchArticleBar } from "@/components/ws/articles/search-bar";
 import prisma from "@/lib/prisma";
-import { cn, getHSLColor } from "@/lib/utils";
+import { cn, formatDate, getHSLColor, readingTimeEstimator } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -176,7 +176,8 @@ export default async function ArticlesPage({
                         {article.author?.name}
                       </h3>
                       <p className=" text-xs text-muted-foreground">
-                        {article.updatedAt.toDateString()}
+                        {readingTimeEstimator(article.content)} -{" "}
+                        {formatDate(article.updatedAt)}
                       </p>
                     </div>
                   </div>
