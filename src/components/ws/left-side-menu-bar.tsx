@@ -48,7 +48,7 @@ export const WSLeftSideMenuBar:React.FC<WSLeftSideMenuBarProps>=({generalSetting
   const {theme}=useTheme()
   return (
     <aside className="h-full flex flex-col items-center p-3 border-r">
-      <Link href="/ws">
+      <Link href="/ws/dashboard">
         <Button variant="link">
           <Logo className="w-[1.2rem] h-[1.2rem]"/>
         </Button>
