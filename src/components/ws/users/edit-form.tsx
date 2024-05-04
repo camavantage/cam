@@ -176,7 +176,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                             <Image
                               src={currentImageUrl}
                               alt=""
-                              className="object-cover w-full h-full rounded-md"
+                              className="object-cover w-full h-full rounded-full"
                               height={64}
                               width={64}
                             />
