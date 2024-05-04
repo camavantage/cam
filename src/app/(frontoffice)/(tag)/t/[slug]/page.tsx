@@ -36,7 +36,7 @@ export async function generateMetadata({
     return {
       title: `${tag.name} - Avantage`,
       description: tag.description,
-      keywords: [tag.name],
+      keywords: [tag.name,"avantage"],
       openGraph: {
         title: tag.name,
         description: tag.description ?? "",

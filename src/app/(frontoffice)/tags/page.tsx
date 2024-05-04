@@ -7,7 +7,8 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SearchTagBar } from "@/components/ws/tags/search-bar";
 import prisma from "@/lib/prisma";
-import { cn, getHSLColor } from "@/lib/utils";
+import { absoluteUrl, cn, getHSLColor } from "@/lib/utils";
+import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -28,6 +29,27 @@ const getTags = async (q?: string) => {
     orderBy: { name: "asc" },
   });
   return tags;
+};
+
+export const metadata: Metadata = {
+  title: "Tags",
+  description:
+    "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
+  keywords: [
+    "avantage",
+    "cam/avanatge",
+    "centre de formation",
+    "formation professionnelle",
+    "Benjamin Kamala",
+    "Logo avantage",
+  ],
+  openGraph: {
+    title: "Tags - Avantage",
+    description:
+      "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
+    type: "website",
+    url: absoluteUrl("tags"),
+  },
 };
 
 export default async function TagsPage({

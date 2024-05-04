@@ -6,6 +6,7 @@ import {
 } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/data/site";
+import { absoluteUrl } from "@/lib/utils";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -20,7 +21,15 @@ export const metadata: Metadata = {
     "formation professionnelle",
     "Benjamin Kamala",
   ],
+  openGraph: {
+    title: "Contact - Avantage",
+    description:
+      "Vous pouvez nous adresser un e-mail à l'adresse suivante: contact@cam-avantage.com. Vous pouvez également nous contacter sur whatsapp et Facebook.",
+    type: "article",
+    url: absoluteUrl("contact"),
+  },
 };
+
 
 export default function ContactPage() {
   return (

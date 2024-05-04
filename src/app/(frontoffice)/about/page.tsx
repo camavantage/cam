@@ -20,6 +20,7 @@ import { PiStudent } from "react-icons/pi";
 import { RxSun } from "react-icons/rx";
 import { IoBookOutline } from "react-icons/io5";
 import { CiLight } from "react-icons/ci";
+import { absoluteUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous?",
@@ -32,8 +33,13 @@ export const metadata: Metadata = {
     "formation professionnelle",
     "Benjamin Kamala",
     "Logo avantage",
-    "Slogan avantage",
   ],
+  openGraph: {
+    title: "Qui sommes-nous? - Avantage",
+    description: "Centre d'Apprentisage et des Métiers Avantage",
+    type: "article",
+    url: absoluteUrl("about"),
+  },
 };
 
 export default function AboutPage() {

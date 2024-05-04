@@ -6,7 +6,14 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SearchArticleBar } from "@/components/ws/articles/search-bar";
 import prisma from "@/lib/prisma";
-import { cn, formatDate, getHSLColor, readingTimeEstimator } from "@/lib/utils";
+import {
+  absoluteUrl,
+  cn,
+  formatDate,
+  getHSLColor,
+  readingTimeEstimator,
+} from "@/lib/utils";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -67,6 +74,27 @@ const getArticles = async (searchParams?: {
     orderBy: { updatedAt: "desc" },
   });
   return articles;
+};
+
+export const metadata: Metadata = {
+  title: "Articles",
+  description:
+    "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
+  keywords: [
+    "avantage",
+    "cam/avanatge",
+    "centre de formation",
+    "formation professionnelle",
+    "Benjamin Kamala",
+    "Logo avantage",
+  ],
+  openGraph: {
+    title: "Articles - Avantage",
+    description:
+      "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
+    type: "website",
+    url: absoluteUrl("articles"),
+  },
 };
 
 export default async function ArticlesPage({
