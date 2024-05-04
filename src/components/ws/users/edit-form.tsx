@@ -37,7 +37,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Edit, EyeIcon, EyeOffIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RoleType, UserType } from "@/lib/types";
 import { useToast } from "@/components/ui/use-toast";
 import { checkUsername } from "@/actions/ws/users/check-username";
@@ -49,9 +49,11 @@ import { DrawerDeleteUser } from "./drawer-delete";
 import { DrawerChangePassword } from "./drawer-password";
 import { roles } from "@/lib/data/roles";
 import { EditUserFormSchemaType, editUserformSchema } from "@/lib/zod/users";
+import Image from "next/image";
+import { DialogCoverImage } from "../articles/dialog-cover-image";
 
 type EditUserFormProps = {
-  user?: UserType | null;
+  user: UserType;
 };
 
 export default function EditUserForm({ user }: EditUserFormProps) {
@@ -61,6 +63,9 @@ export default function EditUserForm({ user }: EditUserFormProps) {
   const [editEmail, setEditEmail] = useState<boolean>(false);
   const [checkingUsername, setCheckingUsername] = useState<boolean>(false);
   const [checkingStatus, setCheckingStatus] = useState<"free" | "used">();
+  const [currentImageUrl, setCurrentImageUrl] = useState<string>(
+    `${user.image}`
+  );
   const { toast } = useToast();
 
   const form = useForm<EditUserFormSchemaType>({
@@ -71,7 +76,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
       email: user?.email,
       name: user?.name ?? "",
       phone: user?.phone ?? "",
-      image: user?.image,
+      image: user?.image ??"",
       bio: `${user?.bio}`,
       role: user?.role,
       blocked: user?.blocked,
@@ -100,7 +105,9 @@ export default function EditUserForm({ user }: EditUserFormProps) {
       router.replace(`/ws/users/${user.username}`);
     }
   }
-
+  useEffect(() => {
+    form.setValue("image", currentImageUrl);
+  }, [currentImageUrl, form]);
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -152,6 +159,36 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                   </CardHeader>
                   <CardContent>
                     <div className=" space-y-4 flex flex-col  ">
+                    <FormField
+                        control={form.control}
+                        name="image"
+                        render={({ field }) => (
+                          <FormItem className="">
+                            <FormControl className="">
+                              <Input type="hidden" {...field} />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                      <div className="flex items-end space-x-3 rounded-lg ">
+                        {currentImageUrl && (
+                          <div className="w-16 h-16 rounded-full">
+                            <Image
+                              src={currentImageUrl}
+                              alt=""
+                              className="object-cover w-full h-full rounded-md"
+                              height={64}
+                              width={64}
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 space-y-0.5">
+                          <DialogCoverImage
+                            currentImageUrl={currentImageUrl}
+                            setCurrentImageUrl={setCurrentImageUrl}
+                          />
+                        </div>
+                      </div>
                       <div>
                         <FormField
                           control={form.control}

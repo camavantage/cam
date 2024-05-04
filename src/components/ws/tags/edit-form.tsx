@@ -278,9 +278,9 @@ export const EditTagForm: React.FC<EditTagFormProps> = ({ tag }) => {
                           </FormItem>
                         )}
                       />
-                      <div className="flex space-x-3 rounded-lg ">
+                      <div className="flex items-end space-x-3 rounded-lg ">
                         {currentImageUrl && (
-                          <div className="w-16 h-16">
+                          <div className="w-16 h-16 rounded-full">
                             <Image
                               src={currentImageUrl}
                               alt=""

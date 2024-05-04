@@ -90,7 +90,7 @@ export const editUserformSchema = z.object({
     .string()
     .email({ message: "Le format de l'adresse mail n'est pas valide" })
     .optional(),
-  image: z.string().nullable().optional(),
+  image: z.string().optional(),
   phone: z
     .string()
     .min(10, {
