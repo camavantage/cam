@@ -36,7 +36,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createUser } from "@/actions/ws/users/create-user";
 import { useToast } from "@/components/ui/use-toast";
 import { checkUsername } from "@/actions/ws/users/check-username";
@@ -45,6 +45,8 @@ import { TbCircleCheckFilled } from "react-icons/tb";
 import { IoIosCloseCircle } from "react-icons/io";
 import { roles } from "@/lib/data/roles";
 import { NewUserformSchemaType, newUserformSchema } from "@/lib/zod/users";
+import Image from "next/image";
+import { DialogCoverImage } from "../articles/dialog-cover-image";
 
 export default function NewUserForm() {
   const router = useRouter();
@@ -53,6 +55,7 @@ export default function NewUserForm() {
   const [showConfirmPWD, setShowConfirmPWD] = useState<boolean>(false);
   const [checkingUsername, setCheckingUsername] = useState<boolean>(false);
   const [checkingStatus, setCheckingStatus] = useState<"free" | "used">();
+  const [currentImageUrl, setCurrentImageUrl] = useState<string>("");
   const { toast } = useToast();
 
   const form = useForm<NewUserformSchemaType>({
@@ -78,6 +81,10 @@ export default function NewUserForm() {
       setLoading(false);
     });
   }
+
+  useEffect(() => {
+    form.setValue("image", currentImageUrl);
+  }, [currentImageUrl, form]);
 
   return (
     <Form {...form}>
@@ -130,6 +137,36 @@ export default function NewUserForm() {
                   </CardHeader>
                   <CardContent>
                     <div className=" space-y-4 flex flex-col  ">
+                      <FormField
+                        control={form.control}
+                        name="image"
+                        render={({ field }) => (
+                          <FormItem className="">
+                            <FormControl className="">
+                              <Input type="hidden" {...field} />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                      <div className="flex space-x-3 rounded-lg ">
+                        {currentImageUrl && (
+                          <div className="w-16 h-16">
+                            <Image
+                              src={currentImageUrl}
+                              alt=""
+                              className="object-cover w-full h-full rounded-md"
+                              height={64}
+                              width={64}
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 space-y-0.5">
+                          <DialogCoverImage
+                            currentImageUrl={currentImageUrl}
+                            setCurrentImageUrl={setCurrentImageUrl}
+                          />
+                        </div>
+                      </div>
                       <div>
                         <FormField
                           control={form.control}

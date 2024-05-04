@@ -35,7 +35,7 @@ export const newUserformSchema = z
       .max(32, {
         message: "Le mot de passe  doit comporter au max 32 chiffres.",
       }),
-    image: z.string().nullable().optional(),
+    image: z.string().optional(),
     phone: z
       .string()
       .min(10, {
