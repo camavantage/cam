@@ -50,7 +50,7 @@ import { DrawerChangePassword } from "./drawer-password";
 import { roles } from "@/lib/data/roles";
 import { EditUserFormSchemaType, editUserformSchema } from "@/lib/zod/users";
 import Image from "next/image";
-import { DialogCoverImage } from "../articles/dialog-cover-image";
+import { DialogProfileImage } from "../dialog-profile-image";
 
 type EditUserFormProps = {
   user: UserType;
@@ -183,7 +183,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                           </div>
                         )}
                         <div className="flex-1 space-y-0.5">
-                          <DialogCoverImage
+                          <DialogProfileImage
                             currentImageUrl={currentImageUrl}
                             setCurrentImageUrl={setCurrentImageUrl}
                           />

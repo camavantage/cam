@@ -46,7 +46,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { roles } from "@/lib/data/roles";
 import { NewUserformSchemaType, newUserformSchema } from "@/lib/zod/users";
 import Image from "next/image";
-import { DialogCoverImage } from "../articles/dialog-cover-image";
+import { DialogProfileImage } from "../dialog-profile-image";
 
 export default function NewUserForm() {
   const router = useRouter();
@@ -161,7 +161,7 @@ export default function NewUserForm() {
                           </div>
                         )}
                         <div className="flex-1 space-y-0.5">
-                          <DialogCoverImage
+                          <DialogProfileImage
                             currentImageUrl={currentImageUrl}
                             setCurrentImageUrl={setCurrentImageUrl}
                           />
