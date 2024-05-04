@@ -1,5 +1,7 @@
+import { NotFound } from "@/components/not-found";
 import EditUserForm from "@/components/ws/users/edit-form";
 import prisma from "@/lib/prisma";
+import { Suspense } from "react";
 
 const getUser = async (username: string) => {
   const user = await prisma.user.findUnique({ where: { username } });
@@ -15,9 +17,14 @@ export default async function WSUserPage({
   params: { username: string };
 }) {
   const user = await getUser(params.username);
+  if (!user) {
+    return <NotFound />;
+  }
   return (
     <>
-      <EditUserForm user={user} />
+      <Suspense>
+        <EditUserForm user={user} />
+      </Suspense>
     </>
   );
 }
