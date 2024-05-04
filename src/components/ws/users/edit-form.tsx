@@ -74,9 +74,9 @@ export default function EditUserForm({ user }: EditUserFormProps) {
       id: user?.id,
       username: `${user?.username}`,
       email: user?.email,
-      name: user?.name ?? "",
-      phone: user?.phone ?? "",
-      image: user?.image ??"",
+      name: user?.name ?? undefined,
+      phone: user?.phone ?? undefined,
+      image: user?.image ?? undefined,
       bio: `${user?.bio}`,
       role: user?.role,
       blocked: user?.blocked,
@@ -159,7 +159,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                   </CardHeader>
                   <CardContent>
                     <div className=" space-y-4 flex flex-col  ">
-                    <FormField
+                      <FormField
                         control={form.control}
                         name="image"
                         render={({ field }) => (
