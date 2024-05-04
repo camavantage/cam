@@ -83,13 +83,13 @@ export default async function TagPage({
         </Card> */}
         <PageHeader>
           {tag.imageUrl && (
-            <div className=" w-72 h-72">
+            <div className=" w-32 h-32">
               <Image
                 src={tag.imageUrl}
                 alt={tag.name}
                 height={512}
                 width={512}
-                className=" object-cover w-full h-full"
+                className=" object-cover w-full h-full rounded-full"
               />
             </div>
           )}
