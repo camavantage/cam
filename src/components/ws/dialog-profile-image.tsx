@@ -72,9 +72,7 @@ export const DialogProfileImage: React.FC<DialogProfileImageProps> = ({
           <form className="space-y-8">
             <DialogHeader>
               <DialogTitle>Photo de profil</DialogTitle>
-              <DialogDescription>
-                
-              </DialogDescription>
+              <DialogDescription></DialogDescription>
             </DialogHeader>
             <div className="flex items-center space-x-2">
               <Tabs defaultValue="link" className="w-full ">
@@ -87,6 +85,9 @@ export const DialogProfileImage: React.FC<DialogProfileImageProps> = ({
                     Lien
                   </TabsTrigger>
                   <TabsTrigger value="upload">Téléverser</TabsTrigger>
+                  {currentImageUrl && (
+                    <TabsTrigger value="remove">Retirer</TabsTrigger>
+                  )}
                 </TabsList>
                 <TabsContent value="link">
                   <div>
@@ -150,6 +151,17 @@ export const DialogProfileImage: React.FC<DialogProfileImageProps> = ({
                       }}
                     />
                   </div>
+                </TabsContent>
+                <TabsContent value="remove">
+                  <Button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault(), setCurrentImageUrl("");
+                      setOpenDialog(false);
+                    }}
+                  >
+                    Retirer l&apos;image
+                  </Button>
                 </TabsContent>
               </Tabs>
             </div>
