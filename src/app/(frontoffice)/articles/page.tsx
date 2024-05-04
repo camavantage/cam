@@ -77,7 +77,7 @@ const getArticles = async (searchParams?: {
 };
 
 export const metadata: Metadata = {
-  title: "Articles",
+  title: "Recettes et Astuces",
   description:
     "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
   keywords: [
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     "Logo avantage",
   ],
   openGraph: {
-    title: "Articles - Avantage",
+    title: "Recettes et Astuces - Avantage",
     description:
       "Que vous soyez novice en cuisine ou chef confirmé, vous trouverez ici l'inspiration nécessaire pour épater vos convives et éveiller vos papilles. Des recettes revisitées aux créations originales, notre blog vous accompagne dans toutes vos aventures culinaires",
     type: "website",
