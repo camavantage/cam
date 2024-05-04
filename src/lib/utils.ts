@@ -63,6 +63,10 @@ export function formatDate(input: string | number | Date): string {
   });
 }
 
+export function absoluteUrl(path: string) {
+  return `${process.env.PUBLIC_APP_URL}${path}`
+}
+
 export function readingTimeEstimator(content: string) {
   const result = readingTime(content, 238, "fr");
   return result.text;

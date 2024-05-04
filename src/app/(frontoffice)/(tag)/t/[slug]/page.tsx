@@ -7,7 +7,8 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
-import { formatDate, readingTimeEstimator } from "@/lib/utils";
+import { absoluteUrl, formatDate, readingTimeEstimator } from "@/lib/utils";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,6 +24,38 @@ const getTag = async (slug: string) => {
   });
   return tag;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const tag = await getTag(params.slug);
+
+  if (tag) {
+    return {
+      title: `${tag.name} - CAM/AVANTAGE`,
+      description: tag.description,
+      keywords: [tag.name],
+      openGraph: {
+        title: tag.name,
+        description: tag.description ?? "",
+        type: "website",
+        url: absoluteUrl(tag.slug),
+        images: [
+          {
+            url: tag.imageUrl ?? "",
+            width: 1200,
+            height: 630,
+            alt: tag.name,
+          },
+        ],
+      },
+    };
+  } else {
+    return {};
+  }
+}
 
 export default async function TagPage({
   params,
@@ -49,14 +82,25 @@ export default async function TagPage({
           <CardContent>{tag.description}</CardContent>
         </Card> */}
         <PageHeader>
+          {tag.imageUrl && (
+            <div className=" w-72 h-72">
+              <Image
+                src={tag.imageUrl}
+                alt={tag.name}
+                height={512}
+                width={512}
+                className=" object-cover w-full h-full"
+              />
+            </div>
+          )}
+          <PageHeaderHeading>{tag.name}</PageHeaderHeading>
+          <PageHeaderDescription>{tag.description}</PageHeaderDescription>
           <Link
             href={`/t/${tag.slug}`}
             className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium uppercase"
           >
             <span>Tag</span>
           </Link>
-          <PageHeaderHeading>{tag.name}</PageHeaderHeading>
-          <PageHeaderDescription>{tag.description}</PageHeaderDescription>
         </PageHeader>
       </div>
       <div className="max-w-5xl mx-auto px-6 md:px-0">

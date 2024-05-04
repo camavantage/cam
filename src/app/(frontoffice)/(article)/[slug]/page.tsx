@@ -6,7 +6,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
-import { cn, formatDate, getHSLColor, readingTimeEstimator } from "@/lib/utils";
+import {
+  absoluteUrl,
+  cn,
+  formatDate,
+  getHSLColor,
+  readingTimeEstimator,
+} from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -38,7 +44,7 @@ export async function generateMetadata({
         title: article.title,
         description: article.description,
         type: "article",
-        // url: absoluteUrl(doc.slug),
+        url: absoluteUrl(article.slug),
         images: [
           {
             url: article.imageUrl,
