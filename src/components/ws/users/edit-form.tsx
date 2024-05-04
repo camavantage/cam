@@ -64,7 +64,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
   const [checkingUsername, setCheckingUsername] = useState<boolean>(false);
   const [checkingStatus, setCheckingStatus] = useState<"free" | "used">();
   const [currentImageUrl, setCurrentImageUrl] = useState<string>(
-    `${user.image}`
+    user.image ?? ""
   );
   const { toast } = useToast();
 
