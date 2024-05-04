@@ -41,7 +41,7 @@ export async function generateMetadata({
         title: tag.name,
         description: tag.description ?? "",
         type: "website",
-        url: absoluteUrl(tag.slug),
+        url: absoluteUrl(`t/${tag.slug}`),
         images: [
           {
             url: tag.imageUrl ?? "",
@@ -99,7 +99,7 @@ export default async function TagPage({
             href={`/t/${tag.slug}`}
             className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium uppercase"
           >
-            <span>Tag</span>
+            <span>{tag.articles.length} article(s)</span>
           </Link>
         </PageHeader>
       </div>
