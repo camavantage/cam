@@ -34,7 +34,7 @@ export async function generateMetadata({
 
   if (tag) {
     return {
-      title: `${tag.name} - CAM/AVANTAGE`,
+      title: `${tag.name} - Avantage`,
       description: tag.description,
       keywords: [tag.name],
       openGraph: {
@@ -135,7 +135,7 @@ export default async function TagPage({
                           {article.article.author?.name}
                         </h3>
                         <p className=" text-xs text-muted-foreground">
-                          {readingTimeEstimator(article.article.content)} -
+                          {readingTimeEstimator(article.article.content)} -{" "}
                           {formatDate(article.article.updatedAt)}
                         </p>
                       </div>
