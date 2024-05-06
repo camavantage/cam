@@ -67,7 +67,7 @@ export async function LatestArticles() {
                               {article.author?.name}
                             </h3>
                             <p className=" text-muted-foreground">
-                              <CiLock className="inline bg-ws-background p-1 rounded" />{" "}
+                              <CiLock className="inline bg-ws-background p-[1px] rounded" />{" "}
                               {readingTimeEstimator(article.content)}
                             </p>
                           </div>
