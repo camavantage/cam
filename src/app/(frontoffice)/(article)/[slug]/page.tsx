@@ -4,6 +4,8 @@ import { NotFound } from "@/components/not-found";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { auth } from "@/lib/auth";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
 import {
@@ -66,9 +68,20 @@ export default async function ArticlePage({
   params: { slug: string };
 }) {
   const article = await getArticle(params.slug);
+  const session= await auth()
   if (!article) {
     return <NotFound />;
   }
+  
+  if(article.visibility==="subscriber_only" && !session){
+    return <div>
+      Cet article n&apos;est visible que pour les abonnés de cam-avantage.com.
+      Pour ne rien rater, connectez-vous à votre compte ou inscrivez-vous et débloquez l&apos;accès au contenu réservé aux membres. L&apos;inscription c&apos; gratuit🎁🎉
+      <Button>S'inscrire</Button>
+      <Button>Se connecter</Button>
+    </div>
+  }
+
   return (
     <div>
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
