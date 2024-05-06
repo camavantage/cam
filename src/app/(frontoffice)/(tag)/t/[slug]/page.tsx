@@ -138,7 +138,7 @@ export default async function TagPage({
                         </h3>
                         <div className="flex items-center space-x-1">
                           {article.article.visibility !== "public" && (
-                            <CiLock className="inline bg-ws-background p-[2px] rounded" />
+                            <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
                           )}
                           <p className=" text-muted-foreground">
                             {readingTimeEstimator(article.article.content)} -{" "}

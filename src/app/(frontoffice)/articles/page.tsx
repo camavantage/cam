@@ -201,13 +201,18 @@ export default async function ArticlesPage({
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className=" font-semibold text-sm">
+                      <h3 className=" font-semibold">
                         {article.author?.name}
                       </h3>
-                      <p className=" text-xs text-muted-foreground">
-                      <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.content)} -{" "}
-                        {formatDate(article.updatedAt)}
-                      </p>
+                      <div className="flex items-center">
+                        {article.visibility !== "public" && (
+                          <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
+                        )}
+                        <p className=" text-muted-foreground">
+                          {readingTimeEstimator(article.content)} -{" "}
+                          {formatDate(article.updatedAt)}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   <div className="flex pt-3 space-x-3 md:pl-[52px]">

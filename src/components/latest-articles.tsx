@@ -66,10 +66,14 @@ export async function LatestArticles() {
                             <h3 className=" font-semibold">
                               {article.author?.name}
                             </h3>
-                            <p className=" text-muted-foreground">
-                              <CiLock className="inline bg-ws-background p-[1px] rounded" />{" "}
-                              {readingTimeEstimator(article.content)}
-                            </p>
+                            <div className="flex items-center">
+                              {article.visibility !== "public" && (
+                                <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
+                              )}
+                              <p className=" text-muted-foreground">
+                                {readingTimeEstimator(article.content)}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
