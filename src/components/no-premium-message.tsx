@@ -24,7 +24,7 @@ export function NoPremiumMessage() {
           accompagnement garantie.
         </PageHeaderDescription>
         <PageActions>
-          <Button className="rounded-full">Acheter maintenant pour 1$</Button>
+          <Button className="rounded-full">Déverrouiller à 1$</Button>
         </PageActions>
       </PageHeader>
     </div>
