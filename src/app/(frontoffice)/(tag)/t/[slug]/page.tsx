@@ -20,6 +20,7 @@ const getTag = async (slug: string) => {
       articles: {
         where: { article: { published: true, blocked: false } },
         include: { article: { include: { author: {} } } },
+        orderBy: { article: { updatedAt: "desc" } },
       },
     },
   });
@@ -37,7 +38,7 @@ export async function generateMetadata({
     return {
       title: `${tag.name} - Avantage`,
       description: tag.description,
-      keywords: [tag.name,"avantage"],
+      keywords: [tag.name, "avantage"],
       openGraph: {
         title: tag.name,
         description: tag.description ?? "",
@@ -136,11 +137,13 @@ export default async function TagPage({
                           {article.article.author?.name}
                         </h3>
                         <div className="flex items-center space-x-1">
-                        {article.article.visibility!=="public" &&<CiLock className="inline bg-ws-background p-[2px] rounded" />}
-                        <p className=" text-muted-foreground">
-                         {readingTimeEstimator(article.article.content)} -{" "}
-                          {formatDate(article.article.updatedAt)}
-                        </p>
+                          {article.article.visibility !== "public" && (
+                            <CiLock className="inline bg-ws-background p-[2px] rounded" />
+                          )}
+                          <p className=" text-muted-foreground">
+                            {readingTimeEstimator(article.article.content)} -{" "}
+                            {formatDate(article.article.updatedAt)}
+                          </p>
                         </div>
                       </div>
                     </div>
