@@ -9,7 +9,7 @@ import {
 } from "./ui/card";
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { formatDate, readingTimeEstimator } from "@/lib/utils";
+import { formatDate } from "@/lib/utils";
 import { CiLock } from "react-icons/ci";
 
 const getLastArticles = async (number?: number) => {
@@ -71,7 +71,7 @@ export async function LatestArticles() {
                                 <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
                               )}
                               <p className=" text-muted-foreground">
-                                {readingTimeEstimator(article.content)}
+                                {formatDate(article.updatedAt)}
                               </p>
                             </div>
                           </div>
