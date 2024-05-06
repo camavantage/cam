@@ -7,6 +7,7 @@ import {
   PageHeaderDescription,
 } from "@/components/page-header";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
+import { SubscriberOnlyMessage } from "@/components/subscriber-only-message";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -79,23 +80,10 @@ export default async function ArticlePage({
   }
 
   if (article.visibility === "subscriber_only" && !session) {
-    return (
-      <div>
-        <PageHeader>
-          <PageHeaderDescription>
-            Cet article n&apos;est visible que pour les abonnés de
-            cam-avantage.com. Pour ne rien rater, connectez-vous à votre compte
-            ou inscrivez-vous et débloquez l&apos;accès au contenu réservé aux
-            membres. L&apos;inscription c&apos;gratuit🎁🎉
-          </PageHeaderDescription>
-          <PageActions>
-            <Button>S&apos;inscrire</Button>
-            <Button variant="secondary">Se connecter</Button>
-          </PageActions>
-        </PageHeader>
-      </div>
-    );
+    return <SubscriberOnlyMessage />;
   }
+
+  
 
   return (
     <div>
