@@ -1,13 +1,10 @@
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
 import { NotFound } from "@/components/not-found";
-import { ShareButtonsBar } from "@/components/share-buttons-bar";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { auth } from "@/lib/auth";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
-import { absoluteUrl, getHSLColor } from "@/lib/utils";
+import { absoluteUrl } from "@/lib/utils";
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { NoPremiumMessage } from "@/components/no-premium-message";
@@ -72,6 +69,7 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <ArticleHeader article={article} />
         <NoSubscriberMessage />
+        <LatestArticles />
       </div>
     );
   }
@@ -81,6 +79,7 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <ArticleHeader article={article} />
         <NoPremiumMessage />
+        <LatestArticles />
       </div>
     );
   }
