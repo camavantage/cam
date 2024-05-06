@@ -69,6 +69,7 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <ArticleHeader article={article} />
         <NoSubscriberMessage />
+        <ArticleFooter article={article} />
         <LatestArticles />
       </div>
     );
@@ -79,6 +80,7 @@ export default async function ArticlePage({
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <ArticleHeader article={article} />
         <NoPremiumMessage />
+        <ArticleFooter article={article} />
         <LatestArticles />
       </div>
     );
