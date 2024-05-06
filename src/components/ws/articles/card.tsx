@@ -99,6 +99,9 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
         </div>
       </div>
       <div className="flex flex-col md:items-end py-4 md:py-0 pr-[4px] ">
+        {article.visibility === "public" && "📢"}
+        {article.visibility === "premium_only" && "💰"}
+        {article.visibility === "subscriber_only" && "🙍🏻‍♂️"}
         {article.blocked ? (
           <Badge variant="destructive" className="w-fit">
             Bloqué
