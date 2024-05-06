@@ -135,10 +135,13 @@ export default async function TagPage({
                         <h3 className=" font-semibold">
                           {article.article.author?.name}
                         </h3>
+                        <div className="flex items-center space-x-1">
+                        <CiLock className="inline bg-ws-background p-[2px] rounded" />
                         <p className=" text-muted-foreground">
-                        <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.article.content)} -{" "}
+                         {readingTimeEstimator(article.article.content)} -{" "}
                           {formatDate(article.article.updatedAt)}
                         </p>
+                        </div>
                       </div>
                     </div>
                   </div>
