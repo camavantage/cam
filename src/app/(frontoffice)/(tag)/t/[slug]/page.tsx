@@ -132,10 +132,10 @@ export default async function TagPage({
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <h3 className=" font-semibold text-sm">
+                        <h3 className=" font-semibold">
                           {article.article.author?.name}
                         </h3>
-                        <p className=" text-xs text-muted-foreground">
+                        <p className=" text-muted-foreground">
                         <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.article.content)} -{" "}
                           {formatDate(article.article.updatedAt)}
                         </p>
