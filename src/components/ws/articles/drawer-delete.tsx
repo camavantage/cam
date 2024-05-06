@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/drawer";
 import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
-import { ArticleType } from "@/lib/types";
 import { SetStateAction, useState, Dispatch } from "react";
 
 type DrawerDeleteArticleProps = {

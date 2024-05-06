@@ -107,6 +107,7 @@ model Article {
   year Int @db.SmallInt
   published Boolean @default(false)
   commentable Boolean @default(true)
+  visibility Visibility @default(public)
   verified Boolean @default(true)
   blocked Boolean @default(false)
   tags ArticleTag[]
@@ -122,6 +123,12 @@ model ArticleTag {
   tag Tag @relation(fields: [tagId],references: [id])
   @@id([articleId,tagId])
   @@map("article_tags")
+}
+
+enum Visibility {
+  public
+  subscriber_only
+  premium_only
 }
 
 model Tag {

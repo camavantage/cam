@@ -48,17 +48,20 @@ export type ArticleType = {
   content: string;
   markdown: string;
   imageUrl: string;
-  authorId: string |null;
+  authorId: string | null;
   author?: UserType;
   year: number;
   published: boolean;
   commentable: boolean;
+  visibility:VisibilityType;
   verified: boolean;
   blocked: boolean;
   tags?: ArticleTagType[];
   createdAt: Date;
   updatedAt: Date;
 };
+
+export type VisibilityType = "public" | "subscriber_only" | "premium_only";
 
 export type ArticleTagType = {
   articleId: string;

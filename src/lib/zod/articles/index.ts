@@ -1,3 +1,4 @@
+import { visibilities } from "@/lib/data/visibilities";
 import { tagOptionSchema } from "@/lib/utils";
 import { z } from "zod";
 
@@ -23,6 +24,7 @@ export const newArticleFormSchema = z.object({
   authorId: z.string().cuid(),
   published: z.boolean(),
   commentable: z.boolean(),
+  visibility: z.enum(visibilities).optional(),
   verified: z.boolean(),
   blocked: z.boolean(),
 });
@@ -52,6 +54,7 @@ export const editArticleFormSchema = z.object({
   authorId: z.string().cuid().optional(),
   published: z.boolean(),
   commentable: z.boolean(),
+  visibility: z.enum(visibilities).optional(),
   verified: z.boolean(),
   blocked: z.boolean(),
 });

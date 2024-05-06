@@ -64,7 +64,7 @@ import {
 import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
 
 type EditArticleFormProps = {
-  article?: Article;
+  article: Article;
   tags?: TagType[];
   authors?: UserType[];
 };
@@ -103,6 +103,7 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
       customTags: [],
       published: article?.published,
       authorId: `${article?.authorId}`,
+      visibility: article?.visibility,
       verified: article?.verified,
       commentable: article?.commentable,
       blocked: article?.blocked,

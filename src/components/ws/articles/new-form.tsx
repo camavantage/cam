@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import { TooltipWrap } from "@/components/tooltip-wrapper";
 import { Button } from "@/components/ui/button";
 import {
@@ -57,6 +56,14 @@ import {
   NewArticleFormSchemaType,
   newArticleFormSchema,
 } from "@/lib/zod/articles";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { visibilitiesAsOptions } from "@/lib/data/visibilities";
 
 type NewArticleFormProps = {
   tags?: TagType[];
@@ -67,7 +74,6 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   tags,
   authors,
 }) => {
-
   const router = useRouter();
   const editor = useCreateBlockNote({
     uploadFile: async (file: File) => {
@@ -93,14 +99,14 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
       tags: [],
       customTags: [],
       authorId: session?.user.id,
-      published: true,
+      published: false,
       verified: true,
+      visibility: "public",
       commentable: true,
       blocked: false,
     },
   });
 
-  
   async function onSubmit(values: NewArticleFormSchemaType) {
     setLoading(true);
     await createArticle(values).catch(() => {
@@ -128,6 +134,36 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
               <h1 className="text-sm font-bold">Nouvel article</h1>
             </div>
             <div className="flex-1" />
+            <div>
+              <FormField
+                control={form.control}
+                name="visibility"
+                render={({ field }) => (
+                  <FormItem className=" flex flex-row">
+                    <FormLabel>Visibilité</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      disabled={loading}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Sélectionner" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {visibilitiesAsOptions.map((role) => (
+                          <SelectItem key={role.value} value={role.value}>
+                            {role.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
             <div className="flex items-center space-x-3 py-2 rounded-md">
               <FormField
                 control={form.control}
@@ -373,7 +409,6 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                                     <CommandEmpty>
                                       Aucun auteur trouvé
                                     </CommandEmpty>
-
                                     <CommandGroup>
                                       <CommandList>
                                         {AUTHORS_AS_OPTIONS.map((author) => (
@@ -529,4 +564,4 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
   );
 };
 
-export default NewArticleForm
+export default NewArticleForm;
