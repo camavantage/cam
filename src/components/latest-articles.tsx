@@ -68,7 +68,7 @@ export async function LatestArticles() {
                             </h3>
                             <div className="flex items-center space-x-1">
                               {article.visibility !== "public" && (
-                                <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
+                                <CiLock className="inline bg-ws-background text-muted-foreground p-[2px] rounded" />
                               )}
                               <p className=" text-muted-foreground">
                                 {formatDate(article.updatedAt)}
