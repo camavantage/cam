@@ -68,18 +68,22 @@ export default async function ArticlePage({
   params: { slug: string };
 }) {
   const article = await getArticle(params.slug);
-  const session= await auth()
+  const session = await auth();
   if (!article) {
     return <NotFound />;
   }
-  
-  if(article.visibility==="subscriber_only" && !session){
-    return <div>
-      Cet article n&apos;est visible que pour les abonnés de cam-avantage.com.
-      Pour ne rien rater, connectez-vous à votre compte ou inscrivez-vous et débloquez l&apos;accès au contenu réservé aux membres. L&apos;inscription c&apos; gratuit🎁🎉
-      <Button>S'inscrire</Button>
-      <Button>Se connecter</Button>
-    </div>
+
+  if (article.visibility === "subscriber_only" && !session) {
+    return (
+      <div>
+        Cet article n&apos;est visible que pour les abonnés de cam-avantage.com.
+        Pour ne rien rater, connectez-vous à votre compte ou inscrivez-vous et
+        débloquez l&apos;accès au contenu réservé aux membres.
+        L&apos;inscription c&apos; gratuit🎁🎉
+        <Button>S&apos;inscrire</Button>
+        <Button>Se connecter</Button>
+      </div>
+    );
   }
 
   return (
