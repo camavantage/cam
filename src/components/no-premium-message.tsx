@@ -15,7 +15,7 @@ export function NoPremiumMessage() {
           Seuls les abonnés qui ont payés pour cet article peuvent le consulter.
         </PageHeaderDescription>
         <PageActions>
-          <Button className="rounded-full">Ajouter au panier</Button>
+          <Button className="rounded-full">Acheter maintenant</Button>
         </PageActions>
       </PageHeader>
     </div>
