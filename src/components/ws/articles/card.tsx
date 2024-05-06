@@ -10,7 +10,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useToast } from "@/components/ui/use-toast";
-import { ArticleType } from "@/lib/types";
 import { getHSLColor } from "@/lib/utils";
 import { LucideExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -71,7 +70,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
             />
           )}
         </div>
-
         <div className="flex-1 flex flex-col">
           <div className="flex space-x-1">
             <h3 className="font-semibold  tracking-tight">

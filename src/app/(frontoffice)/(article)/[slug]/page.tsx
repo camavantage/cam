@@ -16,6 +16,7 @@ import {
 import { Metadata } from "next";
 import Image from "next/image";
 import { Suspense } from "react";
+import { CiLock } from "react-icons/ci";
 import Balancer from "react-wrap-balancer";
 
 const getArticle = async (slug: string) => {
@@ -112,7 +113,7 @@ export default async function ArticlePage({
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
               <p className=" text-muted-foreground">
-                {readingTimeEstimator(article.markdown)} -{" "}
+              <CiLock className="inline bg-ws-background" /> {readingTimeEstimator(article.markdown)} -{" "}
                 {formatDate(article.updatedAt)}
               </p>
             </div>
