@@ -1,7 +1,7 @@
 import { PageActions, PageHeader, PageHeaderDescription } from "./page-header";
 import { Button } from "./ui/button";
 
-export function SubscriberOnlyMessage() {
+export function NoSubscriberMessage() {
   return (
     <div>
       <PageHeader>

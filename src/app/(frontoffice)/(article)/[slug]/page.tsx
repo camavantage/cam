@@ -1,16 +1,9 @@
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
 import { NotFound } from "@/components/not-found";
-import {
-  PageActions,
-  PageHeader,
-  PageHeaderDescription,
-} from "@/components/page-header";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
-import { SubscriberOnlyMessage } from "@/components/subscriber-only-message";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { auth } from "@/lib/auth";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
@@ -26,6 +19,8 @@ import Image from "next/image";
 import { Suspense } from "react";
 import { CiLock } from "react-icons/ci";
 import Balancer from "react-wrap-balancer";
+import { NoPremiumMessage } from "@/components/no-premium-message";
+import { NoSubscriberMessage } from "@/components/no-subscriber-message";
 
 const getArticle = async (slug: string) => {
   const article = await prisma.article.findUnique({
@@ -80,10 +75,12 @@ export default async function ArticlePage({
   }
 
   if (article.visibility === "subscriber_only" && !session) {
-    return <SubscriberOnlyMessage />;
+    return <NoSubscriberMessage />;
   }
 
-  
+  if (article.visibility === "premium_only") {
+    return <NoPremiumMessage />;
+  }
 
   return (
     <div>
