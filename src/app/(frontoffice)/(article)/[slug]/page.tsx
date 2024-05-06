@@ -112,10 +112,15 @@ export default async function ArticlePage({
             </Avatar>
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
-              <p className=" text-muted-foreground">
-              <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.markdown)} -{" "}
-                {formatDate(article.updatedAt)}
-              </p>
+              <div className="flex items-center space-x-1">
+                {article.visibility !== "public" && (
+                  <CiLock className="inline bg-ws-background text-foreground p-[2px] rounded" />
+                )}
+                <p className=" text-muted-foreground">
+                  {readingTimeEstimator(article.markdown)} -{" "}
+                  {formatDate(article.updatedAt)}
+                </p>
+              </div>
             </div>
           </div>
           <div className="mb-8">
