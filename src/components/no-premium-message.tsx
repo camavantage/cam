@@ -10,7 +10,7 @@ export function NoPremiumMessage() {
   return (
     <div>
       <PageHeader>
-        <PageHeaderHeading>Accès à 1$</PageHeaderHeading>
+        <PageHeaderHeading>c&apos;est article est payant</PageHeaderHeading>
         <PageHeaderDescription>
           Seuls les abonnés qui ont payés pour cet article peuvent le consulter.
         </PageHeaderDescription>
