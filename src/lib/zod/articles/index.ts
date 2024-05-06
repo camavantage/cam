@@ -54,7 +54,7 @@ export const editArticleFormSchema = z.object({
   authorId: z.string().cuid().optional(),
   published: z.boolean(),
   commentable: z.boolean(),
-  visibility: z.enum(visibilities).optional(),
+  visibility: z.enum([...visibilities]).optional(),
   verified: z.boolean(),
   blocked: z.boolean(),
 });

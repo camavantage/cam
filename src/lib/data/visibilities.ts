@@ -5,7 +5,7 @@ type VisibilityOption = {
   value: VisibilityType;
 };
 
-export const visibilities: Readonly<[string, ...VisibilityType[]]> = [
+export const visibilities: Readonly<[VisibilityType, ...VisibilityType[]]> = [
   "public",
   "subscriber_only",
   "premium_only",
