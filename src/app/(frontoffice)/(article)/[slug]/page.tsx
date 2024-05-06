@@ -1,6 +1,11 @@
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
 import { NotFound } from "@/components/not-found";
+import {
+  PageActions,
+  PageHeader,
+  PageHeaderDescription,
+} from "@/components/page-header";
 import { ShareButtonsBar } from "@/components/share-buttons-bar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -76,12 +81,18 @@ export default async function ArticlePage({
   if (article.visibility === "subscriber_only" && !session) {
     return (
       <div>
-        Cet article n&apos;est visible que pour les abonnés de cam-avantage.com.
-        Pour ne rien rater, connectez-vous à votre compte ou inscrivez-vous et
-        débloquez l&apos;accès au contenu réservé aux membres.
-        L&apos;inscription c&apos; gratuit🎁🎉
-        <Button>S&apos;inscrire</Button>
-        <Button>Se connecter</Button>
+        <PageHeader>
+          <PageHeaderDescription>
+            Cet article n&apos;est visible que pour les abonnés de
+            cam-avantage.com. Pour ne rien rater, connectez-vous à votre compte
+            ou inscrivez-vous et débloquez l&apos;accès au contenu réservé aux
+            membres. L&apos;inscription c&apos;gratuit🎁🎉
+          </PageHeaderDescription>
+          <PageActions>
+            <Button>S&apos;inscrire</Button>
+            <Button variant="secondary">Se connecter</Button>
+          </PageActions>
+        </PageHeader>
       </div>
     );
   }
