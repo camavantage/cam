@@ -10,6 +10,7 @@ import {
 import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { formatDate, readingTimeEstimator } from "@/lib/utils";
+import { CiLock } from "react-icons/ci";
 
 const getLastArticles = async (number?: number) => {
   const articles = await prisma.article.findMany({
@@ -53,9 +54,7 @@ export async function LatestArticles() {
                         />
                       </div>
                       <div className="flex-1">
-                        <h1 className=" text-2xl font-bold">
-                          {article.title}
-                        </h1>
+                        <h1 className=" text-2xl font-bold">{article.title}</h1>
                         <div className="flex space-x-3 my-6">
                           <Avatar className="h-12 w-12">
                             <AvatarImage src={`${article.author?.image}`} />
@@ -68,6 +67,7 @@ export async function LatestArticles() {
                               {article.author?.name}
                             </h3>
                             <p className=" text-muted-foreground">
+                              <CiLock className="inline bg-ws-background p-1 rounded" />{" "}
                               {readingTimeEstimator(article.content)}
                             </p>
                           </div>

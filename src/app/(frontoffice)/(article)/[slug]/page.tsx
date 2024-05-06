@@ -113,7 +113,7 @@ export default async function ArticlePage({
             <div className="flex-1">
               <h3 className=" font-semibold">{article.author?.name}</h3>
               <p className=" text-muted-foreground">
-              <CiLock className="inline bg-ws-background" /> {readingTimeEstimator(article.markdown)} -{" "}
+              <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.markdown)} -{" "}
                 {formatDate(article.updatedAt)}
               </p>
             </div>

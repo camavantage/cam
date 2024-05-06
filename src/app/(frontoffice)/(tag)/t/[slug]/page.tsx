@@ -11,6 +11,7 @@ import { absoluteUrl, formatDate, readingTimeEstimator } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { CiLock } from "react-icons/ci";
 
 const getTag = async (slug: string) => {
   const tag = await prisma.tag.findUnique({
@@ -135,7 +136,7 @@ export default async function TagPage({
                           {article.article.author?.name}
                         </h3>
                         <p className=" text-xs text-muted-foreground">
-                          {readingTimeEstimator(article.article.content)} -{" "}
+                        <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.article.content)} -{" "}
                           {formatDate(article.article.updatedAt)}
                         </p>
                       </div>

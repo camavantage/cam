@@ -17,6 +17,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
+import { CiLock } from "react-icons/ci";
 
 const getArticles = async (searchParams?: {
   q?: string;
@@ -204,7 +205,7 @@ export default async function ArticlesPage({
                         {article.author?.name}
                       </h3>
                       <p className=" text-xs text-muted-foreground">
-                        {readingTimeEstimator(article.content)} -{" "}
+                      <CiLock className="inline bg-ws-background p-1 rounded" /> {readingTimeEstimator(article.content)} -{" "}
                         {formatDate(article.updatedAt)}
                       </p>
                     </div>
