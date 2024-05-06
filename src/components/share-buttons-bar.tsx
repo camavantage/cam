@@ -27,8 +27,7 @@ export function ShareButtonsBar({
   return (
     <div className="flex items-center space-x-2 py-3">
       <span className="font-bold">
-        Partager
-        {/* <BiShareAlt className=" inline ml-3 h-[1.2rem] w-[1.2rem]" /> */}
+        Partager:
       </span>
       <div className="flex-1" />
       <EmailShare url={url} title={title} content={content} size={32} round />
