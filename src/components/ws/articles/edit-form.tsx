@@ -206,7 +206,7 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
                 control={form.control}
                 name="published"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row space-x-2 items-center rounded-lg border px-3 py-1">
+                  <FormItem className="flex flex-row space-x-2 items-center rounded-lg bg-background px-3 py-1">
                     <FormLabel>Publié</FormLabel>
                     <FormControl className="p-0 m-0">
                       <Switch
