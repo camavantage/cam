@@ -62,6 +62,8 @@ import {
   editArticleFormSchema,
 } from "@/lib/zod/articles";
 import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { visibilitiesAsOptions } from "@/lib/data/visibilities";
 
 type EditArticleFormProps = {
   article: Article;
@@ -169,6 +171,36 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
               <h1 className="text-sm font-bold">L&apos;article</h1>
             </div>
             <div className="flex-1" />
+            <div>
+              <FormField
+                control={form.control}
+                name="visibility"
+                render={({ field }) => (
+                  <FormItem className="">
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3"
+                    >
+                      {visibilitiesAsOptions.map((item) => (
+                        <FormItem
+                          key={item.value}
+                          className="flex items-center space-x-3 space-y-0"
+                        >
+                          <FormControl>
+                            <RadioGroupItem value={item.value} />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {item.label}
+                          </FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
             <div className="flex items-center space-x-3 py-2 rounded-md">
               <FormField
                 control={form.control}

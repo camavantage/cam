@@ -160,25 +160,6 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                         </FormItem>
                       ))}
                     </RadioGroup>
-                    {/* <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      disabled={loading}
-                      
-                    >
-                      <FormControl className="">
-                        <SelectTrigger className=" w-[100px]">
-                          <SelectValue placeholder="Sélectionner" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {visibilitiesAsOptions.map((role) => (
-                          <SelectItem key={role.value} value={role.value}>
-                            {role.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select> */}
                     <FormMessage />
                   </FormItem>
                 )}
