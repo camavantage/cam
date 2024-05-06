@@ -64,6 +64,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { visibilitiesAsOptions } from "@/lib/data/visibilities";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 type NewArticleFormProps = {
   tags?: TagType[];
@@ -139,15 +140,34 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 control={form.control}
                 name="visibility"
                 render={({ field }) => (
-                  <FormItem className=" flex flex-row">
-                    <FormLabel>Visibilité</FormLabel>
-                    <Select
+                  <FormItem className="">
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                      className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3"
+                    >
+                      {visibilitiesAsOptions.map((item) => (
+                        <FormItem
+                          key={item.value}
+                          className="flex items-center space-x-3 space-y-0"
+                        >
+                          <FormControl>
+                            <RadioGroupItem value={item.value} />
+                          </FormControl>
+                          <FormLabel className="font-normal">
+                            {item.label}
+                          </FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
+                    {/* <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
                       disabled={loading}
+                      
                     >
-                      <FormControl>
-                        <SelectTrigger>
+                      <FormControl className="">
+                        <SelectTrigger className=" w-[100px]">
                           <SelectValue placeholder="Sélectionner" />
                         </SelectTrigger>
                       </FormControl>
@@ -158,7 +178,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           </SelectItem>
                         ))}
                       </SelectContent>
-                    </Select>
+                    </Select> */}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -169,7 +189,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 control={form.control}
                 name="published"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row space-x-2 items-center rounded-lg border px-3 py-1">
+                  <FormItem className="flex flex-row space-x-2 items-center rounded-lg bg-background px-3 py-1">
                     <FormLabel>Publié</FormLabel>
                     <FormControl className="p-0 m-0">
                       <Switch
