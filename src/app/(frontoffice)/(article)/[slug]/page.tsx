@@ -13,6 +13,7 @@ import { Suspense } from "react";
 import { NoPremiumMessage } from "@/components/no-premium-message";
 import { NoSubscriberMessage } from "@/components/no-subscriber-message";
 import { ArticleHeader } from "@/components/article-header";
+import { ArticleFooter } from "@/components/article-footer";
 
 const getArticle = async (slug: string) => {
   const article = await prisma.article.findUnique({
@@ -69,6 +70,7 @@ export default async function ArticlePage({
   if (article.visibility === "subscriber_only" && !session) {
     return (
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
+        <ArticleHeader article={article} />
         <NoSubscriberMessage />
       </div>
     );
@@ -77,6 +79,7 @@ export default async function ArticlePage({
   if (article.visibility === "premium_only") {
     return (
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
+        <ArticleHeader article={article} />
         <NoPremiumMessage />
       </div>
     );
@@ -91,47 +94,7 @@ export default async function ArticlePage({
             <Mdx content={article.markdown} />
           </Suspense>
         </div>
-        <div className=" px-6 lg:px-0">
-          {article.tags && (
-            <div className="flex items-center space-x-2 pt-4">
-              {article.tags.map((tag) => (
-                <Badge key={tag.tagId} variant="outline" className="lowercase ">
-                  <span style={{ color: getHSLColor(tag.tag.name) }}>#</span>
-                  {tag.tag.name}
-                </Badge>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className=" mt-2 py-6 px-6 md:px-0">
-          <div className="flex items-end">
-            <Avatar className=" h-20 w-20">
-              <AvatarImage className="" src={`${article.author?.image}`} />
-              <AvatarFallback className="uppercase">
-                {article.author?.name?.substring(0, 2)}
-              </AvatarFallback>
-            </Avatar>
-            <div className="flex-1" />
-          </div>
-
-          <div className=" mt-6">
-            <h3 className=" text-2xl font-bold left-[30px]">
-              {article.author?.name}
-            </h3>
-            <p className=" text-muted-foreground text-base">
-              {article.author?.bio}
-            </p>
-          </div>
-        </div>
-        <div className="px-6 lg:px-0 pt-6">
-          <Suspense>
-            <ShareButtonsBar
-              slug={article.slug}
-              title={article.title}
-              content={article.description}
-            />
-          </Suspense>
-        </div>
+        <ArticleFooter article={article} />
         <LatestArticles />
       </div>
     </div>
