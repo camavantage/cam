@@ -99,17 +99,15 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
         </div>
       </div>
       <div className="flex flex-col md:items-end py-4 md:py-0 pr-[4px] ">
-        {article.visibility === "public" && "📢"}
-        {article.visibility === "premium_only" && "💰"}
-        {article.visibility === "subscriber_only" && "🙍🏻‍♂️"}
+       
         {article.blocked ? (
           <Badge variant="destructive" className="w-fit">
-            Bloqué
+            Bloqué {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}
           </Badge>
         ) : article.published ? (
-          <Badge className="w-fit">Publié</Badge>
+          <Badge className="w-fit">Publié {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}</Badge>
         ) : (
-          <Badge className="w-fit">En attente de plublication</Badge>
+          <Badge className="w-fit">En attente de plublication {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}</Badge>
         )}
 
         <h3 className="text-sm font-semibold text-muted-foreground">
