@@ -170,7 +170,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 )}
               />
             </div>
-            {form.watch().visibility==="premium_only" &&<div>
+            {form.watch("visibility")==="premium_only" &&<div>
               <FormField
                 control={form.control}
                 name="price"
