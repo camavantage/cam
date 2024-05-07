@@ -175,18 +175,21 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 control={form.control}
                 name="price"
                 render={({ field }) => (
-                  <FormItem className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3">
+                  <FormItem
+                    className={cn(
+                      form.watch().visibility === "premium_only"
+                        ? "flex"
+                        : "hidden",
+                      "items-center space-x-1 h-10 rounded-lg bg-background px-3"
+                    )}
+                  >
                     <FormControl className="">
                       <div className=" relative flex">
                         <Input
-                          type={
-                            form.watch().visibility === "premium_only"
-                              ? "number"
-                              : "hidden"
-                          }
+                          type="number"
                           {...field}
                           placeholder="Prix"
-                          className=" pr-8"
+                          className=" w-[100px] pr-8"
                         />
                         <span className=" absolute right-1">USD</span>
                       </div>
