@@ -185,7 +185,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           {...field}
                           step={0.01}
                           placeholder="0.00"
-                          className=" font-bold w-[100px] pr-10"
+                          className="border-none  font-bold w-[100px] pr-10"
                           onChange={e=>{
                             field.onChange(e)
                             form.setValue("price",parseFloat(e.target.value))
@@ -193,7 +193,6 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
 
                         />
                       </FormControl>
-                      <FormMessage/>
                     </FormItem>
                   )}
                 />
