@@ -165,30 +165,33 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 )}
               />
             </div>
-            {form.watch("visibility")==="premium_only" &&<div>
-              <FormField
-                control={form.control}
-                name="price"
-                render={({ field }) => (
-                  <FormItem
-                    className={cn("flex items-center space-x-1 h-10 rounded-lg bg-background")}
-                  >
-                    <FormControl className="">
-                      <div className=" relative flex">
+            {form.watch("visibility") === "premium_only" && (
+              <div>
+                <FormField
+                  control={form.control}
+                  name="price"
+                  render={({ field }) => (
+                    <FormItem
+                      className={cn(
+                        "relative flex items-center space-x-1 h-10 rounded-lg bg-background"
+                      )}
+                    >
+                      <FormLabel className=" absolute top-2 right-2">
+                        USD
+                      </FormLabel>
+                      <FormControl className="">
                         <Input
                           type="number"
                           {...field}
                           placeholder="Prix"
                           className=" border-none w-[100px] pr-10"
-
                         />
-                        <span className=" absolute top-2 right-2">USD</span>
-                      </div>
-                    </FormControl>
-                  </FormItem>
-                )}
-              />
-            </div>}
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
             <div className="flex items-center space-x-3 py-2 rounded-md">
               <FormField
                 control={form.control}
