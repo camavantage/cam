@@ -230,7 +230,6 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
 
                         />
                       </FormControl>
-                      <FormMessage/>
                     </FormItem>
                   )}
                 />
