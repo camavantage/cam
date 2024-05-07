@@ -188,7 +188,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           className=" font-bold w-[100px] pr-10"
                           onChange={e=>{
                             field.onChange(e)
-                            field.value=parseFloat(e.target.value)
+                            form.setValue("price",parseFloat(e.target.value))
                           }}
 
                         />
