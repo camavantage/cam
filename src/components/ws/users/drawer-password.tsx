@@ -30,7 +30,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { SetStateAction, useState, Dispatch } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 type DrawerChangePasswordProps = {
   user?: UserType | null;

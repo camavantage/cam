@@ -106,6 +106,7 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
       published: article?.published,
       authorId: `${article?.authorId}`,
       visibility: article?.visibility,
+      price:article?.price ?? undefined,
       verified: article?.verified,
       commentable: article?.commentable,
       blocked: article?.blocked,

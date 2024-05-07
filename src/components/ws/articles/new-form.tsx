@@ -142,7 +142,12 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 render={({ field }) => (
                   <FormItem className="">
                     <RadioGroup
-                      onValueChange={field.onChange}
+                      onValueChange={(value) => {
+                        if (value === "premium_only") {
+                        } else {
+                          form.setValue("price", undefined);
+                        }
+                      }}
                       defaultValue={field.value}
                       className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3"
                     >
@@ -161,6 +166,31 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                       ))}
                     </RadioGroup>
                     <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <div>
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3">
+                    <FormControl className="">
+                      <div className=" relative flex">
+                        <Input
+                          type={
+                            form.watch().visibility === "premium_only"
+                              ? "number"
+                              : "hidden"
+                          }
+                          {...field}
+                          placeholder="Prix"
+                          className=" pr-8"
+                        />
+                        <span className=" absolute right-1">USD</span>
+                      </div>
+                    </FormControl>
                   </FormItem>
                 )}
               />

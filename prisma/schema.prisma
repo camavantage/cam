@@ -108,6 +108,7 @@ model Article {
   published Boolean @default(false)
   commentable Boolean @default(true)
   visibility Visibility @default(public)
+  price Float?
   verified Boolean @default(true)
   blocked Boolean @default(false)
   tags ArticleTag[]

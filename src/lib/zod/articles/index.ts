@@ -25,8 +25,12 @@ export const newArticleFormSchema = z.object({
   published: z.boolean(),
   commentable: z.boolean(),
   visibility: z.enum(visibilities).optional(),
+  price: z.number().optional(),
   verified: z.boolean(),
   blocked: z.boolean(),
+}).refine((data) => data.visibility === "premium_only"&& typeof data.price==="undefined", {
+  path: ["price"],
+  message: "Obligatoire",
 });
 // new article form data schema as a type
 export type NewArticleFormSchemaType = z.infer<typeof newArticleFormSchema>;
@@ -55,6 +59,7 @@ export const editArticleFormSchema = z.object({
   published: z.boolean(),
   commentable: z.boolean(),
   visibility: z.enum([...visibilities]).optional(),
+  price: z.number().optional(),
   verified: z.boolean(),
   blocked: z.boolean(),
 });
