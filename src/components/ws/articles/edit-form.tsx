@@ -202,6 +202,40 @@ export const EditArticleForm: React.FC<EditArticleFormProps> = ({
                 )}
               />
             </div>
+            {form.watch("visibility") === "premium_only" && (
+              <div>
+                <FormField
+                  control={form.control}
+                  name="price"
+                  render={({ field }) => (
+                    <FormItem
+                      className={cn(
+                        "relative flex items-center space-x-1 h-10 rounded-lg bg-background"
+                      )}
+                    >
+                      <FormLabel className=" absolute top-4 right-2 mb-0">
+                        USD
+                      </FormLabel>
+                      <FormControl className="">
+                        <Input
+                          type="number"
+                          {...field}
+                          step={0.01}
+                          placeholder="0.00"
+                          className=" font-bold w-[100px] pr-10"
+                          onChange={e=>{
+                            field.onChange(e)
+                            form.setValue("price",parseFloat(e.target.value))
+                          }}
+
+                        />
+                      </FormControl>
+                      <FormMessage/>
+                    </FormItem>
+                  )}
+                />
+              </div>
+            )}
             <div className="flex items-center space-x-3 py-2 rounded-md">
               <FormField
                 control={form.control}
