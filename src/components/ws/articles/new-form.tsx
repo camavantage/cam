@@ -176,7 +176,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                         "relative flex items-center space-x-1 h-10 rounded-lg bg-background"
                       )}
                     >
-                      <FormLabel className=" absolute top-2 right-2">
+                      <FormLabel className=" absolute top-4 right-2 mb-0">
                         USD
                       </FormLabel>
                       <FormControl className="">
