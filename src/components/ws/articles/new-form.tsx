@@ -171,7 +171,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 name="price"
                 render={({ field }) => (
                   <FormItem
-                    className={cn("flex items-center space-x-1 h-10 rounded-lg bg-background px-3")}
+                    className={cn("flex items-center space-x-1 h-10 rounded-lg bg-background")}
                   >
                     <FormControl className="">
                       <div className=" relative flex">
@@ -179,9 +179,10 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           type="number"
                           {...field}
                           placeholder="Prix"
-                          className=" w-[100px] pr-8"
+                          className=" border-none w-[100px] pr-10"
+
                         />
-                        <span className=" absolute right-1">USD</span>
+                        <span className=" absolute top-2 right-2">USD</span>
                       </div>
                     </FormControl>
                   </FormItem>
