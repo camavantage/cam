@@ -186,6 +186,11 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           step={0.01}
                           placeholder="0.00"
                           className=" font-bold w-[100px] pr-10"
+                          onChange={e=>{
+                            field.onChange(e)
+                            field.value=parseFloat(e.target.value)
+                          }}
+
                         />
                       </FormControl>
                       <FormMessage/>
