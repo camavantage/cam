@@ -10,7 +10,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useToast } from "@/components/ui/use-toast";
-import { getHSLColor } from "@/lib/utils";
+import { formatMoney, getHSLColor } from "@/lib/utils";
 import { LucideExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -99,15 +99,33 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
         </div>
       </div>
       <div className="flex flex-col md:items-end py-4 md:py-0 pr-[4px] ">
-       
         {article.blocked ? (
           <Badge variant="destructive" className="w-fit">
-            Bloqué {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}
+            Bloqué{" "}
+            {article.visibility === "premium_only"
+              ? `💰 ${formatMoney(article?.price)}`
+              : article.visibility === "subscriber_only"
+              ? "🎁"
+              : "💖"}
           </Badge>
         ) : article.published ? (
-          <Badge className="w-fit">Publié {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}</Badge>
+          <Badge className="w-fit">
+            Publié{" "}
+            {article.visibility === "premium_only"
+              ? `💰 ${formatMoney(article?.price)}`
+              : article.visibility === "subscriber_only"
+              ? "🎁"
+              : "💖"}
+          </Badge>
         ) : (
-          <Badge className="w-fit">En attente de plublication {article.visibility === "premium_only"? "💰":article.visibility === "subscriber_only" ? "🎁":"💖"}</Badge>
+          <Badge className="w-fit">
+            En attente de plublication{" "}
+            {article.visibility === "premium_only"
+              ? `💰 ${formatMoney(article?.price)}`
+              : article.visibility === "subscriber_only"
+              ? "🎁"
+              : "💖"}
+          </Badge>
         )}
 
         <h3 className="text-sm font-semibold text-muted-foreground">

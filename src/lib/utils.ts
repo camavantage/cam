@@ -63,6 +63,16 @@ export function formatDate(input: string | number | Date): string {
   });
 }
 
+export function formatMoney(input: number | null) {
+  if (typeof input === "number") {
+    const money = new Intl.NumberFormat("fr-FR", {
+      style: "currency",
+      currency: "USD",
+    }).format(input);
+    return money;
+  }
+}
+
 export function absoluteUrl(path: string) {
   return `${process.env.PUBLIC_APP_URL}${path}`
 }
