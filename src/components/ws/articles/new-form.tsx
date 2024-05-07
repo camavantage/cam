@@ -183,7 +183,8 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                         <Input
                           type="number"
                           {...field}
-                          placeholder="Prix"
+                          step={0.01}
+                          placeholder="0.00"
                           className=" border-none w-[100px] pr-10"
                         />
                       </FormControl>
