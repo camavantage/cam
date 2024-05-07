@@ -63,7 +63,7 @@ export function formatDate(input: string | number | Date): string {
   });
 }
 
-export function formatMoney(input: number | null) {
+export function formatMoney(input?: number | null) {
   if (typeof input === "number") {
     const money = new Intl.NumberFormat("fr-FR", {
       style: "currency",
