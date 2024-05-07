@@ -142,12 +142,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 render={({ field }) => (
                   <FormItem className="">
                     <RadioGroup
-                      onValueChange={(value) => {
-                        if (value === "premium_only") {
-                        } else {
-                          form.setValue("price", undefined);
-                        }
-                      }}
+                      onValueChange={field.onChange}
                       defaultValue={field.value}
                       className="flex items-center space-x-1 h-10 rounded-lg bg-background px-3"
                     >
