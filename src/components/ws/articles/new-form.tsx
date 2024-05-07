@@ -170,18 +170,13 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                 )}
               />
             </div>
-            <div>
+            {form.watch().visibility==="premium_only" &&<div>
               <FormField
                 control={form.control}
                 name="price"
                 render={({ field }) => (
                   <FormItem
-                    className={cn(
-                      form.watch().visibility === "premium_only"
-                        ? "flex"
-                        : "hidden",
-                      "items-center space-x-1 h-10 rounded-lg bg-background px-3"
-                    )}
+                    className={cn("flex items-center space-x-1 h-10 rounded-lg bg-background px-3")}
                   >
                     <FormControl className="">
                       <div className=" relative flex">
@@ -197,7 +192,7 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                   </FormItem>
                 )}
               />
-            </div>
+            </div>}
             <div className="flex items-center space-x-3 py-2 rounded-md">
               <FormField
                 control={form.control}
