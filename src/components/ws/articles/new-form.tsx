@@ -185,9 +185,10 @@ export const NewArticleForm: React.FC<NewArticleFormProps> = ({
                           {...field}
                           step={0.01}
                           placeholder="0.00"
-                          className=" border-none w-[100px] pr-10"
+                          className=" font-bold w-[100px] pr-10"
                         />
                       </FormControl>
+                      <FormMessage/>
                     </FormItem>
                   )}
                 />
