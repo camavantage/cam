@@ -67,10 +67,8 @@ export async function signInAsASubscriber(formData: SignInSchemaType) {
     throw new Error("fail to signIn");
   });
   if (!res) {
-    revalidatePath("/", "layout");
     return "ok";
   } else {
     throw new Error("L'adresse mail ou le mot de passe est incorrect!");
-    // console.log(res.error)
   }
 }
