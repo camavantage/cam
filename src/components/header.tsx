@@ -21,7 +21,7 @@ export function SiteHeader() {
              {/* <SearchArticleBar /> */}
             
           </div>
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center space-x-3">
             {/* <Link
               href={siteConfig.links.facebook}
               target="_blank"

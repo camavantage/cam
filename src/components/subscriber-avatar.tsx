@@ -53,8 +53,8 @@ export function SubscriberAvatar() {
     <DropdownMenu>
       <TooltipWrap content="Compte" side="right">
         <DropdownMenuTrigger asChild>
-          <Button className="flex space-x-1 rounded-full">
-            <Avatar>
+          <Button className="flex space-x-1 pl-0 rounded-full">
+            <Avatar className=" border">
               <AvatarImage src={session?.user?.image || ""} />
               <AvatarFallback className=" uppercase bg-foreground text-background">
                 {session?.user?.name?.substring(0, 2)}
@@ -74,7 +74,7 @@ export function SubscriberAvatar() {
           disabled={loading}
         >
           <LiaUserSolid className="mr-2 " />
-          Mon compte
+          Profil
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={logOut} disabled={loading}>
