@@ -7,6 +7,7 @@ import {
   PageHeaderHeading,
 } from "./page-header";
 import { Button } from "./ui/button";
+import { RegisterFormDrawer } from "./register-form";
 
 export function NoSubscriberMessage() {
   return (
@@ -20,7 +21,10 @@ export function NoSubscriberMessage() {
           membres. S&apos;inscrire c&apos;est gratuit🎁🎉 et sans engagement.
         </PageHeaderDescription>
         <PageActions>
-          <Button className="rounded-full">S&apos;inscrire</Button>
+          <Suspense>
+            <RegisterFormDrawer />
+          </Suspense>
+          <span>ou</span>
           <Suspense>
             <LoginFormDrawer />
           </Suspense>

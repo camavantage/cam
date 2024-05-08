@@ -48,7 +48,7 @@ export const LoginFormDrawer = () => {
 
   const onSubmit = async (formData: SignInSchemaType) => {
     setLoading(true);
-    await signInAsASubscriber({ ...formData },pathname).catch(() => {
+    await signInAsASubscriber({ ...formData }, pathname).catch(() => {
       toast({
         title: "Echec",
         variant: "destructive",
@@ -157,7 +157,9 @@ export const LoginFormDrawer = () => {
                   Connecter
                 </LoadingButton>
                 <DrawerClose asChild>
-                  <Button variant="outline">Annuler</Button>
+                  <Button variant="outline" disabled={loading}>
+                    Annuler
+                  </Button>
                 </DrawerClose>
               </DrawerFooter>
             </div>
