@@ -8,6 +8,7 @@ import { SearchArticleBar } from "./ws/articles/search-bar";
 import { BsFacebook } from "react-icons/bs";
 import { RiWhatsappFill } from "react-icons/ri";
 import { Suspense } from "react";
+import { UserAvatar } from "./ws/user-avatar";
 
 export function SiteHeader() {
   return (
@@ -17,9 +18,9 @@ export function SiteHeader() {
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Suspense>
+            {/* <Suspense>
               <SearchArticleBar />
-            </Suspense>
+            </Suspense> */}
           </div>
           <nav className="flex items-center">
             <Link
@@ -38,11 +39,12 @@ export function SiteHeader() {
               rel="noreferrer"
             >
               <Button variant="ghost" size="icon">
-              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                <RiWhatsappFill className="h-5 w-5 fill-current" />
                 <span className="sr-only">Whatsapp</span>
               </Button>
             </Link>
             <ModeToggle />
+            <UserAvatar />
           </nav>
         </div>
       </div>

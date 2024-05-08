@@ -38,7 +38,6 @@ export const RegisterFormDrawer = () => {
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const { toast } = useToast();
-  const router = useRouter();
   const pathname = usePathname();
 
   const form = useForm<NewSubscriberSchemaType>({
