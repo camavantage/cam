@@ -62,7 +62,7 @@ export const LoginForm = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4 min-h-screen flex justify-center items-center"
         >
-          <Card className="shadow-none bg-transparent w-[330px] mx-auto ">
+          <Card className="shadow-none w-[330px] mx-auto ">
             <CardHeader className="">
               <CardTitle className="">Authentification</CardTitle>
               <CardDescription>

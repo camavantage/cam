@@ -1,4 +1,3 @@
-import { NotFound } from "@/components/not-found";
 import {
   PageHeader,
   PageHeaderDescription,
@@ -11,6 +10,7 @@ import { absoluteUrl, formatDate, readingTimeEstimator } from "@/lib/utils";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { CiLock } from "react-icons/ci";
 
 const getTag = async (slug: string) => {
@@ -66,7 +66,7 @@ export default async function TagPage({
 }) {
   const tag = await getTag(params.slug);
   if (!tag) {
-    return <NotFound />;
+    notFound()
   }
   return (
     <div>
