@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useToast } from "./ui/use-toast";
 import { logOut } from "@/actions/auth";
 import {
@@ -19,16 +19,18 @@ import { LoginFormDrawer } from "./login-form";
 import React from "react";
 import { Button } from "./ui/button";
 import { RegisterFormDrawer } from "./register-form";
+import { signOut } from "@/lib/auth";
 
 export function SubscriberAvatar() {
   const [loading, setLoading] = React.useState<boolean>(false);
   const { data: session } = useSession();
   const router = useRouter();
+  const pathname = usePathname();
   const { toast } = useToast();
 
-  const signOut = async () => {
+  const logOut = async () => {
     setLoading(true);
-    await logOut().catch((e) => {
+    await signOut({ redirectTo: pathname }).catch((e) => {
       toast({
         title: "Echec",
         variant: "destructive",
@@ -74,7 +76,7 @@ export function SubscriberAvatar() {
           Mon compte
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={signOut} disabled={loading}>
+        <DropdownMenuItem onClick={logOut} disabled={loading}>
           <FiLogOut className="mr-2" />
           Déconnexion
         </DropdownMenuItem>
