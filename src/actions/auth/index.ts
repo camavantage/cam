@@ -4,8 +4,8 @@ import { signIn, signOut } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { SignInSchemaType } from "@/lib/zod/auth";
 import bcrypt from "bcryptjs";
-import { revalidatePath } from "next/cache";
 import { isRedirectError } from "next/dist/client/components/redirect";
+import { redirect } from "next/navigation";
 
 export async function authUser(credentials: SignInSchemaType) {
   const { email, password } = credentials;
@@ -58,17 +58,14 @@ export async function logOut() {
 }
 
 export async function signInAsASubscriber(formData: SignInSchemaType) {
-  const res = await signIn("credentials", {
+  await signIn("credentials", {
     ...formData,
+    redirect: true,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
     throw new Error("fail to signIn");
   });
-  if (!res) {
-    return "ok";
-  } else {
-    throw new Error("L'adresse mail ou le mot de passe est incorrect!");
-  }
+  redirect("");
 }
