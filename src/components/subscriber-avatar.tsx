@@ -42,7 +42,7 @@ export function SubscriberAvatar() {
 
   if (!session) {
     return (
-      <div className="flex ">
+      <div className="flex space-x-2 ">
         <RegisterFormDrawer /> <LoginFormDrawer />
       </div>
     );
