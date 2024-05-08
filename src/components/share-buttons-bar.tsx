@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { BiShareAlt } from "react-icons/bi";
 import {
   EmailShare,
   FacebookShare,
@@ -30,6 +29,7 @@ export function ShareButtonsBar({
         Partager :
       </span>
       <div className="flex-1" />
+      
       <EmailShare url={url} title={title} content={content} size={32} round />
       <FacebookShare
         url={url}

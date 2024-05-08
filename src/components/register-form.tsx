@@ -31,7 +31,6 @@ import { useForm } from "react-hook-form";
 
 export const RegisterFormDrawer = () => {
   const [showPWD, setShowPWD] = useState<boolean>(false);
-  const [showConfirmPWD, setShowConfirmPWD] = useState<boolean>(false);
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const { toast } = useToast();
@@ -164,47 +163,6 @@ export const RegisterFormDrawer = () => {
                               }}
                             >
                               {showPWD ? (
-                                <EyeOffIcon className="text-muted-foreground" />
-                              ) : (
-                                <EyeIcon className=" text-muted-foreground" />
-                              )}
-                            </Button>
-                          </div>
-                        </FormControl>
-
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <div>
-                  <FormField
-                    control={form.control}
-                    name="confirmPassword"
-                    render={({ field }) => (
-                      <FormItem className=" ">
-                        <FormLabel>Confirmer le mot de passe</FormLabel>
-                        <FormControl>
-                          <div className="relative flex">
-                            <Input
-                              {...field}
-                              type={showConfirmPWD ? "text" : "password"}
-                              placeholder=""
-                              disabled={loading}
-                              className={cn("w-full font-black pr-12")}
-                            />
-                            <Button
-                              type="button"
-                              variant="ghost"
-                              size="icon"
-                              disabled={loading}
-                              className=" absolute right-0 rounded-l-none"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setShowConfirmPWD((prev) => !prev);
-                              }}
-                            >
-                              {showConfirmPWD ? (
                                 <EyeOffIcon className="text-muted-foreground" />
                               ) : (
                                 <EyeIcon className=" text-muted-foreground" />

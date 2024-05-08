@@ -32,18 +32,7 @@ export const newRegisterSchema = z
       .max(32, {
         message: "Le mot de passe  doit comporter au max 32 chiffres.",
       }),
-    confirmPassword: z
-      .string({ required_error: "Le mot de passe est obligatoire" })
-      .min(6, {
-        message: "Le mot de passe doit comporter au moins 6 caractères.",
-      })
-      .max(32, {
-        message: "Le mot de passe  doit comporter au max 32 chiffres.",
-      }),
   })
-  .refine((data) => data.password === data.confirmPassword, {
-    path: ["confirmPassword"],
-    message: "Les mots de passe ne correspondent pas",
-  });
+  ;
 // setupSchema as a type
 export type NewRegisterSchemaType = z.infer<typeof newRegisterSchema>;

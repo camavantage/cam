@@ -6,7 +6,6 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "./page-header";
-import { Button } from "./ui/button";
 import { RegisterFormDrawer } from "./register-form";
 
 export function NoSubscriberMessage() {

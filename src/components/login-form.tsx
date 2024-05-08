@@ -23,10 +23,6 @@ import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
 import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
-import {
-  ChangePasswordformSchemaType,
-  changePasswordformSchema,
-} from "@/lib/zod/users";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
