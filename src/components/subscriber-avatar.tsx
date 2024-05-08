@@ -18,6 +18,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { RegisterFormDrawer } from "./register-form";
 import { signOut } from "@/lib/auth";
+import { logOut } from "@/actions/auth";
 
 export function SubscriberAvatar() {
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -26,9 +27,9 @@ export function SubscriberAvatar() {
   const pathname = usePathname();
   const { toast } = useToast();
 
-  const logOut = async () => {
+  const signOut = async () => {
     setLoading(true);
-    await signOut({ redirectTo: pathname }).catch((e) => {
+    await logOut(pathname).catch((e) => {
       toast({
         title: "Echec",
         variant: "destructive",
@@ -51,7 +52,7 @@ export function SubscriberAvatar() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="flex space-x-2 pr-0 rounded-full">
-        <span className="">Mon compte</span>
+          <span className="">Mon compte</span>
           <Avatar>
             <AvatarImage src={session?.user?.image || ""} />
             <AvatarFallback className=" uppercase bg-foreground text-background">
@@ -74,7 +75,7 @@ export function SubscriberAvatar() {
           Profil
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={logOut} disabled={loading}>
+        <DropdownMenuItem onClick={signOut} disabled={loading}>
           <FiLogOut className="mr-2" />
           Déconnexion
         </DropdownMenuItem>

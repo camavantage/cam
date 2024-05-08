@@ -47,8 +47,8 @@ export async function signWithCredentials(
   });
 }
 
-export async function logOut() {
-  await signOut({ redirectTo: "/login" }).catch((e) => {
+export async function logOut(pathname?: string) {
+  await signOut({ redirectTo: pathname || "/login" }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
