@@ -45,6 +45,7 @@ model User {
   blocked Boolean @default(false)
   emailVerified DateTime?
   image         String?
+  articleOrders ArticleOrder[]
   accounts      Account[]
   sessions      Session[]
   createdAt DateTime @default(now())
@@ -112,6 +113,7 @@ model Article {
   verified Boolean @default(true)
   blocked Boolean @default(false)
   tags ArticleTag[]
+  orders ArticleOrder[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   @@map("articles")
@@ -124,6 +126,21 @@ model ArticleTag {
   tag Tag @relation(fields: [tagId],references: [id])
   @@id([articleId,tagId])
   @@map("article_tags")
+}
+
+model ArticleOrder {
+  clientId String
+  client User @relation(fields: [clientId],references: [id], onDelete: Cascade)
+  articleId String
+  article Article @relation(fields: [articleId],references: [id])
+  status OrderStatus @default(pending)
+  @@id([articleId, clientId])
+  @@map("article_orders")
+}
+
+enum OrderStatus {
+  pending
+  confirmed
 }
 
 enum Visibility {
