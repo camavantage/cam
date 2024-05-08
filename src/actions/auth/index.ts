@@ -57,7 +57,7 @@ export async function logOut() {
   });
 }
 
-export async function signInAsASubscriber(formData: SignInSchemaType) {
+export async function signInAsASubscriber(formData: SignInSchemaType,pathname:string) {
   await signIn("credentials", {
     ...formData,
     redirect: true,
@@ -67,5 +67,5 @@ export async function signInAsASubscriber(formData: SignInSchemaType) {
     }
     throw new Error("fail to signIn");
   });
-  redirect("");
+  redirect(`${pathname}?connected=true`);
 }

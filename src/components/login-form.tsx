@@ -48,7 +48,7 @@ export const LoginFormDrawer = () => {
 
   const onSubmit = async (formData: SignInSchemaType) => {
     setLoading(true);
-    await signInAsASubscriber({ ...formData }).catch(() => {
+    await signInAsASubscriber({ ...formData },pathname).catch(() => {
       toast({
         title: "Echec",
         variant: "destructive",
