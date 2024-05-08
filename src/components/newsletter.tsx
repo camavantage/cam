@@ -27,8 +27,10 @@ import { LoadingButton } from "./ui/loading-button";
 import { useToast } from "./ui/use-toast";
 import { RegisterFormDrawer } from "./register-form";
 import { LoginFormDrawer } from "./login-form";
+import { useSession } from "next-auth/react";
 
 export const NewsletterSection: React.FC = () => {
+  const { data: session } = useSession();
   // const [loading, setLoading] = useState(false);
   // const [subscribed, setSubscribed] = useState(false);
   // const { toast } = useToast();
@@ -58,6 +60,9 @@ export const NewsletterSection: React.FC = () => {
   //     setSubscribed(true);
   //   }
   // };
+  if (session) {
+    return undefined;
+  }
   return (
     <PageHeader>
       <PageHeaderHeading>Abonnez-vous!</PageHeaderHeading>
