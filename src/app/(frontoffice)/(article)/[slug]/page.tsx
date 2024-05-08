@@ -82,7 +82,7 @@ export default async function ArticlePage({
     return (
       <div className=" max-w-screen-md mx-auto pt-6 md:pt-12">
         <ArticleHeader article={article} />
-        <NoPremiumMessage article={article} />
+        <NoPremiumMessage article={article} session={session} />
         <ArticleFooter article={article} />
         <LatestArticles />
       </div>
