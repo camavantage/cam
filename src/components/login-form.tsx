@@ -59,11 +59,12 @@ export const LoginFormDrawer = () => {
       setLoading(false);
     });
     if (res === "ok") {
-      // window.location.reload()
-      router.replace(pathname);
-      setLoading(false);
-      form.reset();
-      setOpenForm(false);
+      console.log("Connected");
+      window.location.reload();
+      //   router.replace(pathname);
+      //   setLoading(false);
+      //   form.reset();
+      //   setOpenForm(false);
     }
   };
 
