@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/card";
+} from "../../ui/card";
 import {
   Form,
   FormControl,
@@ -14,26 +14,26 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
+} from "../../ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useToast } from "../ui/use-toast";
-import { Input } from "../ui/input";
+import { useToast } from "../../ui/use-toast";
+import { Input } from "../../ui/input";
 import { cn } from "@/lib/utils";
-import { AutosizeTextarea } from "../ui/autosize-textarea";
+import { AutosizeTextarea } from "../../ui/autosize-textarea";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "../../ui/select";
 import { languages } from "@/lib/data/languages";
-import { ScrollArea } from "../ui/scroll-area";
-import { Button } from "../ui/button";
+import { ScrollArea } from "../../ui/scroll-area";
+import { Button } from "../../ui/button";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { LoadingButton } from "../ui/loading-button";
+import { LoadingButton } from "../../ui/loading-button";
 import { SetupSchemaType, setupSchema } from "@/lib/zod/setup";
 import { setup } from "@/actions/ws/setup";
 

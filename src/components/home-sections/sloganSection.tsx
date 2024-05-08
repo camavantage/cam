@@ -1,4 +1,4 @@
-import AcademicIcon from "../academicIcon";
+import AcademicIcon from "../icons/academicIcon";
 
 const SloganSection: React.FC = () => {
   return (

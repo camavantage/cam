@@ -1,6 +1,6 @@
 import Image from "next/image";
 import s from "@/styles/Home.module.scss";
-import AcademicIcon from "../academicIcon";
+import AcademicIcon from "../icons/academicIcon";
 
 const HomeSection: React.FC = () => {
   return (

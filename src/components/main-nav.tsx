@@ -3,9 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/lib/data/site";
 import { cn } from "@/lib/utils";
-import { Logo } from "./logo";
 
 export function MainNav() {
   const pathname = usePathname();

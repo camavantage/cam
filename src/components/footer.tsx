@@ -1,33 +1,22 @@
 "use client";
+
 import Link from "next/link";
 import { IoIosHeart } from "react-icons/io";
-import { Logo } from "../header/logo";
 import { siteConfig } from "@/lib/data/site";
 import { docsConfig } from "@/lib/data/menu";
-import { MobileLink } from "../header/mobile-nav";
+import { MobileLink } from "./mobile-nav";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../ui/card";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { LogoWithtext } from "../header/logo-with-text";
+} from "./ui/card";
+import { LogoWithtext } from "./icons/logo-with-text";
 
 const date = new Date();
-const formData = z.object({
-  email: z.string().email(),
-});
 
 export function SiteFooter() {
-  const form = useForm<z.infer<typeof formData>>({
-    resolver: zodResolver(formData),
-  });
-
-
   return (
     <footer className=" bg-ws-background p-6 lg:p-12">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-5">
@@ -46,49 +35,7 @@ export function SiteFooter() {
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent className="px-0">
-              {/* <div>
-                <p className="text-sm text-muted-foreground">
-                  Pour ne rien
-                    rater, inscrivez-vous à notre{" "}
-                    <span className=" font-bold">newsletter</span>!
-                </p>
-                <Form {...form}>
-                  <form
-                    className="relative mt-2"
-                    onSubmit={form.handleSubmit(onSubmit)}
-                  >
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <div className="flex items-center">
-                              <Input
-                                {...field}
-                                type="email"
-                                placeholder="Newsletter"
-                                className="flex-1 pr-12 rounded-full"
-                              />
-                              <Button
-                                type="submit"
-                                className={cn(
-                                  "absolute bg-transparent right-0 rounded-l-none rounded-r-full "
-                                )}
-                                variant="outline"
-                              >
-                                S&apos;inscrire
-                              </Button>
-                            </div>
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
-                  </form>
-                </Form>
-              </div> */}
-            </CardContent>
+            <CardContent className="px-0"></CardContent>
           </Card>
         </div>
         <div>

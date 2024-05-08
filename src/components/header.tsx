@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/data/site";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { MobileNav } from "./mobile-nav";
 import { MainNav } from "./main-nav";
-import { SearchArticleBar } from "../ws/articles/search-bar";
+import { SearchArticleBar } from "./ws/articles/search-bar";
 import { BsFacebook } from "react-icons/bs";
 import { RiWhatsappFill } from "react-icons/ri";
 import { Suspense } from "react";

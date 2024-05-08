@@ -1,4 +1,4 @@
-import { LogoWithtext } from "@/components/header/logo-with-text";
+import { LogoWithtext } from "@/components/icons/logo-with-text";
 import {
   PageActions,
   PageHeader,

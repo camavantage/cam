@@ -12,7 +12,7 @@ import { BiBookContent } from "react-icons/bi";
 import { TiTags } from "react-icons/ti";
 import { SettingsSheet } from "./settings";
 import { AppType } from "@/lib/types";
-import { Logo } from "../header/logo";
+import { Logo } from "../icons/logo";
 
 const menuItems: WSMenuItemType[] = [
   {

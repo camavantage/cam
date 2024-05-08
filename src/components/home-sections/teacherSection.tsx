@@ -1,8 +1,8 @@
 import Image from "next/image";
-import AcademicOutlineIcon from "../../icons/academicOulineIcon";
-import UsersIcon from "../../icons/usersIcon";
-import TrophyIcon from "../../icons/trophyIcon";
-import SunIcon from "../../icons/sunIcon";
+import AcademicOutlineIcon from "../icons/academicOulineIcon";
+import UsersIcon from "../icons/usersIcon";
+import TrophyIcon from "../icons/trophyIcon";
+import SunIcon from "../icons/sunIcon";
 import s from "@/styles/Home.module.scss";
 
 const TeacherSection: React.FC = () => {

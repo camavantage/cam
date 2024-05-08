@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PlusIcon from "../../icons/plusIcon";
+import PlusIcon from "../icons/plusIcon";
 import s from "@/styles/Home.module.scss";
 
 const AccompanimentSection: React.FC = () => {

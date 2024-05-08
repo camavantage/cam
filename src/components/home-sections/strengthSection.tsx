@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CheckIcon from "../../icons/checkIcon";
+import CheckIcon from "../icons/checkIcon";
 import s from "@/styles/Home.module.scss";
 
 const StrengthSection: React.FC = () => {
