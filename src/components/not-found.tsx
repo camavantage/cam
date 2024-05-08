@@ -1,9 +1,8 @@
-"use client"
 import { PageActions, PageHeader, PageHeaderHeading } from "./page-header";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export function NotFound() {
+export function NotFoundMessage() {
   return (
     <div className="px-6">
       <PageHeader>

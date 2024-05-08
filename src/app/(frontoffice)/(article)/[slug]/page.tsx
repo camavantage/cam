@@ -1,6 +1,5 @@
 import { LatestArticles } from "@/components/latest-articles";
 import { Mdx } from "@/components/mdx";
-import { NotFound } from "@/components/not-found";
 import { auth } from "@/lib/auth";
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
@@ -61,8 +60,8 @@ export default async function ArticlePage({
 }) {
   const article = await getArticle(params.slug);
   const session = await auth();
-  
-  if (!article) {
+
+  if (!article ) {
     notFound();
   }
 
