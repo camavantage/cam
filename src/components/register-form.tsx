@@ -1,5 +1,6 @@
 "use client";
 
+import { subscriberUser } from "@/actions/subscriber-user";
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -22,7 +23,10 @@ import { Input } from "@/components/ui/input";
 import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
-import { NewRegisterSchemaType, newRegisterSchema } from "@/lib/zod/register";
+import {
+  NewSubscriberSchemaType,
+  newSubscriberSchema,
+} from "@/lib/zod/subscriber";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
@@ -37,12 +41,24 @@ export const RegisterFormDrawer = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const form = useForm<NewRegisterSchemaType>({
-    resolver: zodResolver(newRegisterSchema),
+  const form = useForm<NewSubscriberSchemaType>({
+    resolver: zodResolver(newSubscriberSchema),
     defaultValues: {},
   });
 
-  const onSubmit = async (formData: NewRegisterSchemaType) => {};
+  const onSubmit = async (formData: NewSubscriberSchemaType) => {
+    setLoading(true);
+    await subscriberUser({ ...formData }, pathname).catch(() => {
+      toast({
+        title: "Echec",
+        variant: "destructive",
+        description: (
+          <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
+        ),
+      });
+      setLoading(false);
+    });
+  };
 
   return (
     <Drawer open={openForm} onOpenChange={setOpenForm}>

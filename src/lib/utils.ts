@@ -10,6 +10,7 @@ import {
 import { z } from "zod";
 import { MultiSelectorOptionType } from "@/components/ui/multiple-selector";
 import { readingTime } from "reading-time-estimator";
+import { init } from '@paralleldrive/cuid2';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -81,6 +82,13 @@ export function readingTimeEstimator(content: string) {
   const result = readingTime(content, 238, "fr");
   return result.text;
 }
+
+
+export const createUsername = init({
+  random: Math.random,
+  length: 10,
+});
+ 
 
 // Format slug
 export function formatSlug(text: string) {

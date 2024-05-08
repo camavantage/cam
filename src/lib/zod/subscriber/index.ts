@@ -1,8 +1,8 @@
 import { phoneRegex} from "@/lib/utils";
 import { z } from "zod";
 
-// new register schema
-export const newRegisterSchema = z
+// new subscriber schema
+export const newSubscriberSchema = z
   .object({
     phone: z
       .string()
@@ -34,5 +34,5 @@ export const newRegisterSchema = z
       }),
   })
   ;
-// setupSchema as a type
-export type NewRegisterSchemaType = z.infer<typeof newRegisterSchema>;
+// new subscriber Schema as a type
+export type NewSubscriberSchemaType = z.infer<typeof newSubscriberSchema>;
