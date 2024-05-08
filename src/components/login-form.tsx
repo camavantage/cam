@@ -29,6 +29,7 @@ import {
 } from "@/lib/zod/users";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -37,6 +38,7 @@ export const LoginFormDrawer = () => {
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const { toast } = useToast();
+  const router=useRouter()
 
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
@@ -56,6 +58,7 @@ export const LoginFormDrawer = () => {
       setLoading(false);
     });
     if (res === "ok") {
+        router.refresh()
       setLoading(false);
       form.reset();
       setOpenForm(false);
