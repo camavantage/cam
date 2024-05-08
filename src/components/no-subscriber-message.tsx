@@ -1,3 +1,4 @@
+import { LoginFormDrawer } from "./login-form";
 import { PageActions, PageHeader, PageHeaderDescription, PageHeaderHeading } from "./page-header";
 import { Button } from "./ui/button";
 
@@ -14,9 +15,7 @@ export function NoSubscriberMessage() {
         </PageHeaderDescription>
         <PageActions>
           <Button className=" rounded-full">S&apos;inscrire</Button>
-          <Button variant="secondary" className="rounded-full">
-            Se connecter
-          </Button>
+          <LoginFormDrawer/>
         </PageActions>
       </PageHeader>
     </div>
