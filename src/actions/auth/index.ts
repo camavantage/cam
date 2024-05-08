@@ -40,7 +40,6 @@ export async function signWithCredentials(
   await signIn("credentials", {
     ...formDataWithoutCallbackUrl,
     redirectTo: callbackUrl || "/ws",
-    redirect: true,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
@@ -50,7 +49,7 @@ export async function signWithCredentials(
 }
 
 export async function logOut() {
-  await signOut({ redirectTo: "/login", redirect: true }).catch((e) => {
+  await signOut({ redirectTo: "/login" }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
@@ -61,7 +60,6 @@ export async function logOut() {
 export async function signInAsASubscriber(formData: SignInSchemaType) {
   const res = await signIn("credentials", {
     ...formData,
-    redirect: true,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
