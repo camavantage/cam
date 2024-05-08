@@ -1,5 +1,5 @@
 import { getAppSetup } from "@/actions/ws/setup";
-import { SetupForm } from "@/components/ws/setup/setup-form";
+import { SetupForm } from "@/components/ws/setup-form";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 

@@ -6,7 +6,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../../ui/card";
+} from "../ui/card";
 import {
   Form,
   FormControl,
@@ -14,19 +14,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../ui/form";
+} from "../ui/form";
 import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { Input } from "../../ui/input";
+import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
-import { LoadingButton } from "../../ui/loading-button";
-import { Separator } from "../../ui/separator";
-import { ColoredGoogleIcon } from "./colored-google-icon";
+import { LoadingButton } from "../ui/loading-button";
+import { Separator } from "../ui/separator";
+import { ColoredGoogleIcon } from "../icons/colored-google-icon";
 import { useSearchParams } from "next/navigation";
 import { signWithCredentials } from "@/actions/auth";
-import { useToast } from "../../ui/use-toast";
-import { Button } from "../../ui/button";
+import { useToast } from "../ui/use-toast";
+import { Button } from "../ui/button";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
 
 export const LoginForm = () => {
@@ -62,7 +62,7 @@ export const LoginForm = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4 min-h-screen flex justify-center items-center"
         >
-          <Card className="shadow-none w-[330px] mx-auto ">
+          <Card className="shadow-none border-none w-[330px] mx-auto ">
             <CardHeader className="">
               <CardTitle className="">Authentification</CardTitle>
               <CardDescription>

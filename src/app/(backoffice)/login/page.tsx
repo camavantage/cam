@@ -1,5 +1,5 @@
 import { getAppSetup } from "@/actions/ws/setup";
-import { LoginForm } from "@/components/ws/login/login-form";
+import { LoginForm } from "@/components/ws/login-form";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
