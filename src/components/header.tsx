@@ -18,13 +18,11 @@ export function SiteHeader() {
         <MobileNav />
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
           <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Suspense>
-              {/* <SearchArticleBar /> */}
-              <SubscriberAvatar />
-            </Suspense>
+             {/* <SearchArticleBar /> */}
+            
           </div>
           <nav className="flex items-center">
-            <Link
+            {/* <Link
               href={siteConfig.links.facebook}
               target="_blank"
               rel="noreferrer"
@@ -33,7 +31,11 @@ export function SiteHeader() {
                 <BsFacebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Button>
-            </Link>
+            </Link> */}
+            <Suspense>
+             
+             <SubscriberAvatar />
+           </Suspense>
             <Link
               href={siteConfig.links.whatsapp}
               target="_blank"
