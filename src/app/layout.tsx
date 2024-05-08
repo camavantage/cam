@@ -4,7 +4,7 @@ import "@blocknote/react/style.css";
 import { Toaster } from "@/components/ui/toaster";
 import { getAppSetup } from "@/actions/ws/setup";
 import { siteConfig } from "@/lib/data/site";
-import "./globals.css";
+import "@/styles/globals.css";
 import { Providers } from "@/components/providers";
 
 const josefinSans = Josefin_Sans({subsets:["latin"]});
