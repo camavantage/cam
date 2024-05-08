@@ -28,7 +28,7 @@ export async function subscriberUser(
   await signIn("credentials", {
     email: newUser.email,
     password: formData.password,
-    redirectTo: pathname,
+    redirectTo: `${pathname}?connected=true`,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
