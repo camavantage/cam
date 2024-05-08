@@ -53,13 +53,14 @@ export function SubscriberAvatar() {
     <DropdownMenu>
       <TooltipWrap content="Compte" side="right">
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className="rounded-full">
+          <Button className="flex space-x-1 rounded-full">
             <Avatar>
               <AvatarImage src={session?.user?.image || ""} />
               <AvatarFallback className=" uppercase bg-foreground text-background">
                 {session?.user?.name?.substring(0, 2)}
               </AvatarFallback>
             </Avatar>
+            <span>Mon compte</span>
           </Button>
         </DropdownMenuTrigger>
       </TooltipWrap>
