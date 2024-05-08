@@ -1,3 +1,4 @@
+'use client'
 import { signInAsASubscriber } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import {
@@ -31,7 +32,7 @@ import { EyeIcon, EyeOffIcon } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export const DrawerChangePassword = () => {
+export const LoginFormDrawer = () => {
   const [showPWD, setShowPWD] = useState<boolean>(false);
   const [openForm, setOpenForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
