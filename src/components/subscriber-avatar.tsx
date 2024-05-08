@@ -18,6 +18,7 @@ import { FiLogOut } from "react-icons/fi";
 import { LoginFormDrawer } from "./login-form";
 import React from "react";
 import { Button } from "./ui/button";
+import { RegisterFormDrawer } from "./register-form";
 
 export function SubscriberAvatar() {
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -40,7 +41,11 @@ export function SubscriberAvatar() {
   };
 
   if (!session) {
-    return <LoginFormDrawer />;
+    return (
+      <div className="flex ">
+        <RegisterFormDrawer /> <LoginFormDrawer />
+      </div>
+    );
   }
   return (
     <DropdownMenu>
