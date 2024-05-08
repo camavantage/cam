@@ -2,7 +2,6 @@
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import { useToast } from "./ui/use-toast";
-import { logOut } from "@/actions/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +10,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { TooltipWrap } from "./tooltip-wrapper";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { LiaUserSolid } from "react-icons/lia";
 import { FiLogOut } from "react-icons/fi";
@@ -51,19 +49,18 @@ export function SubscriberAvatar() {
   }
   return (
     <DropdownMenu>
-      <TooltipWrap content="Compte" side="right">
-        <DropdownMenuTrigger asChild>
-          <Button className="flex space-x-1 pl-0 rounded-full">
-            <Avatar className=" border">
-              <AvatarImage src={session?.user?.image || ""} />
-              <AvatarFallback className=" uppercase bg-foreground text-background">
-                {session?.user?.name?.substring(0, 2)}
-              </AvatarFallback>
-            </Avatar>
-            <span>Mon compte</span>
-          </Button>
-        </DropdownMenuTrigger>
-      </TooltipWrap>
+      <DropdownMenuTrigger asChild>
+        <Button className="flex space-x-1 pl-0 rounded-full">
+        <span>Mon compte</span>
+          <Avatar className=" border">
+            <AvatarImage src={session?.user?.image || ""} />
+            <AvatarFallback className=" uppercase bg-foreground text-background">
+              {session?.user?.name?.substring(0, 2)}
+            </AvatarFallback>
+          </Avatar>
+        </Button>
+      </DropdownMenuTrigger>
+
       <DropdownMenuContent align="end" className="">
         <DropdownMenuLabel>{session?.user?.email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
