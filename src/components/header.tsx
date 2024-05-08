@@ -41,7 +41,7 @@ export function SiteHeader() {
               target="_blank"
               rel="noreferrer"
             >
-              <Button variant="ghost" size="icon" className=" rounded-full">
+              <Button variant="secondary" size="icon" className=" rounded-full">
                 <RiWhatsappFill className="h-5 w-5 fill-current" />
                 <span className="sr-only">Whatsapp</span>
               </Button>
