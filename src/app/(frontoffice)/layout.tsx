@@ -1,6 +1,6 @@
 import { SiteFooter } from "@/components/footer";
 import { SiteHeader } from "@/components/header";
-import { NewsletterSection } from "@/components/newsletter-section";
+import { NewsletterSection } from "@/components/newsletter";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import React, { Suspense } from "react";
 

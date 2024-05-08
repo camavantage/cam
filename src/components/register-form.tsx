@@ -56,7 +56,6 @@ export const RegisterFormDrawer = () => {
       <LoadingButton
         loading={loading}
         disabled={loading}
-        variant="secondary"
         onClick={(e) => {
           e.preventDefault();
           setOpenForm(true);
@@ -64,7 +63,7 @@ export const RegisterFormDrawer = () => {
         className=" rounded-full w-fit"
         size="sm"
       >
-        Se connecter
+        S&apos;inscrire
       </LoadingButton>
       {/* </DrawerTrigger> */}
       <DrawerContent>
