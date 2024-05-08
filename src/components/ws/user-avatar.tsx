@@ -16,9 +16,28 @@ import { TooltipWrap } from "../tooltip-wrapper";
 import { Button } from "../ui/button";
 import { useSession } from "next-auth/react";
 import { logOut } from "@/actions/auth";
+import { useRouter } from "next/navigation";
+import { useToast } from "../ui/use-toast";
 
 export function UserAvatar() {
+  const [loading, setLoading] = React.useState<boolean>(false);
   const { data: session } = useSession();
+  const router = useRouter();
+  const { toast } = useToast();
+
+  const signOut = async () => {
+    setLoading(true);
+    await logOut().catch((e) => {
+      toast({
+        title: "Echec",
+        variant: "destructive",
+        description: (
+          <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
+        ),
+      });
+      setLoading(false);
+    });
+  };
   return (
     <DropdownMenu>
       <TooltipWrap content="Compte" side="right">
@@ -36,16 +55,17 @@ export function UserAvatar() {
       <DropdownMenuContent align="end" className="">
         <DropdownMenuLabel>{session?.user?.email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => {}}>
+        <DropdownMenuItem
+          onClick={() => {
+            router.push(`/ws/users/${session?.user.username}`);
+          }}
+          disabled={loading}
+        >
           <LiaUserSolid className="mr-2 " />
           Profil
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={async () => {
-            await logOut();
-          }}
-        >
+        <DropdownMenuItem onClick={signOut} disabled={loading}>
           <FiLogOut className="mr-2" />
           Déconnexion
         </DropdownMenuItem>

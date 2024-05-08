@@ -123,6 +123,6 @@ export const NewsletterSection: React.FC = () => {
 // <PageHeader>
 //   <PageHeaderHeading>Félicitation🎉</PageHeaderHeading>
 //   <PageHeaderDescription>
-//     Vous êtes maintenant inscrit à notre newsletter📨🎉🔥
+//     Vous êtes maintenant inscrit à cam-avantage.com🎁🎉🔥
 //   </PageHeaderDescription>
 // </PageHeader>
