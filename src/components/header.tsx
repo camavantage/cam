@@ -36,7 +36,7 @@ export function SiteHeader() {
              
              <SubscriberAvatar />
            </Suspense>
-            {/* <Link
+            <Link
               href={siteConfig.links.whatsapp}
               target="_blank"
               rel="noreferrer"
@@ -45,7 +45,7 @@ export function SiteHeader() {
                 <RiWhatsappFill className="h-5 w-5 fill-current" />
                 <span className="sr-only">Whatsapp</span>
               </Button>
-            </Link> */}
+            </Link>
             <ModeToggle />
           </nav>
         </div>
