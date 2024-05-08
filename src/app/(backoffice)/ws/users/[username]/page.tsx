@@ -1,6 +1,6 @@
-import { NotFound } from "@/components/not-found";
 import EditUserForm from "@/components/ws/users/edit-form";
 import prisma from "@/lib/prisma";
+import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
 const getUser = async (username: string) => {
@@ -18,7 +18,7 @@ export default async function WSUserPage({
 }) {
   const user = await getUser(params.username);
   if (!user) {
-    return <NotFound />;
+    notFound()
   }
   return (
     <>
