@@ -48,7 +48,7 @@ export const LoginFormDrawer = () => {
 
   const onSubmit = async (formData: SignInSchemaType) => {
     setLoading(true);
-    const res = await signInAsASubscriber({ ...formData }).catch(() => {
+    await signInAsASubscriber({ ...formData }).catch(() => {
       toast({
         title: "Echec",
         variant: "destructive",
@@ -58,14 +58,6 @@ export const LoginFormDrawer = () => {
       });
       setLoading(false);
     });
-    if (res === "ok") {
-      console.log("Connected");
-      window.location.reload();
-      //   router.replace(pathname);
-      //   setLoading(false);
-      //   form.reset();
-      //   setOpenForm(false);
-    }
   };
 
   return (
