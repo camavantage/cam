@@ -58,7 +58,7 @@ export const LoginFormDrawer = () => {
       setLoading(false);
     });
     if (res === "ok") {
-        router.refresh()
+        window.location.reload()
       setLoading(false);
       form.reset();
       setOpenForm(false);
