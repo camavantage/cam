@@ -1,12 +1,14 @@
-"use client";
-import { useForm } from "react-hook-form";
+import { signInAsASubscriber } from "@/actions/auth";
+import { Button } from "@/components/ui/button";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "../ui/card";
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from "@/components/ui/drawer";
 import {
   Form,
   FormControl,
@@ -14,36 +16,35 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
-import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { Input } from "../ui/input";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { LoadingButton } from "@/components/ui/loading-button";
+import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
-import { LoadingButton } from "../ui/loading-button";
-import { Separator } from "../ui/separator";
-import { ColoredGoogleIcon } from "./colored-google-icon";
-import { useSearchParams } from "next/navigation";
-import { signWithCredentials } from "@/actions/auth";
-import { useToast } from "../ui/use-toast";
-import { Button } from "../ui/button";
+import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
+import {
+  ChangePasswordformSchemaType,
+  changePasswordformSchema,
+} from "@/lib/zod/users";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
-export const LoginForm = () => {
+export const DrawerChangePassword = () => {
+  const [showPWD, setShowPWD] = useState<boolean>(false);
+  const [openForm, setOpenForm] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const [showPWD, setShowPWD] = useState<boolean>();
   const { toast } = useToast();
+
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
     defaultValues: {},
   });
 
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl");
-
-  async function onSubmit(formData: SignInSchemaType) {
+  const onSubmit = async (formData: SignInSchemaType) => {
     setLoading(true);
-    await signWithCredentials({ ...formData, callbackUrl }).catch(() => {
+    const res = await signInAsASubscriber({ ...formData }).catch(() => {
       toast({
         title: "Echec",
         variant: "destructive",
@@ -53,25 +54,42 @@ export const LoginForm = () => {
       });
       setLoading(false);
     });
-  }
+    if (res === "ok") {
+      setLoading(false);
+      form.reset();
+      setOpenForm(false);
+    }
+  };
 
   return (
-    <div>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-4 min-h-screen flex justify-center items-center"
-        >
-          <Card className="shadow-none bg-transparent w-[330px] mx-auto ">
-            <CardHeader className="">
-              <CardTitle className="">Authentification</CardTitle>
-              <CardDescription>
-                Entrez votre email et mot de passe ci-dessous pour vous
-                connecter à votre compte
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="">
-              <div className=" space-y-4">
+    <Drawer open={openForm} onOpenChange={setOpenForm}>
+      {/* <DrawerTrigger asChild> */}
+      <LoadingButton
+        loading={loading}
+        disabled={loading}
+        variant="secondary"
+        onClick={(e) => {
+          e.preventDefault();
+          setOpenForm(true);
+        }}
+        className=" rounded-full w-fit"
+        size="sm"
+      >
+        Se connecter
+      </LoadingButton>
+      {/* </DrawerTrigger> */}
+      <DrawerContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <div className="mx-auto w-full max-w-sm">
+              <DrawerHeader>
+                <DrawerTitle>Authentification</DrawerTitle>
+                <DrawerDescription>
+                  Entrez votre email et mot de passe ci-dessous pour vous
+                  connecter à votre compte
+                </DrawerDescription>
+              </DrawerHeader>
+              <div className="px-4 space-y-4">
                 <FormField
                   control={form.control}
                   name="email"
@@ -129,6 +147,8 @@ export const LoginForm = () => {
                     </FormItem>
                   )}
                 />
+              </div>
+              <DrawerFooter>
                 <LoadingButton
                   loading={loading}
                   disabled={loading}
@@ -137,21 +157,14 @@ export const LoginForm = () => {
                 >
                   Connecter
                 </LoadingButton>
-                {/* <Separator />
-                <Button
-                  disabled={loading}
-                  type="submit"
-                  variant="ghost"
-                  className="w-full"
-                >
-                  <ColoredGoogleIcon className="inline h-[1.2rem] w-[1.2rem] mr-2" />{" "}
-                  Continuer avec Google
-                </Button> */}
-              </div>
-            </CardContent>
-          </Card>
-        </form>
-      </Form>
-    </div>
+                <DrawerClose asChild>
+                  <Button variant="outline">Annuler</Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </div>
+          </form>
+        </Form>
+      </DrawerContent>
+    </Drawer>
   );
 };
