@@ -57,15 +57,18 @@ export async function logOut() {
   });
 }
 
-export async function signInAsASubscriber(formData: SignInSchemaType,pathname:string) {
+export async function signInAsASubscriber(
+  formData: SignInSchemaType,
+  pathname: string
+) {
   await signIn("credentials", {
     ...formData,
-    redirect: true,
+    redirectTo: `${pathname}?connected=true`,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
     throw new Error("fail to signIn");
   });
-  redirect(`${pathname}?connected=true`);
+  // redirect(`${pathname}?connected=true`);
 }
