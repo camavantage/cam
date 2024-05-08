@@ -11,6 +11,7 @@ import { NoPremiumMessage } from "@/components/no-premium-message";
 import { NoSubscriberMessage } from "@/components/no-subscriber-message";
 import { ArticleHeader } from "@/components/article-header";
 import { ArticleFooter } from "@/components/article-footer";
+import { notFound } from "next/navigation";
 
 const getArticle = async (slug: string) => {
   const article = await prisma.article.findUnique({
@@ -60,8 +61,9 @@ export default async function ArticlePage({
 }) {
   const article = await getArticle(params.slug);
   const session = await auth();
+  
   if (!article) {
-    return <NotFound />;
+    notFound();
   }
 
   if (article.visibility === "subscriber_only" && !session) {

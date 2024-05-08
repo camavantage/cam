@@ -5,7 +5,6 @@ import prisma from "@/lib/prisma";
 import { SignInSchemaType } from "@/lib/zod/auth";
 import bcrypt from "bcryptjs";
 import { isRedirectError } from "next/dist/client/components/redirect";
-import { redirect } from "next/navigation";
 
 export async function authUser(credentials: SignInSchemaType) {
   const { email, password } = credentials;
@@ -70,5 +69,4 @@ export async function signInAsASubscriber(
     }
     throw new Error("fail to signIn");
   });
-  // redirect(`${pathname}?connected=true`);
 }

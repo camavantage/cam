@@ -1,3 +1,4 @@
+"use client"
 import { PageActions, PageHeader, PageHeaderHeading } from "./page-header";
 import Link from "next/link";
 import { Button } from "./ui/button";
