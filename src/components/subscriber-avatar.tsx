@@ -50,7 +50,7 @@ export function SubscriberAvatar() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="flex space-x-1 pl-0 rounded-full">
+        <Button className="flex space-x-1 pr-0 rounded-full">
         <span>Mon compte</span>
           <Avatar className=" border">
             <AvatarImage src={session?.user?.image || ""} />
