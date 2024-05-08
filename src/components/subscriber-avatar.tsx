@@ -51,7 +51,7 @@ export function SubscriberAvatar() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className="flex space-x-2 pr-0 rounded-full">
-        <span>Mon compte</span>
+        <span className=" uppercase">Mon compte</span>
           <Avatar>
             <AvatarImage src={session?.user?.image || ""} />
             <AvatarFallback className=" uppercase bg-foreground text-background">
