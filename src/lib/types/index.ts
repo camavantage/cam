@@ -60,6 +60,7 @@ export type ArticleType = {
   createdAt: Date;
   updatedAt: Date;
 };
+export type OrderStatusType = "pending" | "confirmed"
 
 export type VisibilityType = "public" | "subscriber_only" | "premium_only";
 

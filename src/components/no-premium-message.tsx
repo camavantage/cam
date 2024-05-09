@@ -16,6 +16,16 @@ import { LoginFormDrawer } from "./login-form";
 import { Session } from "next-auth";
 import prisma from "@/lib/prisma";
 import { Mdx } from "./mdx";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { siteConfig } from "@/lib/data/site";
+import { UnlockPremiumArticle } from "./unlock-premium-article";
 
 const getArticleOrder = async (clientId?: string, articleId?: string) => {
   if (typeof clientId === "string" && typeof articleId === "string") {
@@ -51,7 +61,40 @@ export async function NoPremiumMessage({
     );
   }
   if (order && order.status === "pending") {
-    return <div>En attent</div>;
+    return (
+      <PageHeader>
+        <Link
+          href=""
+          className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium"
+        >
+          <span>{formatMoney(article?.price)}</span>
+        </Link>
+        <PageHeaderHeading>Accès en attente</PageHeaderHeading>
+        <PageHeaderDescription>
+          Seuls les abonnés qui ont payés pour cet article peuvent le consulter.
+          Les articles payants sont des formations et guides pratiques avec
+          accompagnement garantie.
+        </PageHeaderDescription>
+        <Card className="border-none shadow-none">
+          <CardHeader>
+            <CardTitle>En attente</CardTitle>
+            <CardDescription>
+              Votre commande est en attente de validation. L&apos;équipe
+              commercial vous contactera pour vous orienter afin de confirmer
+              votre commande et vous donner accès.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            Vous pouvez nous contacter directement sur whatsapp
+          </CardContent>
+          <CardFooter>
+            <Link href={siteConfig.links.whatsapp}>
+              <Button className=" rounded-full bg-[#128c7e]">Whatsapp</Button>
+            </Link>
+          </CardFooter>
+        </Card>
+      </PageHeader>
+    );
   }
 
   return (
@@ -82,9 +125,13 @@ export async function NoPremiumMessage({
           </PageActions>
         ) : (
           <PageActions>
-            <Button className="rounded-full">
-              Déverrouiller à {formatMoney(article?.price)}
-            </Button>
+            <Suspense>
+              <UnlockPremiumArticle
+                price={article.price}
+                clientId={session.user.id}
+                articleId={article.id}
+              />
+            </Suspense>
           </PageActions>
         )}
       </PageHeader>

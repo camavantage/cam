@@ -133,6 +133,7 @@ model ArticleOrder {
   client User @relation(fields: [clientId],references: [id], onDelete: Cascade)
   articleId String
   article Article @relation(fields: [articleId],references: [id])
+  price Float
   status OrderStatus @default(pending)
   @@id([articleId, clientId])
   @@map("article_orders")
