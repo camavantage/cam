@@ -9,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import Link from "next/link";
@@ -119,6 +120,29 @@ export default async function WSDashboardPage() {
                 </CardContent>
               </Card>
             </div>
+          </div>
+          <div className="">
+            <Card>
+              <CardHeader>
+                <CardTitle>Commandes d&apos;articles</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Tabs defaultValue="pending" className="pt-2">
+                  <TabsList className=" w-full justify-start px-0 bg-transparent">
+                    <TabsTrigger value="pending">En attente</TabsTrigger>
+                    <TabsTrigger value="confirmed">Confirmé</TabsTrigger>
+                  </TabsList>
+                  <div>
+                    <TabsContent value="pending">
+                      <div></div>
+                    </TabsContent>
+                    <TabsContent value="confirmed">
+                      <div></div>
+                    </TabsContent>
+                  </div>
+                </Tabs>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </ScrollArea>

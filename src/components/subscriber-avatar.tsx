@@ -56,7 +56,7 @@ export function SubscriberAvatar() {
           <Avatar>
             <AvatarImage src={session?.user?.image || ""} />
             <AvatarFallback className=" uppercase bg-foreground text-background">
-              {session?.user?.name?.substring(0, 2)}
+              {session?.user?.name?.substring(0, 1)}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -67,7 +67,7 @@ export function SubscriberAvatar() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {
-            router.push(`/account`);
+            router.push(`/member`);
           }}
           disabled={loading}
         >
