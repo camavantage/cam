@@ -70,7 +70,13 @@ export function AcceptOrder({ clientId, articleId, price }: AcceptOrderProps) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <LoadingButton loading={loading} disabled={loading}>
+      <LoadingButton
+        loading={loading}
+        disabled={loading}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
         Confirmer
       </LoadingButton>
       <DrawerContent>
@@ -182,7 +188,14 @@ export function RejectOrder({ clientId, articleId }: RejectOrderProps) {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <LoadingButton variant="secondary" loading={loading} disabled={loading}>
+      <LoadingButton
+        variant="secondary"
+        loading={loading}
+        disabled={loading}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
         Rejeter
       </LoadingButton>
       <DrawerContent>
