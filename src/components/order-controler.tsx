@@ -78,7 +78,7 @@ export function AcceptOrder({ clientId, articleId, price }: AcceptOrderProps) {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
-                <DrawerTitle>Réjection</DrawerTitle>
+                <DrawerTitle>Confirmation</DrawerTitle>
                 <DrawerDescription>
                   Rassurez-vous que le client utilisateur a déjà payé pour
                   l&apos;article.
@@ -203,7 +203,7 @@ export function RejectOrder({ clientId, articleId }: RejectOrderProps) {
                     name="message"
                     render={({ field }) => (
                       <FormItem className=" ">
-                        <FormLabel>Ecrire: "rejeter"</FormLabel>
+                        <FormLabel>Ecrire: &quot;rejeter&quot;</FormLabel>
                         <FormControl>
                           <Input
                             {...field}
