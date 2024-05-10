@@ -147,7 +147,8 @@ export default async function WSDashboardPage() {
                       <span>En attente</span>
                     </TabsTrigger>
                     <TabsTrigger value="confirmed" className="flex space-x-2">
-                      <Badge>0</Badge>Confirmée(s)
+                      <Badge>99+</Badge>
+                      <span>Confirmée(s)</span>
                     </TabsTrigger>
                   </TabsList>
                   <div>
