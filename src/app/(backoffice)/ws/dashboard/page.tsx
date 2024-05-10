@@ -191,7 +191,7 @@ export default async function WSDashboardPage() {
                                         <AvatarImage
                                           src={order.client.image ?? ""}
                                         />
-                                        <AvatarFallback>
+                                        <AvatarFallback className=" uppercase">
                                           {order.client.name?.substring(0, 2)}
                                         </AvatarFallback>
                                       </Avatar>
