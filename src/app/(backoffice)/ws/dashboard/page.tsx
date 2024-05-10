@@ -15,6 +15,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { formatElapsedTime, formatMoney } from "@/lib/utils";
+import { LucideExternalLink } from "lucide-react";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
 import { RiWhatsappFill } from "react-icons/ri";
@@ -171,8 +172,9 @@ export default async function WSDashboardPage() {
                             <div className="flex-1">
                               <h3 className="text-sm font-semibold">
                                 {order.client.name}{" "}
-                                <Badge variant="secondary">
+                                <Badge variant="outline">
                                   Contacts
+                                  <LucideExternalLink className="inline ml-1 " />
                                   {/* <RiWhatsappFill className="inline" /> */}
                                 </Badge>
                               </h3>
