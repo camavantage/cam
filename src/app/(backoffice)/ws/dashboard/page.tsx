@@ -83,7 +83,7 @@ export default async function WSDashboardPage() {
             <div>
               <Card className=" border-none shadow-none bg-transparent">
                 <CardHeader className="px-0 pt-0">
-                  <CardTitle>{app?.title}</CardTitle>
+                  <CardTitle className=" text-2xl font-bold">{app?.title}</CardTitle>
                   <CardDescription>{app?.description}</CardDescription>
                 </CardHeader>
               </Card>
@@ -142,9 +142,9 @@ export default async function WSDashboardPage() {
               <CardContent className="pt-3">
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
-                    <TabsTrigger value="pending">
-                      <Badge variant="destructive">{orders.length}</Badge>En
-                      attente
+                    <TabsTrigger value="pending" className="flex space-x-2">
+                      <Badge variant="destructive">{orders.length}</Badge>
+                      <span>En attente</span>
                     </TabsTrigger>
                     <TabsTrigger value="confirmed">Confirmé</TabsTrigger>
                   </TabsList>
