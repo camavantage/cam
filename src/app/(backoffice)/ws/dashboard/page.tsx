@@ -161,7 +161,7 @@ export default async function WSDashboardPage() {
                         {orders.map((order) => (
                           <div
                             key={order.articleId + order.client}
-                            className="flex space-x-3 py-3 border-b"
+                            className="flex space-x-4 py-4 border-b"
                           >
                             <Avatar>
                               <AvatarImage src={order.client?.image ?? ""} />
