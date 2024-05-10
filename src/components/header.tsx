@@ -33,7 +33,6 @@ export function SiteHeader() {
               </Button>
             </Link> */}
             <Suspense>
-             
              <SubscriberAvatar />
            </Suspense>
             <Link

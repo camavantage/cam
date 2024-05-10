@@ -17,12 +17,12 @@ import { LoginFormDrawer } from "./login-form";
 import React from "react";
 import { Button } from "./ui/button";
 import { RegisterFormDrawer } from "./register-form";
-import { signOut } from "@/lib/auth";
+
 import { logOut } from "@/actions/auth";
 
 export function SubscriberAvatar() {
   const [loading, setLoading] = React.useState<boolean>(false);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   const pathname = usePathname();
   const { toast } = useToast();
@@ -41,7 +41,11 @@ export function SubscriberAvatar() {
     });
   };
 
-  if (!session) {
+  if (status === "loading") {
+    return undefined;
+  }
+
+  if (status === "unauthenticated") {
     return (
       <div className="flex space-x-2 ">
         <RegisterFormDrawer /> <LoginFormDrawer />
