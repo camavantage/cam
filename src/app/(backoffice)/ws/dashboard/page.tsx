@@ -10,6 +10,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
@@ -172,10 +177,73 @@ export default async function WSDashboardPage() {
                             <div className="flex-1">
                               <h3 className="text-sm font-semibold">
                                 {order.client.name}{" "}
-                                <Badge variant="outline">
-                                  Contacts
-                                  <LucideExternalLink className="inline ml-1 h-3 w-3" />
-                                </Badge>
+                                <HoverCard>
+                                  <HoverCardTrigger>
+                                    <Badge variant="outline">
+                                      Contacts client
+                                    </Badge>
+                                  </HoverCardTrigger>
+                                  <HoverCardContent className="w-80">
+                                    <div className="flex justify-between space-x-4">
+                                      <Avatar>
+                                        <AvatarImage
+                                          src={order.client.image ?? ""}
+                                        />
+                                        <AvatarFallback>
+                                          {order.client.name?.substring(0, 2)}
+                                        </AvatarFallback>
+                                      </Avatar>
+                                      <div className="space-y-1">
+                                        <h3 className="font-bold">
+                                          {order.client.name}
+                                        </h3>
+                                        <p>{order.client.email}</p>
+                                        <p>{order.client.phone}</p>
+                                        <div className="flex items-center pt-2">
+                                          <Link
+                                            href={`https://wa.me/${order.client.phone}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                          >
+                                            <Button
+                                              variant="secondary"
+                                              size="icon"
+                                              className=" rounded-full"
+                                            >
+                                              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                                            </Button>
+                                          </Link>
+                                          <Link
+                                            href={`tel:${order.client.phone}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                          >
+                                            <Button
+                                              variant="secondary"
+                                              size="icon"
+                                              className=" rounded-full"
+                                            >
+                                              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                                            </Button>
+                                          </Link>
+                                          <Link
+                                            href={`mailto:${order.client.email}`}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                          >
+                                            <Button
+                                              variant="secondary"
+                                              size="icon"
+                                              className=" rounded-full"
+                                            >
+                                              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                                            </Button>
+                                          </Link>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </HoverCardContent>
+                                </HoverCard>
                               </h3>
                               <p className="text-sm text-muted-foreground">
                                 {order.article.title}
