@@ -40,7 +40,7 @@ const getDashboardData = async () => {
   };
 };
 
-export const getPendingOrders = async () => {
+const getPendingOrders = async () => {
   const orders = await prisma.articleOrder.findMany({
     where: { status: "pending" },
     include: { client: {}, article: {} },
