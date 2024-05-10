@@ -47,6 +47,17 @@ const getPendingOrders = async () => {
   const orders = await prisma.articleOrder.findMany({
     where: { status: "pending" },
     include: { client: {}, article: {} },
+    orderBy: { createdAt: "asc" },
+  });
+
+  return orders;
+};
+
+const getConfimedOrders = async () => {
+  const orders = await prisma.articleOrder.findMany({
+    where: { status: "confirmed" },
+    include: { client: {}, article: {} },
+    orderBy: { updatedAt: "desc" },
   });
 
   return orders;
@@ -57,6 +68,7 @@ export default async function WSDashboardPage() {
   const data = await getDashboardData();
   const app = await getAppSetup();
   const orders = await getPendingOrders();
+  const confirmedOrders = await getConfimedOrders();
   return (
     <div className=" bg-ws-background">
       <div className="h-16 flex items-center px-3 space-x-4">
@@ -147,11 +159,17 @@ export default async function WSDashboardPage() {
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
                     <TabsTrigger value="pending" className="flex space-x-2">
-                      <Badge variant="destructive">{orders.length}</Badge>
+                      <Badge variant="destructive">
+                        {orders.length > 99 ? "99+" : orders.length}
+                      </Badge>
                       <span>En attente</span>
                     </TabsTrigger>
                     <TabsTrigger value="confirmed" className="flex space-x-2">
-                      <Badge>99+</Badge>
+                      <Badge>
+                        {confirmedOrders.length > 99
+                          ? "99+"
+                          : confirmedOrders.length}
+                      </Badge>
                       <span>Confirmée(s)</span>
                     </TabsTrigger>
                   </TabsList>
@@ -187,15 +205,46 @@ export default async function WSDashboardPage() {
                               </p>
                             </div>
                             <div className="flex space-x-2">
-                              <AcceptOrder/>
-                              <RejectOrder/>
+                              <AcceptOrder />
+                              <RejectOrder />
                             </div>
                           </div>
                         ))}
                       </div>
                     </TabsContent>
                     <TabsContent value="confirmed">
-                      <div></div>
+                      <div className="pt-6">
+                        {confirmedOrders.map((order) => (
+                          <div
+                            key={order.articleId + order.client}
+                            className="flex space-x-4 py-4 border-b"
+                          >
+                            <Avatar>
+                              <AvatarImage src={order.client?.image ?? ""} />
+                              <AvatarFallback className="uppercase">
+                                {order.client.name?.substring(0, 2)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div className="flex-1">
+                              <h3 className="text-sm font-semibold">
+                                {order.client.name}{" "}
+                                <ContactHoverCard user={order.client} />
+                              </h3>
+                              <p className="text-sm text-muted-foreground">
+                                {order.article.title}
+                              </p>
+                            </div>
+                            <div className=" flex flex-col items-end">
+                              <h3 className=" text-sm font-semibold">
+                                {formatMoney(order.price)}
+                              </h3>
+                              <p className="text-sm text-muted-foreground">
+                                {formatElapsedTime(order.createdAt)}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </TabsContent>
                   </div>
                 </Tabs>
