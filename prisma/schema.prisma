@@ -135,6 +135,8 @@ model ArticleOrder {
   article Article @relation(fields: [articleId],references: [id])
   price Float
   status OrderStatus @default(pending)
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
   @@id([articleId, clientId])
   @@map("article_orders")
 }

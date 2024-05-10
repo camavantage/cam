@@ -88,7 +88,38 @@ export const createUsername = init({
   random: Math.random,
   length: 10,
 });
- 
+
+export function formatElapsedTime(givenDate: string | number | Date): string {
+  // Convertir la date donnée en objet Date si elle n'est pas déjà en Date
+  const date = typeof givenDate === 'string' || typeof givenDate === 'number' ? new Date(givenDate) : givenDate;
+
+  // Date actuelle
+  const currentDate = new Date();
+
+  // Calcul de la différence en millisecondes
+  const timeDifference = currentDate.getTime() - date.getTime();
+
+  // Convertir la différence en minutes, heures, jours, mois et années
+  const minutes = Math.floor(timeDifference / (1000 * 60));
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30.436875); // en moyenne
+  const years = Math.floor(months / 12);
+
+  // Retourner le temps écoulé formaté
+  if (years > 0) {
+      return `il y a ${years} an${years > 1 ? 's' : ''}`;
+  } else if (months > 0) {
+      return `il y a ${months} mois`;
+  } else if (days > 0) {
+      return `il y a ${days} jour${days > 1 ? 's' : ''}`;
+  } else if (hours > 0) {
+      return `il y a ${hours} heure${hours > 1 ? 's' : ''}`;
+  } else {
+      return `il y a ${minutes} minute${minutes > 1 ? 's' : ''}`;
+  }
+}
+
 
 // Format slug
 export function formatSlug(text: string) {

@@ -14,7 +14,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { formatMoney } from "@/lib/utils";
+import { formatElapsedTime, formatMoney } from "@/lib/utils";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
 
@@ -134,13 +134,11 @@ export default async function WSDashboardPage() {
               </Card>
             </div>
           </div>
+          <div className=" my-4">
+            <h1 className=" text-2xl font-bold">Commandes d&apos;articles</h1>
+          </div>
           <div className="">
             <Card className=" border-none shadow-none">
-              <CardHeader>
-                <CardTitle className=" text-2xl font-bold">
-                  Commandes d&apos;articles
-                </CardTitle>
-              </CardHeader>
               <CardContent>
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
@@ -172,7 +170,12 @@ export default async function WSDashboardPage() {
                                 {order.article.title}
                               </p>
                             </div>
-                            <div>{formatMoney(order.price)}</div>
+                            <div>
+                              <p>{formatMoney(order.price)}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {formatElapsedTime(order.createdAt)}
+                              </p>
+                            </div>
                             <div className="flex space-x-2">
                               <Button variant="secondary">Confirmer</Button>
                               <Button variant="ghost">Rejeter</Button>
