@@ -116,7 +116,7 @@ export function formatElapsedTime(givenDate: string | number | Date): string {
   } else if (hours > 0) {
       return `il y a ${hours} heure${hours > 1 ? 's' : ''}`;
   } else {
-      return `il y a ${minutes} minute${minutes > 1 ? 's' : ''}`;
+      return `il y a ${minutes} min`;
   }
 }
 
