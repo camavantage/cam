@@ -4,6 +4,7 @@ import { signIn, signOut } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { SignInSchemaType } from "@/lib/zod/auth";
 import bcrypt from "bcryptjs";
+import { revalidatePath } from "next/cache";
 import { isRedirectError } from "next/dist/client/components/redirect";
 
 export async function authUser(credentials: SignInSchemaType) {
@@ -54,6 +55,7 @@ export async function logOut(pathname?: string) {
     }
     throw new Error("fail to sign out");
   });
+  revalidatePath(`${pathname}`);
 }
 
 export async function signInAsASubscriber(
@@ -62,11 +64,12 @@ export async function signInAsASubscriber(
 ) {
   await signIn("credentials", {
     ...formData,
-    redirectTo: `${pathname}?connected=true`,
+    // redirectTo: `${pathname}?connected=true`,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
     throw new Error("fail to signIn");
   });
+  revalidatePath(`${pathname}`);
 }
