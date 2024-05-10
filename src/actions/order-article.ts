@@ -43,7 +43,7 @@ export async function confirmOrderArticle(formData: {
             articleId: formData.articleId,
           },
         },
-        data: { price: formData.price },
+        data: { price: formData.price, status: "confirmed" },
       })
       .catch(() => {
         throw new Error("Failed to reject order");
