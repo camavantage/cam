@@ -205,8 +205,8 @@ export default async function WSDashboardPage() {
                               </p>
                             </div>
                             <div className="flex space-x-2">
-                              <AcceptOrder />
-                              <RejectOrder />
+                              <AcceptOrder clientId={order.clientId} articleId={order.articleId} price={order.price}/>
+                              <RejectOrder clientId={order.clientId} articleId={order.articleId}/>
                             </div>
                           </div>
                         ))}
