@@ -69,13 +69,13 @@ export async function NoPremiumMessage({
         >
           <span>{formatMoney(article?.price)}</span>
         </Link>
-        <PageHeaderHeading>Accès en attente</PageHeaderHeading>
+        <PageHeaderHeading>Accès en attente ⏳</PageHeaderHeading>
         <PageHeaderDescription>
           Seuls les abonnés qui ont payés pour cet article peuvent le consulter.
           Les articles payants sont des formations et guides pratiques avec
           accompagnement garantie.
         </PageHeaderDescription>
-        <Card className="border-none shadow-none">
+        <Card className="border-none shadow-none bg-[#FEB117]">
           <CardHeader>
             <CardTitle>En attente</CardTitle>
             <CardDescription>
