@@ -110,7 +110,7 @@ export function AcceptOrder({ clientId, articleId, price }: AcceptOrderProps) {
                             {...field}
                             step={0.01}
                             placeholder="0.00"
-                            className="border-none font-bold w-[100px] pr-10"
+                            className="border-none font-bold pr-10"
                             onChange={(e) => {
                               field.onChange(e);
                               form.setValue(
