@@ -23,7 +23,9 @@ import { formatElapsedTime, formatMoney } from "@/lib/utils";
 import { LucideExternalLink } from "lucide-react";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
+import { PiPhoneCallFill } from "react-icons/pi";
 import { RiWhatsappFill } from "react-icons/ri";
+import { TbMailFilled } from "react-icons/tb";
 
 const getDashboardData = async () => {
   const allArticles = await prisma.article.count();
@@ -184,7 +186,7 @@ export default async function WSDashboardPage() {
                                     </Badge>
                                   </HoverCardTrigger>
                                   <HoverCardContent className="w-80">
-                                    <div className="flex justify-between space-x-4">
+                                    <div className="flex space-x-4">
                                       <Avatar>
                                         <AvatarImage
                                           src={order.client.image ?? ""}
@@ -199,7 +201,7 @@ export default async function WSDashboardPage() {
                                         </h3>
                                         <p>{order.client.email}</p>
                                         <p>{order.client.phone}</p>
-                                        <div className="flex items-center pt-2">
+                                        <div className="flex items-center space-x-2 pt-2">
                                           <Link
                                             href={`https://wa.me/${order.client.phone}`}
                                             target="_blank"
@@ -223,7 +225,7 @@ export default async function WSDashboardPage() {
                                               size="icon"
                                               className=" rounded-full"
                                             >
-                                              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                                              <PiPhoneCallFill className="h-5 w-5 fill-current" />
                                             </Button>
                                           </Link>
                                           <Link
@@ -236,7 +238,7 @@ export default async function WSDashboardPage() {
                                               size="icon"
                                               className=" rounded-full"
                                             >
-                                              <RiWhatsappFill className="h-5 w-5 fill-current" />
+                                              <TbMailFilled  className="h-5 w-5 fill-current" />
                                             </Button>
                                           </Link>
                                         </div>
