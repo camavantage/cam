@@ -146,7 +146,9 @@ export default async function WSDashboardPage() {
                       <Badge variant="destructive">{orders.length}</Badge>
                       <span>En attente</span>
                     </TabsTrigger>
-                    <TabsTrigger value="confirmed">Confirmé</TabsTrigger>
+                    <TabsTrigger value="confirmed" className="flex space-x-2">
+                      <Badge>0</Badge>Confirmée(s)
+                    </TabsTrigger>
                   </TabsList>
                   <div>
                     <TabsContent value="pending">
