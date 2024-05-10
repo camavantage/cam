@@ -171,8 +171,9 @@ export default async function WSDashboardPage() {
                             <div className="flex-1">
                               <h3 className="text-sm font-semibold">
                                 {order.client.name}{" "}
-                                <Badge>
-                                  Contacts <RiWhatsappFill className="inline" />
+                                <Badge variant="secondary">
+                                  Contacts
+                                  {/* <RiWhatsappFill className="inline" /> */}
                                 </Badge>
                               </h3>
                               <p className="text-sm text-muted-foreground">

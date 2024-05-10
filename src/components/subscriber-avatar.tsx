@@ -56,7 +56,7 @@ export function SubscriberAvatar() {
           <Avatar>
             <AvatarImage src={session?.user?.image || ""} />
             <AvatarFallback className=" uppercase bg-foreground text-background">
-              {session?.user?.name?.substring(0, 1)}
+              {session?.user?.name?.substring(0, 2)}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -72,7 +72,7 @@ export function SubscriberAvatar() {
           disabled={loading}
         >
           <LiaUserSolid className="mr-2 " />
-          Profil
+          Espace membre
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={signOut} disabled={loading}>
