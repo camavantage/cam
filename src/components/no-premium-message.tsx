@@ -83,7 +83,7 @@ export async function NoPremiumMessage({
               </CardTitle>
               <CardDescription className="text-white">
                 C&apos;est l&apos;administrateur de CAM/AVANTAGE qui valide les
-                demandes d'accès.✅ cette dernière est en attente, c&apos;est
+                demandes d&apos;accès.✅ Cette dernière est en attente, c&apos;est
                 tout simplement parce que l&apos;administrateur ne l&apos;a pas
                 encore acceptée. Votre demande peut aussi être rejetée ❌ ! Si
                 vous ne comprenez pas pourquoi, rapprochez vous de
