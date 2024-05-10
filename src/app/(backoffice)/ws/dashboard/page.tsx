@@ -17,6 +17,7 @@ import prisma from "@/lib/prisma";
 import { formatElapsedTime, formatMoney } from "@/lib/utils";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
+import { RiWhatsappFill } from "react-icons/ri";
 
 const getDashboardData = async () => {
   const allArticles = await prisma.article.count();
@@ -83,7 +84,9 @@ export default async function WSDashboardPage() {
             <div>
               <Card className=" border-none shadow-none bg-transparent">
                 <CardHeader className="px-0 pt-0">
-                  <CardTitle className=" text-2xl font-bold">{app?.title}</CardTitle>
+                  <CardTitle className=" text-2xl font-bold">
+                    {app?.title}
+                  </CardTitle>
                   <CardDescription>{app?.description}</CardDescription>
                 </CardHeader>
               </Card>
@@ -153,7 +156,7 @@ export default async function WSDashboardPage() {
                   </TabsList>
                   <div>
                     <TabsContent value="pending">
-                      <div>
+                      <div className="pt-6">
                         {orders.map((order) => (
                           <div
                             key={order.articleId + order.client}
@@ -166,15 +169,20 @@ export default async function WSDashboardPage() {
                               </AvatarFallback>
                             </Avatar>
                             <div className="flex-1">
-                              <h3 className="text-sm text-bold">
-                                {order.client.name}
+                              <h3 className="text-sm font-semibold">
+                                {order.client.name}{" "}
+                                <Badge>
+                                  Contacts <RiWhatsappFill className="inline" />
+                                </Badge>
                               </h3>
                               <p className="text-sm text-muted-foreground">
                                 {order.article.title}
                               </p>
                             </div>
                             <div className=" flex flex-col items-end">
-                              <h3 className=" text-sm font-bold">{formatMoney(order.price)}</h3>
+                              <h3 className=" text-sm font-semibold">
+                                {formatMoney(order.price)}
+                              </h3>
                               <p className="text-sm text-muted-foreground">
                                 {formatElapsedTime(order.createdAt)}
                               </p>
