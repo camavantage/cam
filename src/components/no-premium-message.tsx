@@ -53,7 +53,7 @@ export async function NoPremiumMessage({
 
   if (order && order.status === "confirmed") {
     return (
-      <div className="px-6 lg:px-0 py-6 bg-background rounded-b-md">
+      <div className="px-6 lg:px-0 py-6 bg-background">
         <Suspense>
           <Mdx content={article.markdown} />
         </Suspense>
@@ -62,38 +62,42 @@ export async function NoPremiumMessage({
   }
   if (order && order.status === "pending") {
     return (
-      <PageHeader>
-        <Link
-          href=""
-          className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium"
-        >
-          <span>{formatMoney(article?.price)}</span>
-        </Link>
-        <PageHeaderHeading>Accès en attente ⏳</PageHeaderHeading>
-        <PageHeaderDescription>
-          Seuls les abonnés qui ont payés pour cet article peuvent le consulter.
-          Les articles payants sont des formations et guides pratiques avec
-          accompagnement garantie.
-        </PageHeaderDescription>
-        <Card className="border-none shadow-none bg-[#FEB117]">
-          <CardHeader>
-            <CardTitle>En attente</CardTitle>
-            <CardDescription>
-              Votre commande est en attente de validation. L&apos;équipe
-              commercial vous contactera pour vous orienter afin de confirmer
-              votre commande et vous donner accès.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            Vous pouvez nous contacter directement sur whatsapp
-          </CardContent>
-          <CardFooter>
+      <div className="px-6 lg:px-0 py-6">
+        <PageHeader>
+          <Link
+            href=""
+            className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium"
+          >
+            <span>{formatMoney(article?.price)}</span>
+          </Link>
+          <PageHeaderHeading>Accès en attente ⏳</PageHeaderHeading>
+          <PageHeaderDescription>
+            Seuls les abonnés qui ont payés pour cet article peuvent le
+            consulter. Les articles payants sont des formations et guides
+            pratiques avec accompagnement garantie.
+          </PageHeaderDescription>
+          <Card className="border-none shadow-none bg-[#FEB117]">
+            <CardHeader>
+              <CardTitle className=" text-white">
+                Votre demande d&apos;accès est en attente de validation
+              </CardTitle>
+              <CardDescription className="text-white">
+                C&apos;est l&apos;administrateur de CAM/AVANTAGE qui valide les
+                demandes d'accès.✅ cette dernière est en attente, c&apos;est
+                tout simplement parce que l&apos;administrateur ne l&apos;a pas
+                encore acceptée. Votre demande peut aussi être rejetée ❌ ! Si
+                vous ne comprenez pas pourquoi, rapprochez vous de
+                l&apos;administrateur afin d&apos;en savoir plus.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="text-white">
             <Link href={siteConfig.links.whatsapp}>
-              <Button className=" rounded-full bg-[#128c7e]">Whatsapp</Button>
-            </Link>
-          </CardFooter>
-        </Card>
-      </PageHeader>
+                <Button className=" rounded-full">Nous contacter!</Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </PageHeader>
+      </div>
     );
   }
 
