@@ -1,6 +1,7 @@
 import { getAppSetup } from "@/actions/ws/setup";
 import { TooltipWrap } from "@/components/tooltip-wrapper";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -136,13 +137,16 @@ export default async function WSDashboardPage() {
           <div className="">
             <Card className=" border-none shadow-none">
               <CardHeader>
-                <CardTitle>Commandes d&apos;articles</CardTitle>
+                <CardTitle className=" text-2xl font-bold">
+                  Commandes d&apos;articles
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
                     <TabsTrigger value="pending">
-                      {orders.length}En attente
+                      <Badge variant="destructive">{orders.length}</Badge>En
+                      attente
                     </TabsTrigger>
                     <TabsTrigger value="confirmed">Confirmé</TabsTrigger>
                   </TabsList>
@@ -152,7 +156,7 @@ export default async function WSDashboardPage() {
                         {orders.map((order) => (
                           <div
                             key={order.articleId + order.client}
-                            className="flex"
+                            className="flex space-x-3"
                           >
                             <Avatar>
                               <AvatarImage src={order.client?.image ?? ""} />
@@ -161,10 +165,18 @@ export default async function WSDashboardPage() {
                               </AvatarFallback>
                             </Avatar>
                             <div className="flex-1">
-                              <h3>{order.client.name}</h3>
-                              <p>{order.article.title}</p>
+                              <h3 className="text-semibold">
+                                {order.client.name}
+                              </h3>
+                              <p className="text-sm text-muted-foreground">
+                                {order.article.title}
+                              </p>
                             </div>
                             <div>{formatMoney(order.price)}</div>
+                            <div className="flex space-x-2">
+                              <Button variant="secondary">Confirmer</Button>
+                              <Button variant="ghost">Rejeter</Button>
+                            </div>
                           </div>
                         ))}
                       </div>
