@@ -182,7 +182,7 @@ export default async function WSDashboardPage() {
                                 <HoverCard>
                                   <HoverCardTrigger>
                                     <Badge variant="outline">
-                                      Contacts client
+                                      Contacts
                                     </Badge>
                                   </HoverCardTrigger>
                                   <HoverCardContent className="w-80">
@@ -238,7 +238,7 @@ export default async function WSDashboardPage() {
                                               size="icon"
                                               className=" rounded-full"
                                             >
-                                              <TbMailFilled  className="h-5 w-5 fill-current" />
+                                              <TbMailFilled className="h-5 w-5 fill-current" />
                                             </Button>
                                           </Link>
                                         </div>
