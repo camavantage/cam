@@ -8,8 +8,6 @@ import {
 import { Button } from "./ui/button";
 import { formatMoney } from "@/lib/utils";
 import { Article } from "@/app/(backoffice)/ws/articles/[articleId]/page";
-import { UserType } from "@/lib/types";
-import { auth } from "@/lib/auth";
 import { Suspense } from "react";
 import { RegisterFormDrawer } from "./register-form";
 import { LoginFormDrawer } from "./login-form";
@@ -20,7 +18,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "./ui/card";

@@ -4,7 +4,7 @@ import { formatMoney } from "@/lib/utils";
 import { LoadingButton } from "./ui/loading-button";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
-import { orderAnArticle } from "@/actions/order-article";
+import { createArticleOrder } from "@/actions/order-article";
 import { usePathname } from "next/navigation";
 
 type UnlockPremiumArticleProps = {
@@ -28,7 +28,7 @@ export function UnlockPremiumArticle({
       loading={loading}
       onClick={async () => {
         setLoading(true);
-        await orderAnArticle(
+        await createArticleOrder(
           {
             clientId,
             articleId,
