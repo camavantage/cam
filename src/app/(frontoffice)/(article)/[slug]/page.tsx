@@ -55,15 +55,15 @@ export async function generateMetadata({
 }
 export default async function ArticlePage({
   params,
-  searchParams
+  searchParams,
 }: {
   params: { slug: string };
-  searchParams:{connected?:string}
+  searchParams: { connected?: string };
 }) {
   const article = await getArticle(params.slug);
   const session = await auth();
 
-  if (!article ) {
+  if (!article) {
     notFound();
   }
 
