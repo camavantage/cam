@@ -6,7 +6,7 @@ import { SignInSchemaType } from "@/lib/zod/auth";
 import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { isRedirectError } from "next/dist/client/components/redirect";
-import {redirect} from "next/navigation"
+import { redirect } from "next/navigation";
 
 export async function authUser(credentials: SignInSchemaType) {
   const { email, password } = credentials;

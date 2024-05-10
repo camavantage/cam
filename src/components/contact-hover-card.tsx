@@ -7,17 +7,18 @@ import { Button } from "./ui/button";
 import { RiWhatsappFill } from "react-icons/ri";
 import { PiPhoneCallFill } from "react-icons/pi";
 import { TbMailFilled } from "react-icons/tb";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 type ContactHoverCardProps = {
   user: UserType;
 };
 export function ContactHoverCard({ user }: ContactHoverCardProps) {
   return (
-    <HoverCard>
-      <HoverCardTrigger>
+    <Popover>
+      <PopoverTrigger asChild>
         <Badge variant="outline">Contacts</Badge>
-      </HoverCardTrigger>
-      <HoverCardContent className="w-80">
+      </PopoverTrigger>
+      <PopoverContent className="w-80">
         <div className="flex space-x-4">
           <Avatar>
             <AvatarImage src={user.image ?? ""} />
@@ -68,7 +69,7 @@ export function ContactHoverCard({ user }: ContactHoverCardProps) {
             </div>
           </div>
         </div>
-      </HoverCardContent>
-    </HoverCard>
+      </PopoverContent>
+    </Popover>
   );
 }
