@@ -174,8 +174,7 @@ export default async function WSDashboardPage() {
                                 {order.client.name}{" "}
                                 <Badge variant="outline">
                                   Contacts
-                                  <LucideExternalLink className="inline ml-1 " />
-                                  {/* <RiWhatsappFill className="inline" /> */}
+                                  <LucideExternalLink className="inline ml-1 h-3 w-3" />
                                 </Badge>
                               </h3>
                               <p className="text-sm text-muted-foreground">
