@@ -139,7 +139,7 @@ export default async function WSDashboardPage() {
           </div>
           <div className="">
             <Card className=" border-none shadow-none">
-              <CardContent>
+              <CardContent className="pt-3">
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
                     <TabsTrigger value="pending">
@@ -163,15 +163,15 @@ export default async function WSDashboardPage() {
                               </AvatarFallback>
                             </Avatar>
                             <div className="flex-1">
-                              <h3 className="text-semibold">
+                              <h3 className="text-sm text-bold">
                                 {order.client.name}
                               </h3>
                               <p className="text-sm text-muted-foreground">
                                 {order.article.title}
                               </p>
                             </div>
-                            <div>
-                              <p>{formatMoney(order.price)}</p>
+                            <div className=" flex flex-col items-end">
+                              <h3 className=" text-sm font-bold">{formatMoney(order.price)}</h3>
                               <p className="text-sm text-muted-foreground">
                                 {formatElapsedTime(order.createdAt)}
                               </p>
