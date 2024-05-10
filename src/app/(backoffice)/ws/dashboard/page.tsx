@@ -1,5 +1,6 @@
 import { getAppSetup } from "@/actions/ws/setup";
 import { TooltipWrap } from "@/components/tooltip-wrapper";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,6 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { formatMoney } from "@/lib/utils";
 import Link from "next/link";
 import { LiaEdit } from "react-icons/lia";
 
@@ -38,10 +40,20 @@ const getDashboardData = async () => {
   };
 };
 
+export const getPendingOrders = async () => {
+  const orders = await prisma.articleOrder.findMany({
+    where: { status: "pending" },
+    include: { client: {}, article: {} },
+  });
+
+  return orders;
+};
+
 export default async function WSDashboardPage() {
   const session = await auth();
   const data = await getDashboardData();
   const app = await getAppSetup();
+  const orders = await getPendingOrders();
   return (
     <div className=" bg-ws-background">
       <div className="h-16 flex items-center px-3 space-x-4">
@@ -122,19 +134,40 @@ export default async function WSDashboardPage() {
             </div>
           </div>
           <div className="">
-            <Card>
+            <Card className=" border-none shadow-none">
               <CardHeader>
                 <CardTitle>Commandes d&apos;articles</CardTitle>
               </CardHeader>
               <CardContent>
                 <Tabs defaultValue="pending" className="pt-2">
                   <TabsList className=" w-full justify-start px-0 bg-transparent">
-                    <TabsTrigger value="pending">En attente</TabsTrigger>
+                    <TabsTrigger value="pending">
+                      {orders.length}En attente
+                    </TabsTrigger>
                     <TabsTrigger value="confirmed">Confirmé</TabsTrigger>
                   </TabsList>
                   <div>
                     <TabsContent value="pending">
-                      <div></div>
+                      <div>
+                        {orders.map((order) => (
+                          <div
+                            key={order.articleId + order.client}
+                            className="flex"
+                          >
+                            <Avatar>
+                              <AvatarImage src={order.client?.image ?? ""} />
+                              <AvatarFallback className="uppercase">
+                                {order.client.name?.substring(0, 2)}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div className="flex-1">
+                              <h3>{order.client.name}</h3>
+                              <p>{order.article.title}</p>
+                            </div>
+                            <div>{formatMoney(order.price)}</div>
+                          </div>
+                        ))}
+                      </div>
                     </TabsContent>
                     <TabsContent value="confirmed">
                       <div></div>
