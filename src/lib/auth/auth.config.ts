@@ -30,7 +30,7 @@ export const authConfig = {
           auth.user.role === "author" ||
           auth.user.role === "editor")
       ) {
-        return Response.redirect(new URL("/", url));
+        return Response.redirect(new URL("/member", url));
       }
 
       return true;
