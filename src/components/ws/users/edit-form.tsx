@@ -13,9 +13,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { cn, phoneRegex, usernameRegex } from "@/lib/utils";
+import { cn, formatElapsedTime, formatMoney } from "@/lib/utils";
 import { GrClose } from "react-icons/gr";
 import { useRouter } from "next/navigation";
 import { AutosizeTextarea } from "@/components/ui/autosize-textarea";
@@ -36,9 +35,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Edit, EyeIcon, EyeOffIcon } from "lucide-react";
+import { Edit } from "lucide-react";
 import { useEffect, useState } from "react";
-import { RoleType, UserType } from "@/lib/types";
+import { UserType } from "@/lib/types";
 import { useToast } from "@/components/ui/use-toast";
 import { checkUsername } from "@/actions/ws/users/check-username";
 import { AiOutlineLoading } from "react-icons/ai";
@@ -51,9 +50,12 @@ import { roles } from "@/lib/data/roles";
 import { EditUserFormSchemaType, editUserformSchema } from "@/lib/zod/users";
 import Image from "next/image";
 import { DialogProfileImage } from "../dialog-profile-image";
+import { AcceptOrder, RejectOrder } from "@/components/order-controler";
+import { ContactHoverCard } from "@/components/contact-hover-card";
+import { User } from "@/app/(backoffice)/ws/users/[username]/page";
 
 type EditUserFormProps = {
-  user: UserType;
+  user: User;
 };
 
 export default function EditUserForm({ user }: EditUserFormProps) {
@@ -64,7 +66,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
   const [checkingUsername, setCheckingUsername] = useState<boolean>(false);
   const [checkingStatus, setCheckingStatus] = useState<"free" | "used">();
   const [currentImageUrl, setCurrentImageUrl] = useState<string>(
-    user.image ?? ""
+    user?.image ?? ""
   );
   const { toast } = useToast();
 
@@ -509,7 +511,58 @@ export default function EditUserForm({ user }: EditUserFormProps) {
               </ScrollArea>
             </div>
             <div className=" col-span-4">
-              <ScrollArea className=" lg:h-[calc(100vh-66px)] pl-6 py-6 bg-ws-background"></ScrollArea>
+              <ScrollArea className=" lg:h-[calc(100vh-66px)] pl-6 py-6 bg-ws-background">
+                <h1 className=" text-2xl font-bold">
+                  Commandes d&apos;articles
+                </h1>
+                {user?.articleOrders.map((order) => (
+                  <div
+                    key={order.articleId + order.clientId}
+                    className="flex space-x-4 py-4 border-b"
+                  >
+                    <div className="w-12 h-12">
+                      {order.article?.imageUrl && (
+                        <Image
+                          src={order.article?.imageUrl}
+                          alt=""
+                          className="object-cover w-full h-full rounded-md"
+                          height={64}
+                          width={64}
+                        />
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-sm font-semibold">
+                        {order.article.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        <ContactHoverCard user={user} />
+                      </p>
+                    </div>
+                    <div className=" flex flex-col items-end">
+                      <h3 className=" text-sm font-semibold">
+                        {formatMoney(order.price)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {formatElapsedTime(order.createdAt)}
+                      </p>
+                    </div>
+                    {order.status === "pending" && (
+                      <div className="flex space-x-2">
+                        <AcceptOrder
+                          clientId={order.clientId}
+                          articleId={order.articleId}
+                          price={order.price}
+                        />
+                        <RejectOrder
+                          clientId={order.clientId}
+                          articleId={order.articleId}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </ScrollArea>
             </div>
           </div>
         </div>

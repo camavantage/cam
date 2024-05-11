@@ -12,6 +12,7 @@ import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { formatDate, formatElapsedTime, formatMoney } from "@/lib/utils";
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -90,6 +91,17 @@ export default async function MemberPage() {
                         key={order.articleId + order.clientId}
                         className="flex space-x-4 py-4 border-b"
                       >
+                        <div className="w-12 h-12">
+                          {order.article?.imageUrl && (
+                            <Image
+                              src={order.article?.imageUrl}
+                              alt=""
+                              className="object-cover w-full h-full rounded-md"
+                              height={64}
+                              width={64}
+                            />
+                          )}
+                        </div>
                         <div className="flex-1">
                           <h3 className="text-sm font-semibold">
                             {order.article.title}
@@ -121,6 +133,17 @@ export default async function MemberPage() {
                         key={article.id}
                         className="flex space-x-4 py-4 border-b"
                       >
+                        <div className="w-12 h-12">
+                          {article?.imageUrl && (
+                            <Image
+                              src={article?.imageUrl}
+                              alt=""
+                              className="object-cover w-full h-full rounded-md"
+                              height={64}
+                              width={64}
+                            />
+                          )}
+                        </div>
                         <div className="flex-1">
                           <h3 className="text-sm font-semibold">
                             {article.title}
@@ -142,9 +165,7 @@ export default async function MemberPage() {
                   </div>
                 </TabsContent>
                 <TabsContent value="profile">
-                  <div className="pt-6">
-                    
-                  </div>
+                  <div className="pt-6"></div>
                 </TabsContent>
               </div>
             </Tabs>

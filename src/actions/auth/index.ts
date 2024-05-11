@@ -56,7 +56,6 @@ export async function logOut(pathname?: string) {
     }
     throw new Error("fail to sign out");
   });
-  redirect(`${pathname}`);
 }
 
 export async function signInAsASubscriber(
