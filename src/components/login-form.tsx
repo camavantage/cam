@@ -25,8 +25,8 @@ import { cn } from "@/lib/utils";
 import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export const LoginFormDrawer = () => {
@@ -36,6 +36,7 @@ export const LoginFormDrawer = () => {
   const { toast } = useToast();
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams=useSearchParams()
 
   const form = useForm<SignInSchemaType>({
     resolver: zodResolver(signInSchema),
@@ -44,6 +45,7 @@ export const LoginFormDrawer = () => {
 
   const onSubmit = async (formData: SignInSchemaType) => {
     setLoading(true);
+    setOpenForm(false)
     await signInAsASubscriber({ ...formData }, pathname).catch(() => {
       toast({
         title: "Echec",
@@ -54,7 +56,22 @@ export const LoginFormDrawer = () => {
       });
       setLoading(false);
     });
+    router.refresh()
   };
+
+  function notifyConnectedUser(message: string | null) {
+    if (message === "true") {
+      toast({
+        title: "✅Connecté",
+        description: "Vous êtes maintenant connecté",
+      });
+      router.replace(pathname);
+    }
+  }
+
+  useEffect(() => {
+    notifyConnectedUser(searchParams.get("connected"));
+  }, []);
 
   return (
     <Drawer open={openForm} onOpenChange={setOpenForm}>

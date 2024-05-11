@@ -65,12 +65,12 @@ export async function signInAsASubscriber(
 ) {
   await signIn("credentials", {
     ...formData,
-    // redirectTo: `${pathname}?connected=true`,
+    redirectTo: `${pathname}?connected=true`,
   }).catch((e) => {
     if (isRedirectError(e)) {
       throw e;
     }
     throw new Error("fail to signIn");
   });
-  redirect(`${pathname}?connected=true`);
+  
 }

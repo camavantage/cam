@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import * as bcrypt from "bcryptjs";
 import { NewSubscriberSchemaType } from "@/lib/zod/subscriber";
 import { createUsername } from "@/lib/utils";
-import { signIn, signOut } from "@/lib/auth";
+import { signIn } from "@/lib/auth";
 import { isRedirectError } from "next/dist/client/components/redirect";
 
 export async function subscriberUser(
@@ -22,7 +22,7 @@ export async function subscriberUser(
       },
     })
     .catch(() => {
-      throw new Error("Failed to create article");
+      throw new Error("Failed to create user");
     });
 
   await signIn("credentials", {

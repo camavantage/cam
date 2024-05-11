@@ -178,7 +178,7 @@ export default async function WSDashboardPage() {
                       <div className="pt-6">
                         {orders.map((order) => (
                           <div
-                            key={order.articleId + order.client}
+                            key={order.articleId + order.clientId}
                             className="flex space-x-4 py-4 border-b"
                           >
                             <Avatar>
@@ -216,7 +216,7 @@ export default async function WSDashboardPage() {
                       <div className="pt-6">
                         {confirmedOrders.map((order) => (
                           <div
-                            key={order.articleId + order.client}
+                            key={order.articleId + order.clientId}
                             className="flex space-x-4 py-4 border-b"
                           >
                             <Avatar>

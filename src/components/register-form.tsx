@@ -29,7 +29,7 @@ import {
 } from "@/lib/zod/subscriber";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -47,6 +47,7 @@ export const RegisterFormDrawer = () => {
 
   const onSubmit = async (formData: NewSubscriberSchemaType) => {
     setLoading(true);
+    setOpenForm(false);
     await subscriberUser({ ...formData }, pathname).catch(() => {
       toast({
         title: "Echec",

@@ -16,7 +16,9 @@ export function ContactHoverCard({ user }: ContactHoverCardProps) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Badge variant="outline" className=" cursor-pointer">Contacts</Badge>
+        <Badge variant="outline" className=" cursor-pointer">
+          Contacts
+        </Badge>
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <div className="flex space-x-4">
