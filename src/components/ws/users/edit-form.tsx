@@ -535,9 +535,9 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                       <h3 className="text-sm font-semibold">
                         {order.article.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
+                      {/* <p className="text-sm text-muted-foreground">
                         <ContactHoverCard user={user} />
-                      </p>
+                      </p> */}
                     </div>
                     <div className=" flex flex-col items-end">
                       <h3 className=" text-sm font-semibold">
