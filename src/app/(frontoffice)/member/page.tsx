@@ -5,6 +5,7 @@ import {
 } from "@/components/page-header";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -52,6 +53,7 @@ export default async function MemberPage() {
   return (
     <main className="">
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
+        <h3 className=" text-2xl font-bold">Mon compte</h3>
         <div className="flex space-x-4">
           <Avatar className="">
             <AvatarImage src={session.user.image ?? ""} />
@@ -60,15 +62,18 @@ export default async function MemberPage() {
             </AvatarFallback>
           </Avatar>
           <div>
-            <h3 className=" text-2xl font-bold">{session.user.name}</h3>
+            <h3 className=" font-bold">{session.user.name}</h3>
             <p>@{session.user.username}</p>
           </div>
         </div>
         <div className="flex justify-end">
-        <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
+          <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground">
             Abonné depuis {formatDate(session.user.createdAt)}
           </span>
         </div>
+        <Button className="" variant="secondary" size="sm">
+            Modifier le profil
+          </Button>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
         <h1 className=" text-2xl font-bold">Cours</h1>
