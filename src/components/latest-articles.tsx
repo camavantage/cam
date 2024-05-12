@@ -30,7 +30,7 @@ export async function LatestArticles() {
       <Card className=" border-none shadow-none rounded-none bg-transparent">
         <CardHeader className="px-0 pt-0">
           <CardTitle className=" font-bold text-2xl text-center">
-            Récemment dans recettes et astuces
+            Récemment<br/>dans recettes et astuces
           </CardTitle>
           <CardDescription className=" flex justify-center">
             <PageHeaderDescription>
