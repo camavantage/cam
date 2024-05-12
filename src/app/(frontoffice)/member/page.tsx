@@ -69,7 +69,7 @@ export default async function MemberPage() {
                | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
-            <Button className="" variant="secondary" size="sm">
+            <Button className="rounded-full" variant="secondary" size="sm" >
             Modifier le profil
           </Button>
           </div>
