@@ -69,9 +69,9 @@ export default async function MemberPage() {
         </PageHeader>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
-      <h1 className=" text-2xl font-bold">Gratuits</h1>
+        <h1 className=" text-2xl font-bold">Gratuits</h1>
         <Card className=" border-none shadow-none">
-          <CardContent className="pt-3">
+          <CardContent className="pt-3 px-0">
             <Tabs defaultValue="premium" className="pt-2">
               <TabsList className=" w-full justify-start px-0 bg-transparent">
                 <TabsTrigger value="premium" className="flex space-x-2">
@@ -79,13 +79,15 @@ export default async function MemberPage() {
                   <span>Payants</span>
                 </TabsTrigger>
                 <TabsTrigger value="free" className="flex space-x-2">
+                  <Badge>
+                    {freeArticles?.length > 99 ? "99+" : freeArticles?.length}
+                  </Badge>
                   <span>Gratuits</span>
                 </TabsTrigger>
               </TabsList>
               <div>
                 <TabsContent value="premium">
                   <div className="pt-6">
-                    <h1 className=" text-2xl font-bold">Payants</h1>
                     {orders?.map((order) => (
                       <Link
                         href={`/${order.article.slug}`}
@@ -125,11 +127,8 @@ export default async function MemberPage() {
                       </Link>
                     ))}
                   </div>
-                  
                 </TabsContent>
                 <TabsContent value="free">
-                  <div className="pt-6">
-                    
                   <div className="pt-6">
                     {freeArticles?.map((article) => (
                       <Link
@@ -166,7 +165,6 @@ export default async function MemberPage() {
                         </div>
                       </Link>
                     ))}
-                  </div>
                   </div>
                 </TabsContent>
               </div>
