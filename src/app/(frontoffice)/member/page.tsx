@@ -63,21 +63,21 @@ export default async function MemberPage() {
           </Avatar>
           <div>
             <h3 className=" font-bold">{session.user.name}</h3>
-            <p>
+            <p className="text-muted-foreground">
               @{session.user.username}{" "}
-              <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground">
-                Abonné depuis {formatDate(session.user.createdAt)}
+              <span className="inline-flex items-center px-3 py-1 text-sm font-medium ">
+               | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex">
           <Button className="" variant="secondary" size="sm">
             Modifier le profil
           </Button>
         </div>
       </div>
-      <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
+      <div className="max-w-screen-md mx-auto pb-12 px-6 md:px-0">
         <h1 className=" text-2xl font-bold">Mes cours</h1>
         <Card className=" border-none shadow-none">
           <CardContent className="pt-3 px-0">
