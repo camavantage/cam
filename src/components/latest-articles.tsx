@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { formatDate } from "@/lib/utils";
 import { CiLock } from "react-icons/ci";
 import Balancer from "react-wrap-balancer";
+import { PageHeaderDescription } from "./page-header";
 
 const getLastArticles = async (number?: number) => {
   const articles = await prisma.article.findMany({
@@ -28,13 +29,13 @@ export async function LatestArticles() {
     <section className="max-w-5xl mx-auto pt-12 px-6 md:px-0">
       <Card className=" border-none shadow-none rounded-none bg-transparent">
         <CardHeader className="px-0 pt-0">
-          <CardTitle className=" font-bold text-2xl">
+          <CardTitle className=" font-bold text-2xl text-center">
             Récemment dans recettes et astuces
           </CardTitle>
           <CardDescription className=" leading-3 text-base">
-            <Balancer>Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
+            <PageHeaderDescription> Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
             ici l&apos;inspiration nécessaire pour épater vos convives et
-            éveiller vos papilles.</Balancer>
+            éveiller vos papilles.</PageHeaderDescription>
           </CardDescription>
         </CardHeader>
         <CardContent className="px-0">
