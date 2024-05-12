@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { getAppSetup } from "@/actions/ws/setup";
 import { siteConfig } from "@/lib/data/site";
 import "@/styles/globals.css";
+import NextTopLoader from 'nextjs-toploader';
 import { Providers } from "@/components/providers";
 
 const josefinSans = Josefin_Sans({subsets:["latin"]});
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={josefinSans.className}>
+      <NextTopLoader />
         <Providers>
           {children}
           <Toaster />
