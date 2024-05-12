@@ -63,26 +63,26 @@ export default async function MemberPage() {
           <PageHeaderHeading>{session.user.name}</PageHeaderHeading>
           <PageHeaderDescription>{session.user.bio}</PageHeaderDescription>
 
-          <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
-            Membre depuis {formatDate(session.user.createdAt)}
+          <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
+            Abonné depuis {formatDate(session.user.createdAt)}
           </span>
         </PageHeader>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
         <Card className=" border-none shadow-none">
           <CardContent className="pt-3">
-            <Tabs defaultValue="courses" className="pt-2">
+            <Tabs defaultValue="premium" className="pt-2">
               <TabsList className=" w-full justify-start px-0 bg-transparent">
-                <TabsTrigger value="courses" className="flex space-x-2">
+                <TabsTrigger value="premium" className="flex space-x-2">
                   <Badge>{orders?.length}</Badge>
-                  <span>Cours</span>
+                  <span>Payants</span>
                 </TabsTrigger>
-                <TabsTrigger value="profil" className="flex space-x-2">
-                  <span>Profil</span>
+                <TabsTrigger value="free" className="flex space-x-2">
+                  <span>Gratuits</span>
                 </TabsTrigger>
               </TabsList>
               <div>
-                <TabsContent value="courses">
+                <TabsContent value="premium">
                   <div className="pt-6">
                     <h1 className=" text-2xl font-bold">Payants</h1>
                     {orders?.map((order) => (
@@ -124,7 +124,11 @@ export default async function MemberPage() {
                       </Link>
                     ))}
                   </div>
-                  <Separator />
+                  
+                </TabsContent>
+                <TabsContent value="free">
+                  <div className="pt-6">
+                    
                   <div className="pt-6">
                     <h1 className=" text-2xl font-bold">Gratuits</h1>
                     {freeArticles?.map((article) => (
@@ -163,9 +167,7 @@ export default async function MemberPage() {
                       </Link>
                     ))}
                   </div>
-                </TabsContent>
-                <TabsContent value="profile">
-                  <div className="pt-6"></div>
+                  </div>
                 </TabsContent>
               </div>
             </Tabs>

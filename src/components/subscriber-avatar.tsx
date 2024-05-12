@@ -71,7 +71,13 @@ export function SubscriberAvatar() {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           onClick={() => {
-            router.push(`/member`);
+            router.push(
+              session?.user.role === "subscriber" ||
+                session?.user.role === "author" ||
+                session?.user.role === "editor"
+                ? `/member`
+                : "/ws"
+            );
           }}
           disabled={loading}
         >
