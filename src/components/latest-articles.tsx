@@ -11,6 +11,7 @@ import Image from "next/image";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { formatDate } from "@/lib/utils";
 import { CiLock } from "react-icons/ci";
+import Balancer from "react-wrap-balancer";
 
 const getLastArticles = async (number?: number) => {
   const articles = await prisma.article.findMany({
@@ -31,9 +32,9 @@ export async function LatestArticles() {
             Récemment dans recettes et astuces
           </CardTitle>
           <CardDescription className=" leading-3 text-base">
-            Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
+            <Balancer>Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
             ici l&apos;inspiration nécessaire pour épater vos convives et
-            éveiller vos papilles.
+            éveiller vos papilles.</Balancer>
           </CardDescription>
         </CardHeader>
         <CardContent className="px-0">
