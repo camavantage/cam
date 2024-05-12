@@ -32,10 +32,12 @@ export async function LatestArticles() {
           <CardTitle className=" font-bold text-2xl text-center">
             Récemment dans recettes et astuces
           </CardTitle>
-          <CardDescription className=" leading-3 text-base">
-            <PageHeaderDescription> Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
-            ici l&apos;inspiration nécessaire pour épater vos convives et
-            éveiller vos papilles.</PageHeaderDescription>
+          <CardDescription className=" flex justify-center">
+            <PageHeaderDescription>
+              Que vous soyez novice en cuisine ou chef confirmé, vous trouverez
+              ici l&apos;inspiration nécessaire pour épater vos convives et
+              éveiller vos papilles.
+            </PageHeaderDescription>
           </CardDescription>
         </CardHeader>
         <CardContent className="px-0">
