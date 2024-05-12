@@ -66,12 +66,12 @@ export default async function MemberPage() {
             <p className="text-muted-foreground">
               @{session.user.username}{" "}
               <span className="inline-flex items-center px-3 py-1 text-sm font-medium ">
-              | Abonné depuis {formatDate(session.user.createdAt)}
+                | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
-            <Button className="rounded-full" variant="secondary" size="sm" >
-            Modifier le profil
-          </Button>
+            <Button className="rounded-full" variant="secondary" size="sm">
+              Modifier le profil
+            </Button>
           </div>
         </div>
       </div>
