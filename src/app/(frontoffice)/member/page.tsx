@@ -52,7 +52,7 @@ export default async function MemberPage() {
   return (
     <main className="">
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
-        <PageHeader>
+        <div className="flex space-x-4">
           <Avatar className="">
             <AvatarImage src={session.user.image ?? ""} />
             <AvatarFallback className=" font-bold">
@@ -60,13 +60,13 @@ export default async function MemberPage() {
             </AvatarFallback>
           </Avatar>
 
-          <PageHeaderHeading>{session.user.name}</PageHeaderHeading>
-          <PageHeaderDescription>{session.user.bio}</PageHeaderDescription>
+          <h3 className=" text-2xl font-bold">{session.user.name}</h3>
+          <p>@{session.user.username}</p>
 
           <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
             Abonné depuis {formatDate(session.user.createdAt)}
           </span>
-        </PageHeader>
+        </div>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
         <h1 className=" text-2xl font-bold">Gratuits</h1>
