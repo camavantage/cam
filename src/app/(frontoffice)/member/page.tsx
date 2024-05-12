@@ -55,7 +55,7 @@ export default async function MemberPage() {
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
         <h1 className=" text-2xl font-bold">Mon compte</h1>
         <div className="flex space-x-4 pt-6">
-          <Avatar className="">
+          <Avatar className="h-12 w-12">
             <AvatarImage src={session.user.image ?? ""} />
             <AvatarFallback className=" font-bold">
               {session.user.name?.substring(0, 2)}
