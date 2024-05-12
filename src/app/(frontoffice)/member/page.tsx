@@ -53,7 +53,7 @@ export default async function MemberPage() {
     <main className="">
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
         <PageHeader>
-          <Avatar className=" w-32 h-32">
+          <Avatar className="">
             <AvatarImage src={session.user.image ?? ""} />
             <AvatarFallback className=" font-bold">
               {session.user.name?.substring(0, 2)}
@@ -69,6 +69,7 @@ export default async function MemberPage() {
         </PageHeader>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
+      <h1 className=" text-2xl font-bold">Gratuits</h1>
         <Card className=" border-none shadow-none">
           <CardContent className="pt-3">
             <Tabs defaultValue="premium" className="pt-2">
@@ -130,7 +131,6 @@ export default async function MemberPage() {
                   <div className="pt-6">
                     
                   <div className="pt-6">
-                    <h1 className=" text-2xl font-bold">Gratuits</h1>
                     {freeArticles?.map((article) => (
                       <Link
                         href={`/${article.slug}`}
