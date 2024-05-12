@@ -65,7 +65,7 @@ export default async function MemberPage() {
             <h3 className=" font-bold">{session.user.name}</h3>
             <p className="text-muted-foreground">
               @{session.user.username}{" "}
-              <span className="inline-flex items-center px-3 py-1 text-sm font-medium ">
+              <span className="inline-flex items-center py-1 text-sm font-medium ">
                 | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
