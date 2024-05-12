@@ -59,17 +59,19 @@ export default async function MemberPage() {
               {session.user.name?.substring(0, 2)}
             </AvatarFallback>
           </Avatar>
-
-          <h3 className=" text-2xl font-bold">{session.user.name}</h3>
-          <p>@{session.user.username}</p>
-
-          <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
+          <div>
+            <h3 className=" text-2xl font-bold">{session.user.name}</h3>
+            <p>@{session.user.username}</p>
+          </div>
+        </div>
+        <div className="flex justify-end">
+        <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-muted-foreground uppercase">
             Abonné depuis {formatDate(session.user.createdAt)}
           </span>
         </div>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
-        <h1 className=" text-2xl font-bold">Gratuits</h1>
+        <h1 className=" text-2xl font-bold">Cours</h1>
         <Card className=" border-none shadow-none">
           <CardContent className="pt-3 px-0">
             <Tabs defaultValue="premium" className="pt-2">
