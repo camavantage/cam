@@ -69,12 +69,10 @@ export default async function MemberPage() {
                | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
-          </div>
-        </div>
-        <div className="flex">
-          <Button className="" variant="secondary" size="sm">
+            <Button className="" variant="secondary" size="sm">
             Modifier le profil
           </Button>
+          </div>
         </div>
       </div>
       <div className="max-w-screen-md mx-auto pb-12 px-6 md:px-0">
