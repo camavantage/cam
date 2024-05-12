@@ -19,7 +19,7 @@ const TeacherSection: React.FC = () => {
       </div>
       <div className="md:pt-32">
         <h4 className="font-bold text-2xl">Fondateur</h4>
-        <p className=" text-muted-foreground mt-2">
+        <p className=" mt-2">
           En choisissant notre centre de formation, vous êtes assurés d&apos;un
           enseignement de qualité et d&apos;une proximité avec des formateurs
           passionnés, qui vous transmettront leur savoir et savoir-faire tournés

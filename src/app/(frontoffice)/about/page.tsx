@@ -80,7 +80,7 @@ export default function AboutPage() {
         </div>
         <div className="md:pt-32">
           <h4 className="font-bold text-2xl">Fondateur</h4>
-          <p className=" text-muted-foreground mt-2">
+          <p className="mt-2">
             Un véritable ambassadeur de la boulangerie-pâtisserie en République
             Démocratique du Congo. Son parcours inspirant témoigne de la
             puissance des rêves et de la joie de partager sa passion avec le

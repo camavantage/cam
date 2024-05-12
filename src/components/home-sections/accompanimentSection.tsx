@@ -14,7 +14,7 @@ const AccompanimentSection: React.FC = () => {
             <PlusIcon  className="h-6 w-6 " />
             </div>
             <div className="flex-1">
-              <h6 className="text-base text-muted-foreground">Vous êtes accompagné par un conseiller en formation tout au long de votre parcours</h6>
+              <h6 className="text-base ">Vous êtes accompagné par un conseiller en formation tout au long de votre parcours</h6>
               <p></p>
             </div>
           </div>
@@ -23,7 +23,7 @@ const AccompanimentSection: React.FC = () => {
               <PlusIcon className="h-6 w-6 text-cam-green-800" />
             </div>
             <div className="flex-1">
-              <h6 className="text-base text-muted-foreground">Nous vous aidons à organiser votre travail et à progresser dans votre formation</h6>
+              <h6 className="text-base ">Nous vous aidons à organiser votre travail et à progresser dans votre formation</h6>
               <p></p>
             </div>
           </div>
@@ -33,7 +33,7 @@ const AccompanimentSection: React.FC = () => {
             
             </div>
             <div className="flex-1">
-              <h6 className="text-base text-muted-foreground">Vous avez la possibilité de poser des questions à tout moment et de publier des photos et vidéos de réalisations</h6>
+              <h6 className="text-base ">Vous avez la possibilité de poser des questions à tout moment et de publier des photos et vidéos de réalisations</h6>
               <p></p>
             </div>
           </div>
@@ -43,7 +43,7 @@ const AccompanimentSection: React.FC = () => {
             
             </div>
             <div className="flex-1">
-              <h6 className="text-base text-muted-foreground">En ligne vos professeurs répondent et commentent en direct vos questions</h6>
+              <h6 className="text-base ">En ligne vos professeurs répondent et commentent en direct vos questions</h6>
               <p></p>
             </div>
           </div>
