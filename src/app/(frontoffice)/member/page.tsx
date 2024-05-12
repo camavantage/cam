@@ -76,7 +76,7 @@ export default async function MemberPage() {
           </Button>
       </div>
       <div className="max-w-screen-md mx-auto py-12 px-6 md:px-0">
-        <h1 className=" text-2xl font-bold">Cours</h1>
+        <h1 className=" text-2xl font-bold">Mes cours</h1>
         <Card className=" border-none shadow-none">
           <CardContent className="pt-3 px-0">
             <Tabs defaultValue="premium" className="pt-2">
