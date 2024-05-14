@@ -53,7 +53,7 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
   });
 
   const onSubmit = async (formData: EditPasswordformSchemaType) => {
-    setOpenForm(true);
+    setOpenForm(false);
     setLoading(true);
     const updatedUser = await editPassword({
       ...formData,
