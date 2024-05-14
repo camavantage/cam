@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { changeUserPassword } from "@/actions/ws/users/change-password";
 import { Profile } from "@/app/(frontoffice)/member/page";
@@ -23,15 +23,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
-import { UserType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import {
-  ChangePasswordformSchemaType,
-  changePasswordformSchema,
+  EditPasswordformSchemaType,
+  editPasswordformSchema,
 } from "@/lib/zod/users";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
-import { SetStateAction, useState, Dispatch } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 type DrawerChangePasswordProps = {
@@ -42,17 +41,18 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
   user,
 }) => {
   const [loading, setLoading] = useState<boolean>(false);
-  const [showPWD, setShowPWD] = useState<boolean>(false);
+  const [showOldPWD, setShowOldPWD] = useState<boolean>(false);
+  const [showNewPWD, setShowNewPWD] = useState<boolean>(false);
   const [showConfirmPWD, setShowConfirmPWD] = useState<boolean>(false);
   const [openDelete, setOpenDelete] = useState<boolean>(false);
   const { toast } = useToast();
 
-  const formPWD = useForm<ChangePasswordformSchemaType>({
-    resolver: zodResolver(changePasswordformSchema),
+  const form = useForm<EditPasswordformSchemaType>({
+    resolver: zodResolver(editPasswordformSchema),
     defaultValues: {},
   });
 
-  const onSubmit = async (formData: ChangePasswordformSchemaType) => {
+  const onSubmit = async (formData: EditPasswordformSchemaType) => {
     if (user?.id) {
       setOpenDelete(false);
       setLoading(true);
@@ -76,14 +76,13 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
           description: "Le mot de passe a été bien modifié",
         });
         setLoading(false);
-        formPWD.reset();
+        form.reset();
       }
     }
   };
 
   return (
     <Drawer open={openDelete} onOpenChange={setOpenDelete}>
-      {/* <DrawerTrigger asChild> */}
       <LoadingButton
         loading={loading}
         disabled={loading}
@@ -97,10 +96,10 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
       >
         Sécurité
       </LoadingButton>
-      {/* </DrawerTrigger> */}
+
       <DrawerContent>
-        <Form {...formPWD}>
-          <form className="space-y-8">
+        <Form {...form}>
+          <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
                 <DrawerTitle>Sécurité du compte</DrawerTitle>
@@ -111,22 +110,18 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
               <div className="px-4 space-y-4">
                 <div>
                   <FormField
-                    control={formPWD.control}
-                    name="newPassword"
+                    control={form.control}
+                    name="oldPassword"
                     render={({ field }) => (
                       <FormItem className=" ">
-                        <FormLabel>Nouveau mot de passe</FormLabel>
+                        <FormLabel>Mot de passe actuel</FormLabel>
                         <FormControl>
                           <div className="relative flex">
                             <Input
                               {...field}
-                              type={showPWD ? "text" : "password"}
+                              type={showOldPWD ? "text" : "password"}
                               placeholder=""
                               className={cn("w-full font-black pr-12")}
-                              onChange={(e) => {
-                                field.onChange(e);
-                                formPWD.trigger("newPassword");
-                              }}
                             />
                             <Button
                               type="button"
@@ -135,10 +130,10 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                               className=" absolute right-0 rounded-l-none"
                               onClick={(e) => {
                                 e.preventDefault();
-                                setShowPWD((prev) => !prev);
+                                setShowOldPWD((prev) => !prev);
                               }}
                             >
-                              {showPWD ? (
+                              {showOldPWD ? (
                                 <EyeOffIcon className="text-muted-foreground" />
                               ) : (
                                 <EyeIcon className=" text-muted-foreground" />
@@ -153,7 +148,45 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                 </div>
                 <div>
                   <FormField
-                    control={formPWD.control}
+                    control={form.control}
+                    name="newPassword"
+                    render={({ field }) => (
+                      <FormItem className=" ">
+                        <FormLabel>Nouveau mot de passe</FormLabel>
+                        <FormControl>
+                          <div className="relative flex">
+                            <Input
+                              {...field}
+                              type={showNewPWD ? "text" : "password"}
+                              placeholder=""
+                              className={cn("w-full font-black pr-12")}
+                            />
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              className=" absolute right-0 rounded-l-none"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setShowNewPWD((prev) => !prev);
+                              }}
+                            >
+                              {showNewPWD ? (
+                                <EyeOffIcon className="text-muted-foreground" />
+                              ) : (
+                                <EyeIcon className=" text-muted-foreground" />
+                              )}
+                            </Button>
+                          </div>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <div>
+                  <FormField
+                    control={form.control}
                     name="confirmNewPassword"
                     render={({ field }) => (
                       <FormItem className=" ">
@@ -165,10 +198,6 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                               type={showConfirmPWD ? "text" : "password"}
                               placeholder=""
                               className={cn("w-full font-black pr-12")}
-                              onChange={(e) => {
-                                field.onChange(e);
-                                formPWD.trigger("confirmNewPassword");
-                              }}
                             />
                             <Button
                               type="button"
@@ -196,17 +225,7 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                 </div>
               </div>
               <DrawerFooter>
-                <Button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    formPWD.trigger();
-                    if (formPWD.formState.isValid) {
-                      onSubmit(formPWD.getValues());
-                    }
-                  }}
-                >
-                  Changer
-                </Button>
+                <Button type="submit">Changer</Button>
                 <DrawerClose asChild>
                   <Button variant="outline">Annuler</Button>
                 </DrawerClose>

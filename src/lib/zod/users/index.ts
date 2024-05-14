@@ -140,3 +140,26 @@ export const changePasswordformSchema = z
 export type ChangePasswordformSchemaType = z.infer<
   typeof changePasswordformSchema
 >;
+
+// edit user password form schema
+export const editPasswordformSchema = z
+  .object({
+    userId: z.string().cuid(),
+    oldPassword: z.string().min(6, {
+      message: "Le mot de passe doit comporter au moins 6 caractères.",
+    }),
+    newPassword: z.string().min(6, {
+      message: "Le mot de passe doit comporter au moins 6 caractères.",
+    }),
+    confirmNewPassword: z.string().min(6, {
+      message: "Le mot de passe doit comporter au moins 6 caractères.",
+    }),
+  })
+  .refine((data) => data.newPassword === data.confirmNewPassword, {
+    path: ["confirmNewPassword"],
+    message: "Les mots de passe ne correspondent pas",
+  });
+
+export type EditPasswordformSchemaType = z.infer<
+  typeof editPasswordformSchema
+>;
