@@ -113,11 +113,11 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
         Modifier le profil
       </LoadingButton>
 
-      <DialogContent  className="max-w-sm">
+      <DialogContent  className="lg:max-w-sm px-1 rounded-none">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="">
-              <DialogHeader>
+              <DialogHeader className="flex flex-col items-start">
                 <DialogTitle className="">Profil</DialogTitle>
                 <DrawerDescription></DrawerDescription>
               </DialogHeader>
