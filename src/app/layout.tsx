@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={josefinSans.className}>
-      <NextTopLoader color="#000000" showSpinner={false} />
+      <NextTopLoader color="#ffffff" showSpinner={false} />
         <Providers>
           {children}
           <Toaster />
