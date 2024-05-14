@@ -44,20 +44,20 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
   const [showOldPWD, setShowOldPWD] = useState<boolean>(false);
   const [showNewPWD, setShowNewPWD] = useState<boolean>(false);
   const [showConfirmPWD, setShowConfirmPWD] = useState<boolean>(false);
-  const [openDelete, setOpenDelete] = useState<boolean>(false);
+  const [openForm, setOpenForm] = useState<boolean>(false);
   const { toast } = useToast();
 
   const form = useForm<EditPasswordformSchemaType>({
     resolver: zodResolver(editPasswordformSchema),
-    defaultValues: {},
+    defaultValues: { userId: user?.id },
   });
 
   const onSubmit = async (formData: EditPasswordformSchemaType) => {
-    setOpenDelete(false);
+    setOpenForm(true);
     setLoading(true);
     const updatedUser = await editPassword({
       ...formData,
-      userId: String(user?.id),
+      //   userId: String(user?.id),
     }).catch(() => {
       toast({
         title: "Echec",
@@ -80,14 +80,14 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
   };
 
   return (
-    <Drawer open={openDelete} onOpenChange={setOpenDelete}>
+    <Drawer open={openForm} onOpenChange={setOpenForm}>
       <LoadingButton
         loading={loading}
         disabled={loading}
         variant="ghost"
         onClick={(e) => {
           e.preventDefault();
-          setOpenDelete(true);
+          setOpenForm(true);
         }}
         className=" w-fit rounded-full"
         size="sm"
@@ -97,7 +97,7 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
 
       <DrawerContent>
         <Form {...form}>
-          <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="mx-auto w-full max-w-sm">
               <DrawerHeader>
                 <DrawerTitle>Sécurité du compte</DrawerTitle>
@@ -106,6 +106,17 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                 </DrawerDescription>
               </DrawerHeader>
               <div className="px-4 space-y-4">
+                <FormField
+                  control={form.control}
+                  name="userId"
+                  render={({ field }) => (
+                    <FormItem className=" ">
+                      <FormControl>
+                        <Input {...field} type="hidden" />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
                 <div>
                   <FormField
                     control={form.control}
@@ -223,7 +234,13 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
                 </div>
               </div>
               <DrawerFooter>
-                <Button type="submit">Changer</Button>
+                <LoadingButton
+                  loading={loading}
+                  disabled={loading}
+                  type="submit"
+                >
+                  Changer
+                </LoadingButton>
                 <DrawerClose asChild>
                   <Button variant="outline">Annuler</Button>
                 </DrawerClose>
