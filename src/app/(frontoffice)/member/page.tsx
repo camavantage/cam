@@ -56,17 +56,17 @@ export default async function MemberPage() {
         <h1 className=" text-2xl font-bold">Mon compte</h1>
         <div className="flex space-x-4 pt-6">
           <Avatar className="h-12 w-12">
-            <AvatarImage src={session.user.image ?? ""} />
+            <AvatarImage src={user?.image??""} />
             <AvatarFallback className=" font-bold">
-              {session.user.name?.substring(0, 2)}
+              {user?.name?.substring(0, 2)}
             </AvatarFallback>
           </Avatar>
           <div>
-            <h3 className=" font-bold">{session.user.name}</h3>
+            <h3 className=" font-bold">{user?.name}</h3>
             <p className="text-muted-foreground">
-              @{session.user.username}{" "}
+              @{user?.username}{" "}
               <span className="inline-flex items-center py-1 text-sm font-medium ">
-                | Abonné depuis {formatDate(session.user.createdAt)}
+                | Abonné depuis {formatDate(`${user?.createdAt}`)}
               </span>
             </p>
             <Suspense>

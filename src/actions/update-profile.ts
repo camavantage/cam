@@ -13,13 +13,16 @@ export async function updateProfile(formData: EditUserFormSchemaType) {
   }
   if (session.user.id === formData.id) {
     const { id, ...dataWithoutId } = formData;
+
     const updatedUser = await prisma.user
       .update({ where: { id }, data: dataWithoutId })
       .catch(() => {
         throw new Error("Failed to update user");
       });
+
     const { password, ...userWithoutPassword } = updatedUser;
-    await unstable_update({ user: { ...userWithoutPassword} });
+    
+    await unstable_update({ user: { ...userWithoutPassword } });
     revalidatePath("/member");
     return userWithoutPassword;
   } else {
