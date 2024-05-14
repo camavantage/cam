@@ -109,7 +109,7 @@ export default async function ArticlesPage({
     q: searchParams.q,
   });
   return (
-    <div className=" max-w-screen-md mx-auto px-6 lg:px-0">
+    <div className=" max-w-screen-md mx-auto px-6 lg:px-0 pb-12">
       <PageHeader>
         <PageHeaderHeading>Recettes et Astuces</PageHeaderHeading>
         <PageHeaderDescription className="">
