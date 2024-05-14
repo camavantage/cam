@@ -1,5 +1,5 @@
 "use client";
-import { signInAsASubscriber } from "@/actions/auth";
+
 import { Button } from "@/components/ui/button";
 import {
   DrawerDescription,
@@ -18,10 +18,8 @@ import { Input } from "@/components/ui/input";
 import { LoadingButton } from "@/components/ui/loading-button";
 import { useToast } from "@/components/ui/use-toast";
 import { cn } from "@/lib/utils";
-import { SignInSchemaType, signInSchema } from "@/lib/zod/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Edit, EyeIcon, EyeOffIcon } from "lucide-react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Edit } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Dialog, DialogClose, DialogContent, DialogHeader } from "./ui/dialog";
@@ -31,12 +29,12 @@ import Image from "next/image";
 import { AiOutlineLoading } from "react-icons/ai";
 import { TbCircleCheckFilled } from "react-icons/tb";
 import { AutosizeTextarea } from "./ui/autosize-textarea";
-import { User } from "@/app/(backoffice)/ws/users/[username]/page";
 import { EditUserFormSchemaType, editUserformSchema } from "@/lib/zod/users";
 import { checkUsername } from "@/actions/ws/users/check-username";
 import { IoIosCloseCircle } from "react-icons/io";
 import { updateProfile } from "@/actions/update-profile";
 import { Profile } from "@/app/(frontoffice)/member/page";
+import { useSession } from "next-auth/react";
 
 type EditProfileFormProps={
     user:Profile
@@ -54,6 +52,7 @@ export const EditProfileForm:React.FC<EditProfileFormProps> = ({user}) => {
     user?.image ?? ""
   );
   const { toast } = useToast();
+  const {update}=useSession()
 
   const form = useForm<EditUserFormSchemaType>({
     resolver: zodResolver(editUserformSchema),
@@ -82,6 +81,7 @@ export const EditProfileForm:React.FC<EditProfileFormProps> = ({user}) => {
       setLoading(false);
     });
     if (userProfile) {
+        update({...userProfile})
         toast({
           title: "Enregisté",
           description: "Les modifications ont été bien enregistrer",
