@@ -1,3 +1,5 @@
+'use client'
+
 import { changeUserPassword } from "@/actions/ws/users/change-password";
 import { Profile } from "@/app/(frontoffice)/member/page";
 import { Button } from "@/components/ui/button";
