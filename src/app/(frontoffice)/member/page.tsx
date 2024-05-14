@@ -1,6 +1,7 @@
 import { EditProfileForm } from "@/components/edit-profile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
@@ -56,7 +57,7 @@ export default async function MemberPage() {
         <h1 className=" text-2xl font-bold">Mon compte</h1>
         <div className="flex space-x-4 pt-6">
           <Avatar className="h-12 w-12">
-            <AvatarImage src={user?.image??""} />
+            <AvatarImage src={user?.image ?? ""} />
             <AvatarFallback className=" font-bold">
               {user?.name?.substring(0, 2)}
             </AvatarFallback>
@@ -69,9 +70,14 @@ export default async function MemberPage() {
                 | Abonné depuis {formatDate(`${user?.createdAt}`)}
               </span>
             </p>
-            <Suspense>
-              <EditProfileForm user={user} />
-            </Suspense>
+            <div className="flex space-x-3 ">
+              <Suspense>
+                <EditProfileForm user={user} />
+              </Suspense>
+              <Button variant="ghost" size="sm" className="rounded-full">
+                Sécurité
+              </Button>
+            </div>
           </div>
         </div>
       </div>
