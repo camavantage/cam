@@ -1,3 +1,4 @@
+import { EditPasswordForm } from "@/components/edit-password";
 import { EditProfileForm } from "@/components/edit-profile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -74,9 +75,9 @@ export default async function MemberPage() {
               <Suspense>
                 <EditProfileForm user={user} />
               </Suspense>
-              <Button variant="ghost" size="sm" className="rounded-full">
-                Sécurité
-              </Button>
+              <Suspense>
+                <EditPasswordForm user={user}/>
+              </Suspense>
             </div>
           </div>
         </div>

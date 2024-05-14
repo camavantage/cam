@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { DrawerDescription, DrawerFooter } from "@/components/ui/drawer";
+import { DrawerDescription } from "@/components/ui/drawer";
 import {
   Form,
   FormControl,
@@ -21,7 +21,6 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogFooter,
   DialogHeader,
@@ -356,3 +355,4 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
     </Dialog>
   );
 };
+
