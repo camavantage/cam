@@ -116,12 +116,12 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
       <DialogContent>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <div className="mx-auto w-full max-w-sm">
+            <div className="">
               <DialogHeader>
-                <DialogTitle>Profil</DialogTitle>
+                <DialogTitle className="">Profil</DialogTitle>
                 <DrawerDescription></DrawerDescription>
               </DialogHeader>
-              <ScrollArea className=" h-[calc(100vh-9rem)] pb-6">
+              <ScrollArea className=" h-[calc(100vh-8rem)] pb-6">
                 <div className="space-y-4">
                   <FormField
                     control={form.control}
