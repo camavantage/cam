@@ -121,7 +121,7 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
                 <DialogTitle>Profil</DialogTitle>
                 <DrawerDescription></DrawerDescription>
               </DialogHeader>
-              <ScrollArea className=" h-[calc(100vh-8rem)] ">
+              <ScrollArea className=" h-[calc(100vh-9rem)] pb-6">
                 <div className="space-y-4">
                   <FormField
                     control={form.control}
@@ -347,11 +347,7 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
                 >
                   Sauvegarder
                 </LoadingButton>
-                <DialogClose asChild>
-                  <Button variant="outline" disabled={loading}>
-                    Fermer
-                  </Button>
-                </DialogClose>
+                
               </DialogFooter>
             </div>
           </form>
