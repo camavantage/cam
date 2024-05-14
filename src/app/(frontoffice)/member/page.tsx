@@ -1,34 +1,34 @@
-import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header";
+import { EditProfileForm } from "@/components/edit-profile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { formatDate, formatElapsedTime, formatMoney } from "@/lib/utils";
+import { Prisma } from "@prisma/client";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Espace membre",
 };
 
-const getOrders = async (clientId?: string) => {
+const getMember = async (clientId?: string) => {
   if (typeof clientId === "string") {
-    const orders = await prisma.articleOrder.findMany({
-      where: { clientId },
-      include: { article: { include: { author: { select: { name: true } } } } },
+    const orders = await prisma.user.findFirst({
+      where: { id: clientId },
+      include: {
+        articleOrders: { include: { article: { include: { author: {} } } } },
+      },
     });
     return orders;
   }
 };
+
+export type Profile = Prisma.PromiseReturnType<typeof getMember>;
 
 const getFreeArticles = async () => {
   const articles = await prisma.article.findMany({
@@ -44,7 +44,7 @@ const getFreeArticles = async () => {
 
 export default async function MemberPage() {
   const session = await auth();
-  const orders = await getOrders(session?.user.id);
+  const user = await getMember(session?.user.id);
   const freeArticles = await getFreeArticles();
 
   if (!session) {
@@ -69,9 +69,9 @@ export default async function MemberPage() {
                 | Abonné depuis {formatDate(session.user.createdAt)}
               </span>
             </p>
-            <Button className="rounded-full" variant="secondary" size="sm">
-              Modifier le profil
-            </Button>
+            <Suspense>
+              <EditProfileForm user={user} />
+            </Suspense>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default async function MemberPage() {
             <Tabs defaultValue="premium" className="pt-2">
               <TabsList className=" w-full justify-start px-0 bg-transparent">
                 <TabsTrigger value="premium" className="flex space-x-2">
-                  <Badge>{orders?.length}</Badge>
+                  <Badge>{user?.articleOrders?.length}</Badge>
                   <span>Payants</span>
                 </TabsTrigger>
                 <TabsTrigger value="free" className="flex space-x-2">
@@ -95,7 +95,7 @@ export default async function MemberPage() {
               <div>
                 <TabsContent value="premium">
                   <div className="pt-6">
-                    {orders?.map((order) => (
+                    {user?.articleOrders?.map((order) => (
                       <Link
                         href={`/${order.article.slug}`}
                         key={order.articleId + order.clientId}
