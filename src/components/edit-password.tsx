@@ -1,6 +1,6 @@
 "use client";
 
-import { changeUserPassword } from "@/actions/ws/users/change-password";
+import { editPassword } from "@/actions/update-profile";
 import { Profile } from "@/app/(frontoffice)/member/page";
 import { Button } from "@/components/ui/button";
 import {
@@ -53,31 +53,29 @@ export const EditPasswordForm: React.FC<DrawerChangePasswordProps> = ({
   });
 
   const onSubmit = async (formData: EditPasswordformSchemaType) => {
-    if (user?.id) {
-      setOpenDelete(false);
-      setLoading(true);
-      const updatedUser = await changeUserPassword({
-        ...formData,
-        userId: user.id,
-      }).catch(() => {
-        toast({
-          title: "Echec",
-          variant: "destructive",
-          description: (
-            <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
-          ),
-        });
-        setLoading(false);
+    setOpenDelete(false);
+    setLoading(true);
+    const updatedUser = await editPassword({
+      ...formData,
+      userId: String(user?.id),
+    }).catch(() => {
+      toast({
+        title: "Echec",
+        variant: "destructive",
+        description: (
+          <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
+        ),
       });
-      if (updatedUser) {
-        toast({
-          title: "Modifié",
-          variant: "success",
-          description: "Le mot de passe a été bien modifié",
-        });
-        setLoading(false);
-        form.reset();
-      }
+      setLoading(false);
+    });
+    if (updatedUser) {
+      toast({
+        title: "Modifié",
+        variant: "success",
+        description: "Le mot de passe a été bien modifié",
+      });
+      setLoading(false);
+      form.reset();
     }
   };
 
