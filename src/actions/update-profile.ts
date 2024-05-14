@@ -65,6 +65,8 @@ export async function editPassword(formData: EditPasswordformSchemaType) {
       const { password, ...userWithouPassword } = updatedUser;
       revalidatePath("/member");
       return userWithouPassword;
+    }else{
+        throw new Error("old password doen't match")
     }
   } else {
     throw new Error("You must be owner of the account to change password");

@@ -145,21 +145,25 @@ export type ChangePasswordformSchemaType = z.infer<
 export const editPasswordformSchema = z
   .object({
     userId: z.string().cuid(),
-    oldPassword: z.string().min(6, {
-      message: "Le mot de passe doit comporter au moins 6 caractères.",
-    }),
-    newPassword: z.string().min(6, {
-      message: "Le mot de passe doit comporter au moins 6 caractères.",
-    }),
-    confirmNewPassword: z.string().min(6, {
-      message: "Le mot de passe doit comporter au moins 6 caractères.",
-    }),
+    oldPassword: z
+      .string({ required_error: "L'actuel mot de passe est obligatoire" })
+      .min(6, {
+        message: "Le mot de passe doit comporter au moins 6 caractères.",
+      }),
+    newPassword: z
+      .string({ required_error: "Le nouveau mot de passe est obligatoire" })
+      .min(6, {
+        message: "Le mot de passe doit comporter au moins 6 caractères.",
+      }),
+    confirmNewPassword: z
+      .string({ required_error: "Confirmer le mot de passe est obligatoire" })
+      .min(6, {
+        message: "Le mot de passe doit comporter au moins 6 caractères.",
+      }),
   })
   .refine((data) => data.newPassword === data.confirmNewPassword, {
     path: ["confirmNewPassword"],
     message: "Les mots de passe ne correspondent pas",
   });
 
-export type EditPasswordformSchemaType = z.infer<
-  typeof editPasswordformSchema
->;
+export type EditPasswordformSchemaType = z.infer<typeof editPasswordformSchema>;
