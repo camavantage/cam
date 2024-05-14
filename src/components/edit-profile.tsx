@@ -113,7 +113,7 @@ export const EditProfileForm: React.FC<EditProfileFormProps> = ({ user }) => {
         Modifier le profil
       </LoadingButton>
 
-      <DialogContent  className="lg:max-w-sm rounded-none">
+      <DialogContent  className="lg:max-w-sm">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="">

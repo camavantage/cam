@@ -19,7 +19,7 @@ export async function updateProfile(formData: EditUserFormSchemaType) {
         throw new Error("Failed to update user");
       });
     const { password, ...userWithoutPassword } = updatedUser;
-    // await unstable_update({ user: userWithoutPassword });
+    await unstable_update({ user: { ...userWithoutPassword} });
     revalidatePath("/member");
     return userWithoutPassword;
   } else {
