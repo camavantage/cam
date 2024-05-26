@@ -45,7 +45,7 @@ export function SiteHeader() {
                 <span className="sr-only">Whatsapp</span>
               </Button>
             </Link>
-            <ModeToggle />
+            {/* <ModeToggle /> */}
           </nav>
         </div>
       </div>

@@ -57,7 +57,7 @@ export const WSLeftSideMenuBar:React.FC<WSLeftSideMenuBarProps>=({generalSetting
       <WSMenu items={menuItems} />
       <div className="flex-1" />
       <nav className="flex flex-col gap-y-3">
-        <ModeToggle />
+        {/* <ModeToggle /> */}
         <Separator />
         {/* <WSMenuItem
           item={{
