@@ -120,7 +120,6 @@ export function formatElapsedTime(givenDate: string | number | Date): string {
   }
 }
 
-
 // Format slug
 export function formatSlug(text: string) {
   const chaineSansAccents = text
