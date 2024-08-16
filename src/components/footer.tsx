@@ -67,7 +67,7 @@ export function SiteFooter() {
             <CardHeader className="px-0">
               <CardTitle className=" text-[18px]">Contacts</CardTitle>
               <CardDescription>
-                <address>
+                <address className=" not-italic">
                   <ul>
                     <li>+243826776661</li>
                     <li>+243977778829</li>
@@ -85,7 +85,7 @@ export function SiteFooter() {
             <CardHeader className="px-0">
               <CardTitle className=" text-[18px]">Adresses</CardTitle>
               <CardDescription>
-                <address>
+                <address className=" not-italic">
                   Nord-Kivu, Butembo, com. Kimemi, Q. Vutsundo, cel. Mutsunga,
                   N⁰89
                 </address>
