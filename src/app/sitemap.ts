@@ -1,6 +1,5 @@
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
-import { title } from "process";
 
 export default async function sitemap() {
   const articles = await prisma.article.findMany({
@@ -13,7 +12,7 @@ export default async function sitemap() {
   const articlesRoutes = articles.map(
     ({ title, description, slug, createdAt, updatedAt }) => ({
       title: title,
-      link: `${siteConfig.url}/${slug}`,
+      url: `${siteConfig.url}/${slug}`,
       description: description,
       lastModified: new Date(updatedAt ?? createdAt).toUTCString(),
     })
@@ -22,7 +21,7 @@ export default async function sitemap() {
   const tagsRoutes = tags.map(
     ({ name, description, slug, createdAt, updatedAt }) => ({
       title: name,
-      link: `${siteConfig.url}/t/${slug}`,
+      url: `${siteConfig.url}/t/${slug}`,
       description: description,
       lastModified: new Date(updatedAt ?? createdAt).toUTCString(),
     })
@@ -61,7 +60,7 @@ export default async function sitemap() {
     },
   ].map((route) => ({
     title: route.title,
-    link: `${siteConfig.url}/${route.pathname}`,
+    url: `${siteConfig.url}/${route.pathname}`,
     description: route.description,
     lastModified: new Date().toUTCString(),
   }));
