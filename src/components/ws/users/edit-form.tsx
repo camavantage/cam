@@ -50,7 +50,7 @@ import { roles } from "@/lib/data/roles";
 import { EditUserFormSchemaType, editUserformSchema } from "@/lib/zod/users";
 import Image from "next/image";
 import { DialogProfileImage } from "../dialog-profile-image";
-import { AcceptOrder, RejectOrder } from "@/components/order-controler";
+import { AcceptOrder, CancelConfirmedOrder, RejectOrder } from "@/components/order-controler";
 import { ContactHoverCard } from "@/components/contact-hover-card";
 import { User } from "@/app/(backoffice)/ws/users/[username]/page";
 
@@ -547,7 +547,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                         {formatElapsedTime(order.createdAt)}
                       </p>
                     </div>
-                    {order.status === "pending" && (
+                    {order.status === "pending" ? (
                       <div className="flex space-x-2">
                         <AcceptOrder
                           clientId={order.clientId}
@@ -559,7 +559,12 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                           articleId={order.articleId}
                         />
                       </div>
-                    )}
+                    ) : (<div>
+                      <CancelConfirmedOrder
+                        articleId={order.articleId}
+                        clientId={order.clientId}
+                      />
+                    </div>)}
                   </div>
                 ))}
               </ScrollArea>
