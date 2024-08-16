@@ -55,6 +55,36 @@ export async function confirmOrderArticle(formData: {
   }
 }
 
+export async function cancelConfirmedOrderArticle(formData: {
+  clientId: string;
+  articleId: string;
+}) {
+  const session = await auth();
+
+  if (!session) {
+    throw new Error("You must be connected to confirm an order");
+  }
+  if (session.user.role === "admin" || session.user.role === "owner") {
+    const canceledOrder = await prisma.articleOrder
+      .update({
+        where: {
+          articleId_clientId: {
+            clientId: formData.clientId,
+            articleId: formData.articleId,
+          },
+        },
+        data: { status: "pending" },
+      })
+      .catch(() => {
+        throw new Error("Failed to cancel a confirmed order");
+      });
+    revalidatePath("/ws/dashboard");
+    return canceledOrder;
+  } else {
+    throw new Error("You must be admin or owner to cancel a confirmed order");
+  }
+}
+
 export async function rejectOrderArticle(formData: {
   clientId: string;
   articleId: string;

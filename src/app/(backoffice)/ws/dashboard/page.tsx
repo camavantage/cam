@@ -1,6 +1,6 @@
 import { getAppSetup } from "@/actions/ws/setup";
 import { ContactHoverCard } from "@/components/contact-hover-card";
-import { AcceptOrder, RejectOrder } from "@/components/order-controler";
+import { AcceptOrder, RejectOrder, CancelConfirmedOrder } from "@/components/order-controler";
 import { TooltipWrap } from "@/components/tooltip-wrapper";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -71,7 +71,7 @@ export default async function WSDashboardPage() {
   const confirmedOrders = await getConfimedOrders();
   return (
     <div className=" bg-ws-background">
-      <div className="h-16 flex items-center bg-opacity-45 px-3 space-x-4">
+      <div className="h-16 flex items-center px-3 space-x-4">
         <h1 className=" font-bold">Tableau de bord</h1>
         <div className="flex-1" />
         <TooltipWrap content="Créer un article">
@@ -241,6 +241,9 @@ export default async function WSDashboardPage() {
                               <p className="text-sm text-muted-foreground">
                                 {formatElapsedTime(order.createdAt)}
                               </p>
+                            </div>
+                            <div className="flex space-x-2">
+                              <CancelConfirmedOrder clientId={order.clientId} articleId={order.articleId} />
                             </div>
                           </div>
                         ))}

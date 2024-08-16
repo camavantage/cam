@@ -12,6 +12,7 @@ import {
 } from "./ui/drawer";
 import { useToast } from "./ui/use-toast";
 import {
+  cancelConfirmedOrderArticle,
   confirmOrderArticle,
   rejectOrderArticle,
 } from "@/actions/order-article";
@@ -240,6 +241,108 @@ export function RejectOrder({ clientId, articleId }: RejectOrderProps) {
                   className="w-full"
                 >
                   Rejeter
+                </LoadingButton>
+                <DrawerClose asChild>
+                  <Button variant="outline" disabled={loading}>
+                    Annuler
+                  </Button>
+                </DrawerClose>
+              </DrawerFooter>
+            </div>
+          </form>
+        </Form>
+      </DrawerContent>
+    </Drawer>
+  );
+}
+
+export const messageSchemaCancel = z
+  .object({
+    message: z.string({ required_error: "Ecrire retirer est obligatoire" }),
+  })
+  .refine((data) => data.message === "retirer", {
+    path: ["message"],
+    message: "",
+  });
+
+export function CancelConfirmedOrder({ clientId, articleId }: RejectOrderProps) {
+  const [open, setOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const { toast } = useToast();
+  const form = useForm<z.infer<typeof messageSchemaCancel>>({
+    resolver: zodResolver(messageSchemaCancel),
+    defaultValues: {},
+  });
+
+  const onSubmit = async (formData: z.infer<typeof messageSchemaCancel>) => {
+    setLoading(true);
+    setOpen(false);
+    await cancelConfirmedOrderArticle({ clientId, articleId }).catch(() => {
+      toast({
+        title: "Echec",
+        variant: "destructive",
+        description: (
+          <div>Une erreur s&apos;est produite. Veuillez réessayer!</div>
+        ),
+      });
+      setLoading(false);
+    });
+  };
+
+  return (
+    <Drawer open={open} onOpenChange={setOpen}>
+      <LoadingButton
+        variant="secondary"
+        loading={loading}
+        disabled={loading}
+        onClick={() => {
+          setOpen(true);
+        }}
+      >
+        Retirer l&apos;accès
+      </LoadingButton>
+      <DrawerContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <div className="mx-auto w-full max-w-sm">
+              <DrawerHeader>
+                <DrawerTitle>Retirer l&apos;accès</DrawerTitle>
+                <DrawerDescription>
+                  Pour une raison valable vous allez retirer à ce client l&apos;accès à  cet article. Celà
+                  entraine sa commande initiale en attente.
+                </DrawerDescription>
+              </DrawerHeader>
+              <div className="px-4 space-y-4">
+                <div>
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem className=" ">
+                        <FormLabel>Ecrire: &quot;retirer&quot;</FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder=""
+                            disabled={loading}
+                            className={cn("w-full font-black")}
+                          />
+                        </FormControl>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+              <DrawerFooter>
+                <LoadingButton
+                  loading={loading}
+                  disabled={loading}
+                  type="submit"
+                  className="w-full"
+                >
+                  Retirer
                 </LoadingButton>
                 <DrawerClose asChild>
                   <Button variant="outline" disabled={loading}>
