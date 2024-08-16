@@ -71,7 +71,7 @@ export default async function WSDashboardPage() {
   const confirmedOrders = await getConfimedOrders();
   return (
     <div className=" bg-ws-background">
-      <div className="h-16 flex items-center px-3 space-x-4">
+      <div className="h-16 flex items-center bg-opacity-45 px-3 space-x-4">
         <h1 className=" font-bold">Tableau de bord</h1>
         <div className="flex-1" />
         <TooltipWrap content="Créer un article">
@@ -205,8 +205,8 @@ export default async function WSDashboardPage() {
                               </p>
                             </div>
                             <div className="flex space-x-2">
-                              <AcceptOrder clientId={order.clientId} articleId={order.articleId} price={order.price}/>
-                              <RejectOrder clientId={order.clientId} articleId={order.articleId}/>
+                              <AcceptOrder clientId={order.clientId} articleId={order.articleId} price={order.price} />
+                              <RejectOrder clientId={order.clientId} articleId={order.articleId} />
                             </div>
                           </div>
                         ))}
