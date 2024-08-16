@@ -16,6 +16,16 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: app.title,
       description: app.description,
+      manifest: "/manifest.json",
+      keywords: [
+        "cam",
+        "avantage",
+        "cam-avantage",
+        "cam-avantage.com",
+        "CAM/AVANTAGE",
+        "Benjamin",
+        "Centre de formation avantage",
+      ],
     };
   } else {
     return {
