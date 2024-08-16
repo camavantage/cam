@@ -1,7 +1,8 @@
 import { siteConfig } from "@/lib/data/site";
 import prisma from "@/lib/prisma";
+import type { MetadataRoute } from "next";
 
-export default async function sitemap() {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await prisma.article.findMany({
     where: { blocked: false, published: true },
   });
