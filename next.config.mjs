@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require("next-pwa");
+import withPWA from "next-pwa";
 
 const nextConfig = {
   images: {
