@@ -35,7 +35,7 @@ export default async function sitemap() {
     "/about",
     "/contact",
   ].map((route) => ({
-    url: `${URL}${route}`,
+    url: `${siteConfig.url}${route}`,
     lastModified: new Date().toISOString(),
   }));
 
