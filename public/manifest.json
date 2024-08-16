@@ -1,0 +1,27 @@
+{
+  "theme_color": "#b6d300",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "icon512_maskable.png",
+      "type": "image/png"
+    },
+    {
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "icon512_rounded.png",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "fr-FR",
+  "start_url": "/",
+  "scope": "/",
+  "name": "Cam-avantage",
+  "short_name": "Cam",
+  "description": "Centre d'Apprentisage et des Métiers Avantage"
+}

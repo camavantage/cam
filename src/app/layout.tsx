@@ -8,7 +8,7 @@ import "@/styles/globals.css";
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from "@/components/providers";
 
-const josefinSans = Josefin_Sans({subsets:["latin"]});
+const josefinSans = Josefin_Sans({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const app = await getAppSetup();
@@ -21,13 +21,15 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: siteConfig.name,
       description: siteConfig.description,
+      manifest: "/manifest.json",
       keywords: [
-        "Mlibre",
-        "mlibre.org",
-        "Média libre",
-        "Média en accès libre",
-        "Média independant",
-        "information libre",
+        "cam",
+        "avantage",
+        "cam-avantage",
+        "cam-avantage.com",
+        "CAM/AVANTAGE",
+        "Benjamin",
+        "Centre de formation avantage",
       ],
     };
   }
@@ -41,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={josefinSans.className}>
-      <NextTopLoader color="#B6D300" showSpinner={false} />
+        <NextTopLoader color="#B6D300" showSpinner={false} />
         <Providers>
           {children}
           <Toaster />
