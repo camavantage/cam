@@ -518,7 +518,7 @@ export default function EditUserForm({ user }: EditUserFormProps) {
                 {user?.articleOrders.map((order) => (
                   <div
                     key={order.articleId + order.clientId}
-                    className="flex space-x-4 py-4 border-b"
+                    className="flex space-x-4 py-4 border-b bg-background"
                   >
                     <div className="w-12 h-12">
                       {order.article?.imageUrl && (
