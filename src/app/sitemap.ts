@@ -34,5 +34,5 @@ export default async function sitemap() {
     })
   );
 
-  return [...routes, [...articlesRoutes], [...tagsRoutes]];
+  return [...routes, { items: [...articlesRoutes, ...tagsRoutes] }];
 }
