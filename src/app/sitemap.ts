@@ -12,7 +12,7 @@ export default async function sitemap() {
   const articlesRoutes = articles.map(
     ({ title, description, slug, createdAt, updatedAt }) => ({
       title: title,
-      link: `${siteConfig.url}${slug}`,
+      link: `${siteConfig.url}/${slug}`,
       desciption: description,
       lastModified: new Date(updatedAt ?? createdAt).toUTCString(),
     })
@@ -21,7 +21,7 @@ export default async function sitemap() {
   const tagsRoutes = tags.map(
     ({ name, description, slug, createdAt, updatedAt }) => ({
       title: name,
-      link: `${siteConfig.url}t/${slug}`,
+      link: `${siteConfig.url}/t/${slug}`,
       description: description,
       lastModified: new Date(updatedAt ?? createdAt).toUTCString(),
     })
@@ -29,10 +29,10 @@ export default async function sitemap() {
 
   const routes = ["", "articles", "tags", "courses", "about", "contact"].map(
     (route) => ({
-      link: `${siteConfig.url}${route}`,
+      link: `${siteConfig.url}/${route}`,
       lastModified: new Date().toUTCString(),
     })
   );
 
-  return [...routes, ...articlesRoutes, ...tagsRoutes];
+  return [...routes, [...articlesRoutes], [...tagsRoutes]];
 }
