@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import { MobileNav } from "./mobile-nav";
 import { MainNav } from "./main-nav";
 import { SearchArticleBar } from "./ws/articles/search-bar";
-import { BsFacebook } from "react-icons/bs";
 import { RiWhatsappFill } from "react-icons/ri";
 import React, { Suspense } from "react";
 import { SubscriberAvatar } from "./subscriber-avatar";
