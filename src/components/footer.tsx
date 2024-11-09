@@ -97,7 +97,7 @@ export function SiteFooter() {
       </div>
       <div className="px-4 py-12 text-center">
         <p className="text-sm text-muted-foreground">
-          Made with <IoIosHeart className=" inline text-[#ff0000]" /> from DRC
+          Made with <IoIosHeart className=" inline text-[#ff0000]" /> in DRC
         </p>
         <p className="text-sm text-muted-foreground">
           © {date.getFullYear()} {siteConfig.name}. Tous droits réservés.
