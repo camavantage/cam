@@ -15,7 +15,7 @@ const AboutSection: React.FC = () => {
         <LogoWithtext className="h-20 w-20 " />
         <PageHeaderHeading className="">Qui sommes-nous?</PageHeaderHeading>
         <PageHeaderDescription className="">
-          Nous sommes un centre d&apos;apprentisage et des Métiers. Un
+          Nous sommes un centre d&apos;apprentissage et des Métiers. Un
           établissement privé déclaré au ministère de la formation
           professionnelle. Partenaire Officiel du groupe des centres
           professionnels en République démocratique du Congo.
