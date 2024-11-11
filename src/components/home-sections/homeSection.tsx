@@ -23,7 +23,7 @@ const HomeSection: React.FC = () => {
             <small className="text-xs">CAM/AVANTAGE</small>
             <p className=" font-medium">
               <span className=" ">C</span>entre d&apos;
-              <span className=" ">A</span>pprentisage et des{" "}
+              <span className=" ">A</span>pprentissage et des{" "}
               <span className=" ">M</span>étiers <span className=" ">A</span>
               vantage
             </p>
