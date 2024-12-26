@@ -42,29 +42,29 @@ const TeacherSection: React.FC = () => {
           <div className={`flex items-center space-x-2 ${s.cardRealization}`}>
             <AcademicOutlineIcon className="h-10 w-10  text-cam-green-800 " />
             <div>
-              <h6 className="text-xl font-bold text-cam-yellow-900">10</h6>
+              <h6 className="text-xl font-bold text-cam-yellow-900">13</h6>
               <p className="flex-1 text-sm text-muted-foreground">Formations</p>
             </div>
           </div>
           <div className={`flex items-center space-x-2 ${s.cardRealization}`}>
             <UsersIcon className="h-10 w-10 text-cam-green-800 " />
             <div>
-              <h6 className="text-xl font-bold text-cam-yellow-900">107</h6>
+              <h6 className="text-xl font-bold text-cam-yellow-900">123</h6>
               <p className="flex-1 text-sm text-muted-foreground">Etudiants</p>
             </div>
           </div>
           <div className={`flex items-center space-x-2 ${s.cardRealization}`}>
             <SunIcon className="h-10 w-10  text-cam-green-800" />
             <div>
-              <h6 className="text-xl font-bold text-cam-yellow-900">23</h6>
+              <h6 className="text-xl font-bold text-cam-yellow-900">27</h6>
               <p className="flex-1 text-sm text-muted-foreground">Entrepreneurs</p>
             </div>
           </div>
           <div className={`flex items-center space-x-2 ${s.cardRealization}`}>
-            <TrophyIcon className="h-10 w-10  text-cam-green-800" />
+            <UsersIcon className="h-10 w-10  text-cam-green-800" />
             <div>
-              <h6 className="text-xl font-bold text-cam-yellow-900">1</h6>
-              <p className="flex-1 text-sm text-muted-foreground ">Prix d&apos;excelence</p>
+              <h6 className="text-xl font-bold text-cam-yellow-900">1773</h6>
+              <p className="flex-1 text-sm text-muted-foreground "> Stagiaires </p>
             </div>
           </div>
         </div>
