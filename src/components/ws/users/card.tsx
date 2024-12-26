@@ -52,7 +52,7 @@ export const UserCard: React.FC<UserCardProps> = ({ user }) => {
     <div className="grid grid-cols-1 md:grid-cols-3 p-5 bg-background rounded-lg">
       <div className="flex flex-1 space-x-4">
         <Avatar>
-          <AvatarImage src={user.image??""} />
+          <AvatarImage src={user.image??""} className=" object-cover" />
           <AvatarFallback
             className=" uppercase"
             style={{ color: getHSLColor(`${user.name}`) }}
